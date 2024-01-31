@@ -1,0 +1,4 @@
+       DATA DIVISION.
+           01 A PICTURE IS 999.
+       PROCEDURE DIVISION.
+           ADD 90 TO 123 GIVING A.

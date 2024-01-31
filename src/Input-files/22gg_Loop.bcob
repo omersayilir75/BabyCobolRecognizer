@@ -1,0 +1,25 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 INDEX PICTURE IS 99.
+       PROCEDURE DIVISION.
+           DISPLAY "STARTING FIRST LOOP"
+           LOOP
+               VARYING INDEX FROM 2 TO 5 BY 2
+               DISPLAY INDEX
+           END.
+       PART-B.
+           DISPLAY "STARTING SECOND LOOP"
+           LOOP
+               DISPLAY INDEX WITH NO ADVANCING
+               VARYING INDEX TO 5
+               DISPLAY "HELLO" WITH NO ADVANCING
+               WHILE INDEX < 9
+               DISPLAY 5
+           END.
+       PART-C.
+           DISPLAY "STARTING THIRD LOOP"
+           LOOP
+               DISPLAY "A" WITH NO ADVANCING
+               UNTIL INDEX < 15
+               ADD 1 TO INDEX
+           END.

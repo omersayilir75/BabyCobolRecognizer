@@ -1,0 +1,6 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       01 A.
+         10 V1 PICTURE IS Z9.
+         10 V1 PICTURE IS Z9.

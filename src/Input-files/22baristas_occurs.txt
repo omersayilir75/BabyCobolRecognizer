@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. VARIABLEREPRESENTATION.
+       DATA DIVISION.
+       01 ZODIACS OCCURS 3.
+            02 NAME PICTURE IS X(7).
+       01 REPEAT PICTURE IS X(7) OCCURS 3.
+       01 I PICTURE IS 99.
+       PROCEDURE DIVISION.
+           MOVE 0 TO I.
+           LOOP VARYING I FROM 1 TO 3
+                ACCEPT NAME OF ZODIACS(I)
+                MOVE NAME OF ZODIACS(I) TO REPEAT(I)
+                DISPLAY REPEAT(I)
+                END.
+

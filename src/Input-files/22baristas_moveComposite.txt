@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. MOVE-COMPOSITE.
+       DATA DIVISION.
+       01 PERSONS.
+           02 HUMAN1.
+               03 NAME PICTURE IS X(20).
+               03 AGE PICTURE IS 999.
+           02 HUMAN2 LIKE HUMAN1.
+           02 ALIEN1.
+               03 NAME PICTURE IS X(20).
+               03 AGE PICTURE IS AAA.
+           02 ALIEN2.
+               03 NAMEE PICTURE IS X(20).
+               03 AGE PICTURE IS 999.
+       PROCEDURE DIVISION.
+           MOVE 'ALICE' TO NAME OF HUMAN1
+           MOVE 23 TO AGE OF HUMAN1.
+           MOVE HUMAN1 TO HUMAN2.
+           MOVE HUMAN1 TO ALIEN2
+           MOVE HUMAN1 TO ALIEN1.
+           STOP.

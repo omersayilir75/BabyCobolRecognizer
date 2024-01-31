@@ -1,0 +1,29 @@
+IDENTIFICATION DIVISION.
+    PROGRAM-ID. A.
+DATA DIVISION.
+    01 L PICTURE IS 99.
+    01 M PICTURE IS 9.
+    01 K PICTURE IS 9.
+PROCEDURE DIVISION.
+    MOVE 10 TO L.
+    MOVE 1 TO M.
+    MOVE 3 TO K.
+    DISPLAY L.
+    DISPLAY M.
+    LOOP VARYING K FROM 5 TO 10 BY 1
+            DISPLAY K.
+            DISPLAY L.
+        END
+        WHILE L < 5
+            DISPLAY L.
+            SUBTRACT 1 FROM L GIVING L.
+            DISPLAY L.
+        END
+            UNTIL M > 5
+            DISPLAY M.
+            ADD 1 TO M GIVING M.
+            DISPLAY M.
+        END.
+    DISPLAY L.
+    DISPLAY M.
+    DISPLAY K.

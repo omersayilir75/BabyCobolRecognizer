@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. IF.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9).
+           01 B PICTURE IS 9(9).
+           01 C PICTURE IS 9(9).
+           01 D PICTURE IS 9(9).
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER NUMERIC".
+           ACCEPT A
+
+           DISPLAY A.
+           IF A = 1 THEN
+               DISPLAY "A IS 1"
+           ELSE
+               IF A = 2 THEN
+                   DISPLAY "A IS 2"
+               ELSE
+                   DISPLAY "A IS SOME OTHER VALUE"
+               END
+           END.

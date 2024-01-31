@@ -1,0 +1,16 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. IF-TEST.
+       DATA DIVISION.
+       01 WORKING-DIRECTORY.
+           02 X PICTURE IS 9(6).
+       PROCEDURE DIVISION.
+            PERFORM REPEAT 3 TIMES.
+            STOP.
+       REPEAT.
+            ACCEPT X
+            IF X = 10 OR 20
+               THEN DISPLAY 'EQUALS WORKS'.
+            IF X > 10 AND < 20
+               THEN DISPLAY 'MORE OR LESS WORKS'.
+            IF X > 10 AND < 20 OR 100 AND > 80
+                THEN DISPLAY 'WEIRD ONE'.

@@ -1,0 +1,15 @@
+            IDENTIFICATION DIVISION.
+                PROGRAM-ID. TEST.
+            DATA DIVISION.
+                01 TEST PICTURE IS 999.
+            PROCEDURE DIVISION.
+                ADD 8 TO TEST.
+                DISPLAY TEST.
+                PERFORM A THROUGH B TEST TIMES.
+            E.
+                STOP.
+            A.
+                DISPLAY "MONEYS".
+            B.
+                DISPLAY "B".
+                GO TO E.

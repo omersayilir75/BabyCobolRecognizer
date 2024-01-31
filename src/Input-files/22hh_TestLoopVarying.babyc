@@ -1,0 +1,11 @@
+_-_-_- DATA DIVISION.
+_-_-_-    5 TEST9 PICTURE IS 999.
+_-_-_- PROCEDURE DIVISION.
+_-_-_-    LOOP 
+_-_-_-      VARYING TEST 
+_-_-_-      FROM 10 
+_-_-_-      TO 16 
+_-_-_-      BY 2 
+_-_-_-      DISPLAY TEST.
+_-_-_-    END.
+_-_-_-    DISPLAY TEST.

@@ -1,0 +1,59 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. EVALUATION TEST.
+
+       DATA DIVISION.
+       77 X PICTURE IS 99.
+       77 Y PICTURE IS XX.
+
+      * NOTE: THE X DISPLAYS ARE TO MAKE SURE THAT THE JUMPS ARE PROPERLY CALCULATED
+       PROCEDURE DIVISION.
+           EVALUATE 1 + 2 + 3
+           WHEN 6
+               DISPLAY "SIX"
+           WHEN OTHER
+               DISPLAY "OTHER"
+               DISPLAY "X1"
+           END.
+
+      * WE SUPPORT POW WITH OPERATOR '**'
+           MOVE 2 TO X.
+           EVALUATE X**X + 2 * X + X
+           WHEN 10
+               DISPLAY "VERY"
+               DISPLAY "WELL"
+               NEXT SENTENCE
+           WHEN OTHER
+               DISPLAY "OOPS: " X
+               DISPLAY "X2"
+           END
+           DISPLAY "SKIPPED SENTENCE".
+
+           EVALUATE X
+           WHEN 1
+               DISPLAY "1"
+               DISPLAY "X3"
+           WHEN 2
+               DISPLAY "2"
+           WHEN OTHER
+               DISPLAY "???"
+               DISPLAY "X3"
+           END.
+
+           EVALUATE X
+           WHEN -9 THROUGH -1
+               DISPLAY "NEGATIVE"
+           WHEN 1 THROUGH 9
+               DISPLAY "POSITIVE"
+           WHEN OTHER
+               DISPLAY "ZERO"
+           END
+           DISPLAY "GREAT".
+           
+           MOVE "AB" TO Y.
+           EVALUATE Y
+           WHEN "AB"
+               DISPLAY "AB"
+           WHEN OTHER
+               DISPLAY "X"
+           END.

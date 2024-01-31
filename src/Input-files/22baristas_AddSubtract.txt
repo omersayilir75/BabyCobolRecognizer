@@ -1,0 +1,27 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ADDSUBTRACT.
+       DATA DIVISION.
+       01 X PICTURE IS 99.
+       01 Y.
+         02 A PICTURE IS 9.
+         02 B PICTURE IS S9.
+       01 Z LIKE Y.
+       01 D PICTURE IS 9V9.
+       01 E PICTURE IS Z9V9.
+       PROCEDURE DIVISION.
+           ADD 1 2 TO X
+           DISPLAY X ' SHOULD BE 03'.
+           SUBTRACT 1 2 FROM X
+           DISPLAY X ' SHOULD BE 00'.
+           MOVE 1 TO A OF Y
+           MOVE 2 TO B OF Y
+           MOVE 3 TO A OF Z
+           MOVE 4 TO B OF Z.
+           ADD Y TO Z
+           DISPLAY Z ' SHOULD BE 4+6'.
+           SUBTRACT Z FROM Y
+           DISPLAY Y ' SHOULD BE 3 NEGATIVE 4'.
+           ADD 1.2 TO D
+           DISPLAY D ' SHOULD BE 1.2'.
+           ADD 3.4 TO E
+           DISPLAY E ' SHOULD BE 3.4'.

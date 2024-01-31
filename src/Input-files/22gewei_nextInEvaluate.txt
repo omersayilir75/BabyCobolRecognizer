@@ -1,0 +1,16 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+
+
+       PROCEDURE DIVISION.
+
+             EVALUATE 1
+                WHEN 1
+                   DISPLAY "JA"
+                   NEXT SENTENCE
+                   DISPLAY "NEE"
+                WHEN 0
+                   DISPLAY "NEE"
+             END
+             DISPLAY "NEE".
+             DISPLAY "JAAA".

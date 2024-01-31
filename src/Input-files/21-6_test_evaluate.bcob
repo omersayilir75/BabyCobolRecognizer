@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+           AUTHOR. ME.
+       PROCEDURE DIVISION.
+           LOOP END
+           EVALUATE 5 
+           WHEN 1 
+               DISPLAY "THIS TEST FAILS" 
+           WHEN 2 5 
+               DISPLAY "THIS TEST SUCCEEDS" 
+           WHEN OTHER 
+               DISPLAY "THIS TEST FAILS" 
+           END.

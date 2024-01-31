@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. GOTO.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9) OCCURS 5 TIMES.
+           01 B PICTURE IS X(9) OCCURS 5 TIMES.
+       PROCEDURE DIVISION.
+           MOVE "PAR-A" TO B.
+           GO TO B.
+           DISPLAY "PAR-START".
+       PAR-A.
+           DISPLAY "PAR-A".

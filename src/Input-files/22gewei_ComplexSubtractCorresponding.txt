@@ -1,0 +1,31 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       01 REC.
+         03 A PICTURE IS 99.
+         03 B PICTURE IS 99.
+         03 Y PICTURE IS 99.
+
+       01 REC2.
+         03 A PICTURE IS 99.
+         03 B PICTURE IS AA.
+         03 X PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+             MOVE 11 TO A OF REC.
+             MOVE 12 TO B OF REC.
+             MOVE 13 TO Y OF REC.
+
+             MOVE 21 TO A OF REC2.
+             MOVE "AB" TO B OF REC2.
+             MOVE 23 TO X OF REC2.
+
+             SUBTRACT REC FROM REC2.
+      * EXPECT TO ONLY ALTER A AND NOT THROW AN ERROR SO :    10 AB 23
+             DISPLAY A OF REC2 DISPLAY B OF REC2 DISPLAY X OF REC2.
+
+             MOVE 55 TO A OF REC2.
+      * EXPECT TO ONLY ALTER A AND NOT THROW AN ERROR SO :    44 12 13
+             SUBTRACT REC2 FROM REC.
+             DISPLAY A OF REC DISPLAY B OF REC DISPLAY Y OF REC.
+

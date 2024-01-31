@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       PROCEDURE DIVISION.
+           EVALUATE 6 * 4 - 8 / 2 + 11
+                WHEN 19
+                    DISPLAY "NO OPERATOR PRECEDENCE!"
+                WHEN 31
+                    DISPLAY "CORRECT OPERATOR PRECEDENCE!"
+                WHEN OTHER
+                    DISPLAY "SOMETHING UNEXPECTED HAPPENED!"
+           END.

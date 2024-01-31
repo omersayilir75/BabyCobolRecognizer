@@ -1,0 +1,12 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. EVALUATE ALSO TEST.
+       DATA DIVISION.
+       01 Y PICTURE IS XX.
+       01 X PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+           EVALUATE (20 - 1 + (4 - X + Y))
+               WHEN 10 DISPLAY "CORRECT"
+               WHEN OTHER DISPLAY "THEN WHAT IS IT?"
+           END.

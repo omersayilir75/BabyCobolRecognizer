@@ -1,0 +1,6 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       PROCEDURE DIVISION.
+           DISPLAY "HELLO WORLD!".
+           STOP.
+           DISPLAY 100.

@@ -1,0 +1,22 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       77 NUMBER PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+
+      * INPUT FOR ACCEPT IS A SINGLE DIGIT (0-9)
+           ACCEPT NUMBER.
+           DISPLAY NUMBER.
+
+      * INPUT FOR ACCEPT IS 2 DIGITS (NON-ZERO)
+           ACCEPT NUMBER.
+           DISPLAY NUMBER.
+
+      * INPUT FOR ACCEPT SHOULD BE MORE THAN 2 DIGITS
+           ACCEPT NUMBER.
+           DISPLAY NUMBER.
+
+      * INPUT 1 DIGIT AGAIN (SHOULD STILL OVERRIDE THE TENS THOUGH)
+           ACCEPT NUMBER.
+           DISPLAY NUMBER.

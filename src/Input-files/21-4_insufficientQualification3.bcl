@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A.
+               03 B.
+                   05 C.
+                       07 D PICTURE IS 999.
+                   05 E.
+                       07 D PICTURE IS 999.
+                       07 F PICTURE IS 999.
+       PROCEDURE DIVISION.
+           DISPLAY D OF B.

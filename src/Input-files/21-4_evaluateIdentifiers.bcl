@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A PICTURE IS XXXXX.
+       PROCEDURE DIVISION.
+           ACCEPT A.
+           EVALUATE A
+                WHEN "AAA"
+                    DISPLAY "AAA"
+                WHEN "BBB"
+                    DISPLAY "BBB"
+                WHEN "  AAA"
+                    DISPLAY "WHITESPACE IS TAKEN INTO ACCOUNT!"
+           END.

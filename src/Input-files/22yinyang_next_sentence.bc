@@ -1,0 +1,10 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. NEXT SENTENCE.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9).
+           01 B PICTURE IS 9(9).
+           01 C PICTURE IS 9(9).
+       PROCEDURE DIVISION.
+           DISPLAY "A"
+           NEXT SENTENCE
+           DISPLAY "B".

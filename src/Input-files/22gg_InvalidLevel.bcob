@@ -1,0 +1,4 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 999.
+           00 Y PICTURE IS 999.

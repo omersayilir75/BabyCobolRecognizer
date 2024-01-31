@@ -1,0 +1,9 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A PICTURE IS 99999 OCCURS 10 TIMES.
+           01 B LIKE A (4).
+       PROCEDURE DIVISION.
+           ADD 22 TO A.
+           ADD 22 TO B.
+           DISPLAY A B.

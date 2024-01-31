@@ -1,0 +1,37 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+
+       PROCEDURE DIVISION.
+      * PRINT A ONCE
+           PERFORM A.
+      * PRINT B ONCE
+           PERFORM B.
+      * PRINT AB ONCE
+           PERFORM A THROUGH B.
+      * PRINT 3 TIMES A, FOLLOWED BY 3 TIMES B
+           PERFORM A 3 TIMES.
+           PERFORM B 3 TIMES.
+      * PRINT AB TWICE
+           PERFORM A THROUGH B 2 TIMES.
+
+      * PRINT CD TWICE AND COME BACK
+           PERFORM C THROUGH D 2 TIMES.
+
+           DISPLAY "MAIN" WITH NO ADVANCING.
+      * PERFORM C TWICE, BUT BECAUSE C GOES TO D WHICH IS OUT OF RANGE, WE WILL NOT COME BACK;
+      * C AND D ARE PRINTED ONCE.
+           PERFORM C 2 TIMES.
+           DISPLAY "X" WITH NO ADVANCING.
+           STOP.
+
+       A.
+           DISPLAY "A" WITH NO ADVANCING.
+
+       B.
+           DISPLAY "B" WITH NO ADVANCING.
+
+       C.
+           DISPLAY "C" WITH NO ADVANCING.
+           GO TO D.
+       D.
+           DISPLAY "D" WITH NO ADVANCING.

@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ADDITIONTEST.
+           AUTHOR. SUSPICIOUSLAWNMOWERS.
+           DATE-WRITTEN. 2022-04-19.
+       DATA DIVISION.
+           01 VAR1 PICTURE IS 9(04).
+           01 VAR2 PICTURE IS 9(04).
+           01 VAR3 PICTURE IS ZZZ9.
+           01 VAR4 PICTURE IS ZZZ9.
+       PROCEDURE DIVISION.
+           MOVE 4 TO VAR1.
+           MOVE 6 TO VAR2.
+           MOVE 30 TO VAR4
+           ADD VAR1 TO VAR2 GIVING VAR3.
+           ADD VAR3 TO VAR4
+           DISPLAY VAR3.
+           DISPLAY VAR4.

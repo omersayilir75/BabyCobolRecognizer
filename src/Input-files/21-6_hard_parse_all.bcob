@@ -1,0 +1,76 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ALL FEATURES (HARD).
+           AUTHOR. RAFAEL.
+           DATE-WRITTEN. 2022-04-26.
+       DATA DIVISION.
+           01 VAR1 PICTURE IS 9.
+           01 SUB.
+               02 VAR2 PICTURE IS 9.
+               02 VAR3 LIKE VAR1.
+               02 VAR4 OCCURS 7 TIMES.
+           01 VAR5 LIKE VAR1 OCCURS 2 TIMES.
+           01 VAR6 LIKE SUB. 
+           01 VAR7 LIKE SUB OCCURS 2 TIMES.
+       PROCEDURE DIVISION.
+           ACCEPT VAR1VAR2VARANOTHER
+           ADD 1 VAR2VARANOTHER TO 3 GIVING VAR4
+           ALTER SOMETHING TO PROCEED TO OTHER
+           DISPLAY VAR1DELIMITEDBYSIZE VAR2DELIMITEDBYSPACE 
+      -     VAR3DELIMITEDBY"ASTRING" 
+      -     VARANOTHERDELIMITEDBYSPACEWITHNOADVANCING.
+       SOMETHING.
+           DIVIDE 3 INTO 2 VAR2 OF BUB GIVING VAR1 
+      -    REMAINDER VAR5(   0   )
+           EVALUATE ((3 + 2) * 5 / VARANOTHER) ** VAR1
+               WHEN 5
+                   DISPLAY MAFF
+           END
+           EVALUATE "JOHN" + VAR2
+               WHEN "JOHN CENA"
+                   DISPLAY CAN'T SEE HIM
+               WHEN "JOHN MITCHELL"
+                   DISPLAY SOME MUSIC JOKE IDK
+           END
+           EVALUATE (NOT VAR1 < 10) AND (VAR2 > 30 OR VAR3 < 50) 
+      -     XOR TRUE
+               WHEN TRUE
+                   DISPLAY BOOL
+               WHEN OTHER
+                   DISPLAY POOL
+           END
+           EVALUATE VAR1 > 10 AND < 20 OR 100 AND > 80
+               WHEN TRUE
+                   DISPLAY DEAR GOD
+           END
+           GO TO OTHER
+           IF TRUE = FALSE THEN 
+               IF VAR1 < 10 THEN
+                   ACCEPT VAR1
+               END
+           ELSE 
+               IF FALSE = TRUE THEN
+                   ACCEPT VAR2 
+               ELSE
+                   ACCEPT VAR3
+               END
+           END
+           LOOP 
+               WHILE TRUE
+                   DISPLAY TRUE
+               UNTIL FALSE
+                   DISPLAY FALSE
+               VARYING I FROM 1 TO 5 BY 2
+                   DISPLAY CHUNGA
+               DISPLAY BUNGA
+           END
+           MOVE HIGH-VALUES TO V A R 1  
+           MOVE LOW-VALUES TO VAR3 OF SUB VAR1.
+       OTHER.
+           MULTIPLY VAR1 BY VAR2 OF SUB VAR5 GIVING VAR1
+           NEXT SENTENCE
+           PERFORM SOMETHING THROUGH OTHER VAR6 TIMES
+           SIGNAL OFF ON ERROR
+           SIGNAL SOMETHING ON ERROR
+           SUBTRACT VAR3 OF SUB VAR1 FROM VAR2 OF SUB GIVING VAR7
+           STOP.
+       

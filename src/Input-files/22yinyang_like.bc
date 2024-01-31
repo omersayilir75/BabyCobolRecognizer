@@ -1,0 +1,10 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. OCCURS.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9) OCCURS 5 TIMES.
+           01 B LIKE A.
+           01 C LIKE HELLO.
+       PROCEDURE DIVISION.
+           DISPLAY A.
+           DISPLAY B.
+           DISPLAY HELLO.

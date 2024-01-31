@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           ALTER A TO PROCEED TO FAKE-END.
+           GO TO A.
+       A.
+           GO TO A.
+       FAKE-END.
+           ALTER A TO PROCEED TO REAL-END
+           GO TO A.
+       REAL-END.
+           DISPLAY "SUCCESS" WITH NO ADVANCING.

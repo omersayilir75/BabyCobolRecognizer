@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           MOVE 10 TO X.
+           MOVE 20 TO Y.
+           CALL 'TOCALL/CALLABLEADD.BCOB' USING
+      -BY REFERENCE X
+      -BY VALUE Y.
+           DISPLAY Y.
+           SUBTRACT 1 FROM X.
+           DISPLAY X.

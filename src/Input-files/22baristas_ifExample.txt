@@ -1,0 +1,19 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. IF-TEST.
+       DATA DIVISION.
+       01 WORKING-DIRECTORY.
+           02 SALARY PICTURE IS 9(6).
+           02 SAVINGS PICTURE IS 9(6).
+       PROCEDURE DIVISION.
+            PERFORM CAR-CHOICE 3 TIMES
+            STOP.
+       CAR-CHOICE.
+           ACCEPT SALARY SAVINGS
+           IF SALARY + SAVINGS > 60000
+                THEN DISPLAY 'YOU CAN BUY BMW'
+           ELSE
+                IF SALARY + SAVINGS > 40000 AND <60000
+                    THEN DISPLAY 'YOU CAN BUY VOLKSWAGEN'
+                ELSE
+                    DISPLAY 'NOT READY FOR THE CAR'.
+

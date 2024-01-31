@@ -1,0 +1,9 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. EVALUATE ALSO TEST.
+
+       PROCEDURE DIVISION.
+           EVALUATE (4 ** ((2 - 3 * 5) + "AB"))
+               WHEN 10 DISPLAY "CORRECT"
+               WHEN OTHER DISPLAY "THEN WHAT IS IT?"
+           END.

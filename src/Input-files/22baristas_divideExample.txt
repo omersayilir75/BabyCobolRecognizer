@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ACC.
+       DATA DIVISION.
+       01 WORKING-DIRECTORY.
+         03 A PICTURE IS 999.
+         03 B PICTURE IS 999.
+         03 C PICTURE IS 999.
+         03 D PICTURE IS 999.
+         03 E PICTURE IS S9V9.
+       PROCEDURE DIVISION.
+           MOVE 100 TO A.
+           MOVE 20 TO B.
+           DIVIDE 2 INTO A B.
+           DIVIDE B INTO A GIVING C.
+           DIVIDE 3 INTO A GIVING D REMAINDER E.

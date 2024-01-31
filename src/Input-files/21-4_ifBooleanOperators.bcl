@@ -1,0 +1,30 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       PROCEDURE DIVISION.
+           IF TRUE AND FALSE THEN
+               DISPLAY "TRUE AND FALSE"
+           END.
+           IF FALSE AND FALSE THEN
+               DISPLAY "FALSE AND FALSE"
+           END.
+           IF TRUE AND TRUE THEN
+               DISPLAY "TRUE AND TRUE"
+           END.
+           IF TRUE OR FALSE THEN
+               DISPLAY "TRUE OR FALSE"
+           END.
+           IF FALSE OR FALSE THEN
+               DISPLAY "FALSE OR FALSE"
+           END.
+           IF TRUE OR TRUE THEN
+               DISPLAY "TRUE OR TRUE"
+           END.
+           IF TRUE XOR FALSE THEN
+               DISPLAY "TRUE XOR FALSE"
+           END.
+           IF FALSE XOR FALSE THEN
+               DISPLAY "FALSE XOR FALSE"
+           END.
+           IF TRUE XOR TRUE THEN
+               DISPLAY "TRUE XOR TRUE"
+           END.

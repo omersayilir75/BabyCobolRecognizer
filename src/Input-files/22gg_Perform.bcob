@@ -1,0 +1,19 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 9.
+       PROCEDURE DIVISION.
+           MOVE 3 TO X.
+           PERFORM G.
+           PERFORM O 4 TIMES.
+           PERFORM D.
+           PERFORM D THROUGH G 2 TIMES.
+           MOVE 4 TO X.
+       D.
+           IF X = 3
+               THEN DISPLAY "D" WITH NO ADVANCING.
+       O.
+           IF X = 3
+              THEN DISPLAY "O" WITH NO ADVANCING.
+       G.
+           IF X = 3
+              THEN DISPLAY "G" WITH NO ADVANCING.

@@ -1,0 +1,10 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TESTMISTAKES.
+       DATA DIVISION.
+           01 A PICTURE IS 99.
+       PROCEDURE DIVISION.
+           DISPLAY "HOW MANY TIMES?"
+           ACCEPT A.
+           IF A > 50 AND 60 THEN 
+            DISPLAY A
+           END.

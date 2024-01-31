@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 B OCCURS 20 TIMES.
+             03 Z LIKE X.
+           01 C PICTURE IS XX OCCURS 10 TIMES.
+           01 CONTAINER.
+             03 Z PICTURE IS XX.
+             02 U LIKE Z.
+           01 V LIKE U.
+       PROCEDURE DIVISION.
+           DISPLAY V.

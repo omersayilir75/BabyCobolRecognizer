@@ -1,0 +1,14 @@
+            DISPLAY "ENTER THE LIMIT".
+            ACCEPT LIM.
+            MOVE SPACES TO CUR.
+            MOVE SPACES TO LAST.
+            DISPLAY N1 OF LAST.
+            SUBTRACT 1 FROM LIM.
+            MOVE 1 TO N OF LAST.
+            PERFORM PRINT-FIB LIM TIMES.
+            STOP.
+       PRINT-FIB.
+            DISPLAY N OF LAST.
+            ADD N1 OF LAST TO N OF LAST GIVING CUR.
+            MOVE N OF LAST TO N1 OF LAST.
+            MOVE CUR TO N OF LAST.

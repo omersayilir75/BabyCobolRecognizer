@@ -1,0 +1,7 @@
+_-_-_- DATA DIVISION.
+_-_-_-    5 TEST9 PICTURE IS 999.
+_-_-_- PROCEDURE DIVISION.
+_-_-_-    IF 10 < 15 THEN 
+_-_-_-      DISPLAY TEST9.
+_-_-_-    END.
+_-_-_-    DISPLAY TEST9.

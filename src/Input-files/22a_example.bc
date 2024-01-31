@@ -1,0 +1,168 @@
+      * ADAPTED FROM BABYCOBOL NURSERY
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. EXAMPLE PROGRAM.
+           AUTHOR. THE A-TEAM AND VADIM ZAYTSEV.
+           DATE-WRITTEN. 2023-02-13.
+       DATA DIVISION.
+       01 WORKING-STORAGE-AREA.
+          03 SMALL-LOOP PICTURE IS 9.
+          03 LOOP-COUNTER PICTURE IS 9999.
+          03 LOOP-X LIKE LOOP-COUNTER.
+          03 LOOP-Y LIKE LOOP-COUNTER.
+          03 FOO-BAR PICTURE IS 9999V99 OCCURS 12 TIMES.
+          03 BAR-BAZ LIKE FOO-BAR.
+          03 SPAM-EGGS LIKE FOO-BAR.
+          03 BLARG PICTURE IS X.
+          03 SOME-RECORD.
+            05 BLARG PICTURE IS X.
+            05 WIBBLE PICTURE IS X.
+      * COMMENT GOES HERE
+          03 FRED-JIM LIKE BAR-BAZ.
+          03 RESULT PICTURE IS XXX.
+       PROCEDURE DIVISION.                                              BOGUS
+           PERFORM DECORATED-LINE 8 TIMES.
+           DISPLAY "".
+           DISPLAY "EXAMPLE PROGRAM FOLLOWS. IT IS AN EXAMPLE PROGRAM 
+      -WRITTEN BY THE A-TEAM TO SERVE AS AN EXAMPLE OF A BABYCOBOL-INTERGARBAGE
+      -PRETER.".
+           ALTER ALTERED TO PROCEED TO DESTINATION.
+           GO TO ALTERED.
+       ALTERED-MAIN.
+           MOVE "A" TO RESULT.
+           GO TO RESULT.
+       MAIN.
+           NEXT SENTENCE.
+           SIGNAL OFF ON ERROR.
+           SIGNAL SOMETHING ON ERROR.
+           MOVE "A" TO WIB BLE.
+           DISPLAY WIBBLE.
+           MOVE "B" TO WIBBLE OF SOME-RECORD.
+           DISPLAY WIBBLE.
+           MOVE "C" TO WIBBLE OFSOME- RECORD OF WORK ING-STORAGE-AREA.
+           DISPLAY WIBBLE.
+           MOVE "D" TO WIBBLE OF WORK ING-STO RAGE-AREA.
+           DISPLAY WIBBLE.
+           MOVE "E" TO BLARG OF SOME-RECORD.
+           DISPLAY BLARG OF SOME-RECORD.
+           MOVE "IN" TO RESULT.
+           CALL "EXAMPLES/FOO.BC" USING
+               BY REFERENCE RESULT
+               BY VALUE 3
+               BY CONTENT 72.
+           DISPLAY "THE RESULT IS: " RESULT.
+           DISPLAY "== EXAMPLES: ADD ==".
+           MOVE 0 TO FRED-JIM.
+           DISPLAY "ZERO: " FRED-JIM.
+           ADD 5 TO FRED-JIM.
+           DISPLAY "FIVE: " FRED-JIM.
+           ADD 2 TO 2 GIVING FRED-JIM.
+           DISPLAY "FOUR: " FRED-JIM.
+           ADD 1 TO FRED-JIM GIVING LOOP-COUNTER.
+           DISPLAY "FOUR: " FRED-JIM.
+           ADD 1 2 TO 2 GIVING FRED-JIM.
+           DISPLAY "FIVE: " FRED-JIM.
+           MOVE 0 TO FRED-JIM.
+           ADD 2 TO FRED-JIM GIVING FRED-JIM.
+           ADD 3 TO FRED-JIM GIVING FRED-JIM GIVING FRED-JIM.
+           ADD 2 2 TO FRED-JIM.
+           DISPLAY "NINE: " FRED-JIM.
+           DISPLAY "== END OF ADD EXAMPLES ==".
+           MOVE 1234 TO FRED-JIM.
+           MULTIPLY 2 BY FRED-JIM.
+           MULTIPLY 2 BY FRED-JIM GIVING BAR-BAZ.
+           MULTIPLY 2 BY 4 GIVING SPAM-EGGS.
+           DISPLAY "IS FRED-JIM BIGGER THAN 10? " WITH NO ADVANCING.
+      * ALSO COMMENT
+           IF FRED-JIM > 10 THEN                                        B
+B             DISPLAY "CERTAINLY, IT IS " FRED-JIM                       O
+ O            MOVE "YES" TO RESULT                                        G
+  G        ELSE                                                            U
+   U          DISPLAY "NOPE, IT IS " FRED-JIM                               S
+    S         MOVE "NO" TO RESULT                                            .
+     .     END.
+           LOOP
+              VARYING
+              DISPLAY ".... " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+              VARYING SMALL-LOOP
+              DISPLAY "( " SMALL-LOOP ") " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+               VARYING SMALL-LOOP
+               WHILE SMALL-LOOP <= 3
+               DISPLAY "FOO! " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+               VARYING SMALL-LOOP
+               UNTIL SMALL-LOOP >= 4
+               DISPLAY "BAR! " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+                VARYING SMALL-LOOP
+                IF SMALL-LOOP > 3 THEN
+                    NEXT SENTENCE
+                END
+                DISPLAY "BAZ! " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+              VARYING LOOP-COUNTER TO 5
+              DISPLAY LOOP-COUNTER " " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+              VARYING LOOP-COUNTER TO 20 BY 2
+              DISPLAY LOOP-COUNTER " " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP
+              VARYING LOOP-COUNTER FROM 0 TO 999 BY 111
+              DISPLAY LOOP-COUNTER " " WITH NO ADVANCING
+           END.
+           DISPLAY "".
+           LOOP WHILE 0 END.
+           LOOP UNTIL LOOP-COUNTER > 1 END.
+           DISPLAY "".
+           LOOP
+              DISPLAY "LOOK AT THIS TRIANGLE:"
+              MOVE 0 TO LOOP-COUNTER
+              WHILE LOOP-COUNTER > 0
+           END.
+           PERFORM TRIANGLE.
+           PERFORM FOOTER.
+           PERFORM DECORATED-LINE 8 TIMES.
+           DISPLAY "".
+           STOP.
+       TRIANGLE.
+           DISPLAY "".
+           LOOP VARYING LOOP-X TO 9
+              LOOP VARYING LOOP-Y TO 9
+                 IF LOOP-X <= LOOP-Y THEN
+                    DISPLAY "**" WITH NO ADVANCING
+                 ELSE
+                    DISPLAY "  " WITH NO ADVANCING
+                 END
+              END
+              DISPLAY ""
+           END.
+           DISPLAY "".
+       DECORATED-LINE.
+           DISPLAY "//// " WITH NO ADVANCING.
+       FOOTER.
+           DISPLAY "EXAMPLE PROGRAM ENDS.".
+       ALTERED.
+           GO TO SOMETHING.
+       SOMETHING.
+           DISPLAY "THIS WOULD BE THE ERROR HANDLER.".
+           STOP.
+       A.
+           DISPLAY "WE USED COMPUTED GOTO TO GET HERE!".
+           GO TO MAIN.
+       DESTINATION.
+           DISPLAY "-**- ".
+           GO TO ALTERED-MAIN.

@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+    PROGRAMID. "FIB".
+    AUTHOR. "ANONYMOUS".
+    DATA-WRITTEN. "2019-11-01".
+
+PROCEDURE DIVISION.
+MAIN.
+    IF 3 < 2 THEN
+        DISPLAY "TRUE"
+    ELSE
+        DISPLAY "FALSE"
+    END
+
+    IF NOT FALSE THEN
+        DISPLAY "TRUE"
+        IF FALSE THEN
+            DISPLAY "NESTED IF"
+        ELSE
+            DISPLAY "NESTED ELSE"
+        END
+    END
+    
+.

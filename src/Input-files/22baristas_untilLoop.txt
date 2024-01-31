@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. UNTILLOOP.
+       DATA DIVISION.
+       01 WIN PICTURE IS 999.
+       01 GUESS PICTURE IS 999.
+       PROCEDURE DIVISION.
+           MOVE 0 TO GUESS.
+           MOVE 22 TO WIN.
+           LOOP UNTIL GUESS = WIN
+                ACCEPT GUESS
+           END
+           DISPLAY 'YOU WON'.

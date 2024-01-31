@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 9.
+       PROCEDURE DIVISION.
+           MOVE 1 TO X.
+           IF X=4 OR = 2 OR 1
+               THEN DISPLAY "X IS 1".
+       EVAL-CONTRACT-ARITH.
+           EVALUATE X
+               WHEN 4
+                   DISPLAY "QWERTY"
+               WHEN 1
+                   DISPLAY "X IS 1 EVALUATE"
+           END.
+       EVAL-CONTRACT-BOOL.
+           EVALUATE X > 3 OR 1 OR = 1
+               WHEN TRUE
+                   DISPLAY "X IS 1 EVALUATE BOOL"
+               WHEN FALSE
+                   DISPLAY "X IS ALL WRONG"
+           END.

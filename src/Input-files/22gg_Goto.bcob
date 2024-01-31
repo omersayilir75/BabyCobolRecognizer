@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS X(8).
+           01 COUNTER PICTURE IS 9.
+       PROCEDURE DIVISION.
+           MOVE 0 TO COUNTER.
+       START.
+           MOVE "PART2" TO X.
+           ADD 1 TO COUNTER.
+           DISPLAY "ADDING... COUNTER IS NOW:" WITH NO ADVANCING.
+           DISPLAY COUNTER.
+           IF COUNTER = 3
+               THEN GO TO END.
+           GO TO X.
+       END.
+           MOVE "REAL-END" TO X.
+           GO TO X.
+       PART2.
+           MOVE "START" TO X.
+           GO TO X.
+       REAL-END.
+           DISPLAY "FINISHED" WITH NO ADVANCING.

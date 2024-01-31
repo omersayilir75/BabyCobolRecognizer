@@ -1,0 +1,16 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. MOVE-EASY.
+       DATA DIVISION.
+       01 WORKING-DIRECTORY.
+           02 AA PICTURE IS 99.
+           02 BB PICTURE IS XX.
+           02 CC PICTURE IS 99.
+           02 DD PICTURE IS 99.
+       PROCEDURE DIVISION.
+           MOVE 2 TO AA.
+           MOVE 22 TO CC.
+           MOVE 19 TO DD.
+           MULTIPLY AA BY CC DD.
+           DISPLAY CC.
+           MOVE AA TO CC.
+           DISPLAY CC.

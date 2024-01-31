@@ -1,0 +1,16 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+      * 12 CHARACTERS
+       77 STRING PICTURE IS XXAA99.
+
+       PROCEDURE DIVISION.
+            MOVE "ABCD12" TO STRING.
+
+      * INPUT 'DE9G78' SHOULD RESOLVE TO 'DECD12'
+           ACCEPT STRING.
+           DISPLAY STRING.
+
+      * INPUT 'FGHI5K123' SHOULD RESOLVE TO 'FGHI52'
+           ACCEPT STRING.
+           DISPLAY STRING.

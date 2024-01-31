@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TESTALT.
+       PROCEDURE DIVISION.
+           DISPLAY "INIT".
+           ALTER JUMP2 TO PROCEED TO FIRST.
+           GOTO JUMP.
+       LAST.
+           DISPLAY "LASTLY".
+           STOP.
+       FIRST.
+           DISPLAY "FIRST".
+           ALTER JUMP2 TO PROCEED TO MIDDLE.
+           GOTO JUMP.
+       MIDDLE.
+           DISPLAY "MIDDLE".
+           ALTER JUMP2 TO PROCEED TO LAST.
+           GOTO JUMP.
+       JUMP.
+           DISPLAY "JUMP... TO..." WITH NO ADVANCING.
+       JUMP2.
+           STOP.

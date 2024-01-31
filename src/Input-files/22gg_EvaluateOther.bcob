@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 9.
+           01 Y PICTURE IS 9.
+       PROCEDURE DIVISION.
+           MOVE 4 TO X.
+           MOVE 5 TO Y.
+       EVALUATING-STUFF.
+           EVALUATE X ALSO Y
+               WHEN 6 ALSO 4
+                   DISPLAY "NOT HERE"
+               WHEN OTHER
+                   DISPLAY "HERE!!"
+           END.

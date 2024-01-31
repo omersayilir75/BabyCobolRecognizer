@@ -1,0 +1,9 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION USING BY REFERENCE X BY VALUE Y.
+           ADD Y TO Y.
+           ADD Y TO 20 GIVING X.
+           DISPLAY Y.
+           DISPLAY X.

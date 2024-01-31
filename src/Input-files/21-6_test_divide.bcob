@@ -1,0 +1,10 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TESTDIV.
+       PROCEDURE DIVISION.
+           MOVE 14 TO A. 
+           MOVE 3 TO B.
+           DIVIDE A INTO B 2 REMAINDER B .
+           DISPLAY "THIS TEST IS CORRECT IF FOLLOWS 02V3 AND 0V2"
+           DISPLAY A.
+           DISPLAY B.
+    

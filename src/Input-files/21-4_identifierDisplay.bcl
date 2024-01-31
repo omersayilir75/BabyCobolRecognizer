@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 VAR PICTURE IS 99999.
+           01 TXT PICTURE IS XXXXXXXXXX.
+       PROCEDURE DIVISION.
+           ADD 22 TO VAR.
+           DISPLAY VAR.
+           ADD 999978 TO VAR.
+           DISPLAY VAR.
+           DISPLAY TXT.

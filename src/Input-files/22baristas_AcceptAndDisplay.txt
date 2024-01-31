@@ -1,0 +1,28 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ACCEPTANDDISPLAY.
+       DATA DIVISION.
+       01 WORKING-DIRECTORY.
+         03 A PICTURE IS XXX.
+         03 B PICTURE IS 999.
+         03 C PICTURE IS 9V9.
+         03 D PICTURE IS S99.
+         03 E PICTURE IS ZZZ.
+         03 F PICTURE IS Z9A.
+       PROCEDURE DIVISION.
+           ACCEPT A.
+           DISPLAY A.
+           ACCEPT B.
+           DISPLAY B.
+           ACCEPT C.
+           DISPLAY C.
+           ACCEPT D.
+           DISPLAY D.
+           ACCEPT E.
+           DISPLAY E.
+           ACCEPT F.
+           DISPLAY F.
+           ACCEPT Z.
+           DISPLAY Z.
+           DISPLAY "END".
+
+

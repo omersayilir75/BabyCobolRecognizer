@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. NEXTSENTENCE.
+       PROCEDURE DIVISION.
+           NEXT SENTENCE
+           GOTO FAIL.
+           DISPLAY "THIS TEST SUCCEEDS"
+           STOP.
+       FAIL.
+           DISPLAY "THIS TEST FAILED"
+           STOP.
+    

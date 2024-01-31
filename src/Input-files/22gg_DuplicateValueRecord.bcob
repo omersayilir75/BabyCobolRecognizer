@@ -1,0 +1,6 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 FIRST-CONTAINER.
+             02 X PICTURE IS 9.
+           01 SECOND-CONTAINER.
+             02 X PICTURE IS 99.

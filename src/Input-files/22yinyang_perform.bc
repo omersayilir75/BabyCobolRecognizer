@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. PERFORM.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9).
+           01 B PICTURE IS X(9).
+           01 C PICTURE IS 9(9).
+           01 D PICTURE IS 9(9).
+       PROCEDURE DIVISION.
+           DISPLAY "START".
+           PERFORM PAR-A 2 TIMES.
+           DISPLAY "DONE".
+       PAR-A.
+           DISPLAY "PAR-A".

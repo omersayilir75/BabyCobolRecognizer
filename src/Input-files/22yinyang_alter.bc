@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. GOTO.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9) OCCURS 5 TIMES.
+           01 B PICTURE IS X(9) OCCURS 5 TIMES.
+       PROCEDURE DIVISION.
+           ALTER X TO PROCEED TO Z.
+       X.
+           GO TO Y.
+       Y.
+           DISPLAY "Y".
+       Z.
+           DISPLAY "Z".

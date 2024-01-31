@@ -1,0 +1,4 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 9.
+           01 X PICTURE IS 99.

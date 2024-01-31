@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TESTSIG.
+           AUTHOR. ME.
+       DATA DIVISION.
+           01 WORKING-STORAGE-AREA.
+               05 XYZ PICTURE IS S99.
+           01 LABEL PICTURE IS XXX.
+       PROCEDURE DIVISION.
+           MOVE "AAA" TO LABEL.
+           SIGNAL OFF ON ERROR.
+           STOP.
+       AAA.
+           DISPLAY "AAA".

@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS S9.
+       PROCEDURE DIVISION.
+           MOVE -1 TO X.
+       BEGINNING.
+           ADD 1 TO X.
+           SIGNAL ERR ON ERROR.
+           IF 2/X < 100
+               THEN DISPLAY "DIVIDED BY X SUCCESSFULLY".
+           GO TO END.
+       DEAD-CODE.
+           DISPLAY "NOT GOING TO EXECUTE THIS.".
+       ERR.
+           DISPLAY "ERROR OCCURRED!".
+           DISPLAY "DENOMINATOR VALUE: " WITH NO ADVANCING.
+           DISPLAY X.
+           DISPLAY "ATTEMPTING ARITHMETIC AGAIN."
+           GO TO BEGINNING.
+       END.
+           DISPLAY "REACHED THE END".

@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TESTALT.
+       DATA DIVISION.
+           01 X PICTURE IS XXXX.
+       PROCEDURE DIVISION.
+           MOVE "PARA" TO X.
+           GO TO X.
+           STOP.
+       PARA.
+           DISPLAY "A".
+       PARB.
+           DISPLAY "B".

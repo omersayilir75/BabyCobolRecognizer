@@ -1,0 +1,17 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. DISPLAY.
+
+       PROCEDURE DIVISION.
+           DISPLAY "HELLO" WITH NO ADVANCING.
+           DISPLAY " WORLD!".
+
+           DISPLAY "SUBSTRING" DELIMITED BY "STRING".
+
+           DISPLAY "SUBSTRING" DELIMITED BY "GARBAGE".
+
+           DISPLAY "  BLANKS  " DELIMITED BY SPACE.
+
+           DISPLAY " SIZE ;" DELIMITED BY SIZE.
+
+           DISPLAY "END".

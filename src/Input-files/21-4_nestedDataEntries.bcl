@@ -1,0 +1,8 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A.
+               05 B.
+                   09 C PICTURE IS XXXXX.
+       PROCEDURE DIVISION.
+           DISPLAY C OF B OF A.

@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 X OCCURS 5 TIMES.
+               05 Y OCCURS 7 TIMES.
+                   09 Z PICTURE IS 9999 OCCURS 10 TIMES.
+       PROCEDURE DIVISION.
+           ADD 9 TO 6 GIVING Z (10) OF Y (3) OF X (1).
+           ADD 10 TO Z (10) OF Y (3) OF X (1).
+           DISPLAY Z (10) OF Y (3) OF X (1).
+           DISPLAY Z (1) OF Y (3) OF X (1).

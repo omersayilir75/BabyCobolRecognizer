@@ -1,0 +1,32 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ADD_COMPFIELD.
+       DATA DIVISION.
+       01 PERSON.
+           02 PARENTS.
+               03 MOM PICTURE IS 999.
+               03 DAD PICTURE IS 999.
+           02 NAME PICTURE IS X(20).
+           02 AGE PICTURE IS 99.
+           02 HEIGHT PICTURE IS 999.
+       01 CAT LIKE PERSON.
+       01 DOG.
+         03 AGE PICTURE IS 999.
+         03 HOME PICTURE IS XXXXXX.
+       PROCEDURE DIVISION.
+           MOVE 98 TO AGE OF PERSON.
+           MOVE 123 TO AGE OF DOG.
+           MOVE '123ABC' TO HOME OF DOG.
+           ADD PERSON TO DOG.
+           DISPLAY DOG.
+
+           MOVE 49 TO MOM OF PERSON.
+           MOVE 52 TO DAD OF PERSON.
+           MOVE 22 TO AGE OF PERSON.
+           MOVE LOLA TO NAME OF PERSON.
+           MOVE 173 TO HEIGHT OF PERSON.
+           MOVE 16 TO MOM OF CAT.
+           MOVE 17 TO DAD OF CAT.
+           MOVE 6 TO AGE OF CAT.
+           MOVE 25 TO HEIGHT OF CAT.
+           MOVE HARRY TO NAME OF CAT.
+           ADD CAT TO PERSON.

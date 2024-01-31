@@ -1,0 +1,16 @@
+IDENTIFICATION DIVISION.
+    PROGRAMID. "FIB".
+    AUTHOR. "ANONYMOUS".
+    DATA-WRITTEN. "2019-11-01".
+
+PROCEDURE DIVISION.
+MAIN.
+    A.
+        DISPLAY "A".
+    B.
+        GO TO D.
+    C.
+        DISPLAY "NOT THIS".
+    D.
+        DISPLAY "B".
+.

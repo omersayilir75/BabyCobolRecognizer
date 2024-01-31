@@ -1,0 +1,9 @@
+       I  DEN   TIFICA TION D IVI SION.
+       DATA DI VIS ION.
+           0 1 X  PIC TUR     E IS 99.
+           01 Y PI CT   URE IS 9  9.
+       PRO CE DURE DI VISI ON.
+           ADD X TO Y.ADD YTOX. AD D 10 TO X.
+           MO VE 42
+                TO XY.
+           MO   VE 42 TO X Y.

@@ -1,0 +1,25 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+
+       DATA DIVISION.
+       77 TARGET PICTURE IS XXXXXXX.
+
+       PROCEDURE DIVISION.
+
+           PERFORM PROC1.
+           PERFORM PROC2.
+      * REQUIRED TO MOVE SPACES FIRST, OTHERWISE THE LAST CHARACTER IS NULL AND INCLUDED IN THE STRING
+           MOVE SPACES TO TARGET.
+      * THIS VALUE IS ALSO CASE INSENSITIVE AND WHITESPACE INSIGNIFICANT
+           MOVE "PRO C2" TO TARGET.
+           GO TO TARGET.
+           DISPLAY "X".
+
+       PROC1.
+           DISPLAY "PROC1".
+
+       PROC2.
+           DISPLAY "PROC2".
+
+       END.
+           STOP.

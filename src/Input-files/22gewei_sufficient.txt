@@ -1,0 +1,21 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. SIMPLE ADD CORRESPONDING.
+
+       DATA DIVISION.
+       01 A.
+         03 B.
+            05 C PICTURE IS 99.
+            05 C2.
+              07 D.
+                09 E PICTURE IS 99.
+            05 E PICTURE IS 99.
+         03 C PICTURE IS XX.
+
+
+       PROCEDURE DIVISION.
+           MOVE 33 TO C OF B.
+           MOVE 44 TO E OF D.
+
+           DISPLAY C OF B OF A.
+           DISPLAY E OF D OF B.

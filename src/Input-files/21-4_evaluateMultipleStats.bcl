@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       PROCEDURE DIVISION.
+           EVALUATE 100
+                WHEN 99
+                    DISPLAY "99"
+                    DISPLAY "SECOND STATEMENT IN WHEN-BLOCK"
+                WHEN 100
+                    DISPLAY "100"
+                    DISPLAY "THE FOURTH STATEMENT IN WHEN-BLOCK"
+           END.

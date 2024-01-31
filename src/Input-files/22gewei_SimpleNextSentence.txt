@@ -1,0 +1,15 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       PROCEDURE DIVISION.
+
+      * PRINT HELLO, THEN JUMP OVER '<!>' WITH NEXT SENTENCE.
+           DISPLAY "HELLO".
+           NEXT SENTENCE
+           DISPLAY "<!>".
+
+      * AS STATED IN THE DISPLAY, 'NEXT SENTENCE.' IS A NO OP AND EXECUTION SHOULD CONTINUE.
+           NEXT SENTENCE.
+           DISPLAY "NEXT SENTENCE. IS A NO OP".
+
+      * NOW MAKE SURE WE DO NOT CRASH THE PROGRAM IF WE DO THIS AT THE END
+           NEXT SENTENCE.

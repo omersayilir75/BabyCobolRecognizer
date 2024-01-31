@@ -1,0 +1,36 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       01 START.
+         03 X PICTURE IS S99.
+         03 Y PICTURE IS S99.
+
+       01 END LIKE START.
+       01 RESULT LIKE START.
+
+       PROCEDURE DIVISION.
+           MOVE 5 TO X OF START.
+           DISPLAY X OF START.
+
+           MOVE 12 TO Y OF START.
+           DISPLAY Y OF START.
+
+           MOVE 17 TO X OF END.
+           MOVE 17 TO Y OF END.
+           DISPLAY X OF END.
+           DISPLAY Y OF END.
+
+      * SHOULD RESULT IN 12,5 FOR END
+           SUBTRACT START FROM END.
+           DISPLAY X OF END.
+           DISPLAY Y OF END.
+
+      * SHOULD RESULT IN 7,-7
+           SUBTRACT START FROM END GIVING RESULT.
+           DISPLAY X OF RESULT.
+           DISPLAY Y OF RESULT.
+
+      * START IS UNCHANGED
+           DISPLAY X OF START.
+           DISPLAY Y OF START.
+

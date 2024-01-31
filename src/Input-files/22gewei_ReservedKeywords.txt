@@ -1,0 +1,22 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+
+      * SEE ALSO: DEFINEDIDENTIFIERCHAINRULETEST, FOR COMPLEX COMBINATIONS WITH 'OF' AS FIELD
+       01 PICTURE PICTURE IS 99.
+       01 ADD PICTURE IS 99.
+       01 OF.
+         03 OF PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+           MOVE 12 TO PICTURE.
+           DISPLAY PICTURE.
+
+           MOVE 24 TO OF OF OF.
+           DISPLAY OF OF OF.
+
+           ADD PICTURE OF OF OF TO ADD
+           ADD ADD TO PICTURE
+
+           DISPLAY ADD.
+           DISPLAY PICTURE.

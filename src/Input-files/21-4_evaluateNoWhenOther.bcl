@@ -1,0 +1,9 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       PROCEDURE DIVISION.
+           EVALUATE 47 + 53
+                WHEN 99
+                    DISPLAY "99"
+                WHEN 101
+                    DISPLAY "101"
+           END.

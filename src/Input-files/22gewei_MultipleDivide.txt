@@ -1,0 +1,23 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. STOP.
+
+       DATA DIVISION.
+       77 P1 PICTURE IS 99.
+       77 P2 PICTURE IS 99.
+       77 P3 PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+             MOVE 26 TO P1.
+             MOVE 28 TO P2.
+             MOVE 86 TO P3.
+
+             DIVIDE 2 INTO P1 P2 P3.
+             DISPLAY P1 DISPLAY P2 DISPLAY P3.
+
+             DIVIDE  7 INTO P2 GIVING P3.
+             DISPLAY P3.
+
+             MOVE 33 TO P1.
+             DIVIDE 3 INTO P1 GIVING P2 P3.
+             DISPLAY P2 DISPLAY P3.

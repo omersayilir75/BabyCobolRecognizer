@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. DATATEST.
+           AUTHOR. SUSPICIOUSLAWNMOWERS.
+           DATE-WRITTEN. 2022-02-13.
+       DATA DIVISION.
+           01 BASE.
+               02 VAR1 PICTURE IS AAAA.
+               02 VAR3 PICTURE IS AAAA.
+           01 BASE2.
+               02 VAR1 PICTURE IS AAAA.
+       PROCEDURE DIVISION.
+           MOVE HELL TO VAR1 OF BASE2.
+           MOVE DONT TO VAR3 OF BASE.
+           MOVE BASE2 TO BASE.
+           DISPLAY VAR1 OF BASE.
+           DISPLAY VAR1 OF BASE2.
+           DISPLAY VAR3.

@@ -1,0 +1,18 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. EVALUATION TEST.
+
+       DATA DIVISION.
+       77 X PICTURE IS 99.
+       77 Y PICTURE IS 99.
+       77 Z PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+           EVALUATE X + Y
+           WHEN Z
+               DISPLAY "SIX"
+           WHEN OTHER
+               DISPLAY X
+               DISPLAY "X1"
+           END.
+

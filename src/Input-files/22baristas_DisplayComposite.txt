@@ -1,0 +1,25 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. DISPLAYCOMPOSITE.
+           AUTHOR. IVO.
+       DATA DIVISION.
+       01 A.
+         02 AA.
+           03 AAA PICTURE IS XXX.
+           03 AAB PICTURE IS 999.
+         02 AB.
+           04 ABA PICTURE IS XXX.
+           04 ABB PICTURE IS 999.
+         02 AC.
+           05 ACA PICTURE IS AAA.
+           03 ACB PICTURE IS X9X.
+       PROCEDURE DIVISION.
+           DISPLAY AA.
+           MOVE 'ABC' TO AAA
+           MOVE 123 TO AAB
+           MOVE 'DEF' TO ABA
+           MOVE 456 TO ABB
+           MOVE 'GHI' TO ACA
+           MOVE 'J7K' TO ACB.
+           DISPLAY A.
+           ADD AAB TO ABB
+           DISPLAY ABB.

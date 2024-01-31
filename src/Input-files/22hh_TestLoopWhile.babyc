@@ -1,0 +1,9 @@
+_-_-_- DATA DIVISION.
+_-_-_-    5 TEST9 PICTURE IS 999.
+_-_-_- PROCEDURE DIVISION.
+_-_-_-    LOOP 
+_-_-_-      WHILE TEST9 < 30
+_-_-_-      ADD 5 TO TEST9.
+_-_-_-      DISPLAY TEST9.
+_-_-_-    END.
+_-_-_-    DISPLAY TEST9.

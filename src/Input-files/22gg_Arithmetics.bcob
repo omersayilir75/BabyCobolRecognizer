@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           IF 3+4 < 5
+               THEN DISPLAY 1.
+       PART-A.
+           IF 3-4 < 0
+               THEN DISPLAY 2.
+       PART-B.
+           IF 3*4 = 12
+               THEN DISPLAY 3.
+       PART-C.
+           IF 9/2 = 4
+               THEN DISPLAY 4.
+       PART-D.
+           IF 9/2 = 4.5
+               THEN DISPLAY 5.
+       PART-E.
+           IF 3**2 = 9
+               THEN DISPLAY 6.

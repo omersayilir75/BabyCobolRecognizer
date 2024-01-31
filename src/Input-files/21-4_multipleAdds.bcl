@@ -1,0 +1,8 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 BAR PICTURE IS 99999.
+       PROCEDURE DIVISION.
+           ADD 90 TO 123 GIVING BAR.
+           ADD 7123 TO BAR.
+           DISPLAY BAR.

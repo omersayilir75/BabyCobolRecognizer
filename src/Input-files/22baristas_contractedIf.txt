@@ -1,0 +1,23 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+       01 WORKING-DIRECTORY.
+           03 X PICTURE IS 9(5).
+       PROCEDURE DIVISION.
+      * 10
+            ACCEPT X.
+            IF X = 10 OR 20 THEN DISPLAY 'YES1' ELSE DISPLAY 'NO1'.
+            IF X > 10 AND < 20 THEN DISPLAY 'YES2' ELSE DISPLAY 'NO2'.
+      * 99
+            ACCEPT X.
+            IF X > 10 AND < 20 OR 100 AND > 80 THEN DISPLAY 'YES3'
+      -ELSE DISPLAY 'NO3'.
+      * 20
+            ACCEPT X
+            IF NOT X = 10 OR 20 THEN DISPLAY 'YES1' ELSE DISPLAY 'NO1'.
+            IF X NOT > 10 AND < 20 THEN DISPLAY 'YES2' ELSE DISPLAY
+      -'NO2'.
+      * 99
+            ACCEPT X.
+            IF NOT X > 10 AND < 20 OR 100 AND > 80 THEN DISPLAY 'YES3'
+      -ELSE DISPLAY 'NO3'.

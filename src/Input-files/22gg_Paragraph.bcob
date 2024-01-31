@@ -1,0 +1,10 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           ADD 10 TO 20 GIVING X GIVING Y.
+           ADD X TO Y.
+           ADD Y TO Y.
+       IM-A-PARAGRAPH.
+           DISPLAY X.

@@ -1,0 +1,43 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. STOP.
+
+       DATA DIVISION.
+       77 P1 PICTURE IS 99.
+       77 P2 PICTURE IS 99.
+       77 S1 PICTURE IS S99.
+       77 S2 PICTURE IS S99.
+       77 F1 PICTURE IS 9V9.
+       77 F2 PICTURE IS 9V9.
+
+       PROCEDURE DIVISION.
+           MOVE 64 TO P1.
+           MOVE 4 TO P2.
+
+           DIVIDE P2 INTO P1.
+      * P1 SHOULD BE 16 NOW, P2 SHOULD STILL BE 4
+           DISPLAY P1.
+           DISPLAY P2.
+
+      * P1 SHOULD BE 1, P2 SHOULD BE THE REMAINDER WHICH IS 7
+           DIVIDE 9 INTO P1 GIVING P1 REMAINDER P2.
+           DISPLAY P1.
+           DISPLAY P2.
+
+           MOVE 64 TO S1.
+           MOVE -4 TO S2.
+           DIVIDE S2 INTO S1.
+      * S1 SHOULD BE -16 NOW, S2 SHOULD STILL BE -4
+           DISPLAY S1.
+           DISPLAY S2.
+
+      * S1 SHOULD BECOME -1, S2 SHOULD BECOME -7
+           DIVIDE 9 INTO S1 GIVING S1 REMAINDER S2.
+           DISPLAY S1.
+           DISPLAY S2.
+
+           MOVE 2.5 TO F1.
+           MOVE 5.0 TO F2.
+           DIVIDE F1 INTO F2.
+           DISPLAY F1.
+           DISPLAY F2.

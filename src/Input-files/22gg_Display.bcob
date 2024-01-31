@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           MOVE 44 TO X.
+           MOVE 44 TO Y.
+           DISPLAY X WITH NO ADVANCING.
+           DISPLAY Y.
+           DISPLAY 5 WITH NO ADVANCING.
+           DISPLAY "LITERAL" WITH NO ADVANCING.

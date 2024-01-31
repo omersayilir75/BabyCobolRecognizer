@@ -1,0 +1,9 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A PICTURE IS 99999.
+           01 B PICTURE IS XXXXX.
+       PROCEDURE DIVISION.
+           ACCEPT A B.
+           DISPLAY A.
+           DISPLAY B.

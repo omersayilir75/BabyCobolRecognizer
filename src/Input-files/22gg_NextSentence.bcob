@@ -1,0 +1,25 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           MOVE 5 TO Y.
+           NEXT SENTENCE ADD Y TO Y DISPLAY Y.
+           MOVE 6 TO Y.
+           DISPLAY Y NEXT SENTENCE DISPLAY "INVISIBLE".
+       PART-B.
+           EVALUATE Y
+               WHEN 10
+                   DISPLAY "INCORRECT"
+               WHEN OTHER
+                   NEXT SENTENCE
+           END
+           DISPLAY "NOT SUPPOSED TO DISPLAY".
+           DISPLAY "DISPLAY ME".
+       PART-C.
+           LOOP
+               VARYING Y TO 5
+               DISPLAY Y
+               IF Y = 3 THEN NEXT SENTENCE
+           END.
+           DISPLAY "FINISHED LOOP".

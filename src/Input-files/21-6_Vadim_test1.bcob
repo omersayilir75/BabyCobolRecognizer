@@ -1,0 +1,30 @@
+      * BABYCOBOL TEST CASE:
+      *  GO TO + ALTER + PERFORM
+      * DESCRIPTION:
+      *  ALTER A GO TO FROM "JUMP OUT OF RANGE" TO "JUMP WITHIN RANGE"
+      * CORRECT OUTPUT:
+      * :A-AB!
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. GAP01.
+       PROCEDURE DIVISION.
+       MAIN.
+           DISPLAY ":" WITH NO ADVANCING.
+           PERFORM A THROUGH B.
+           DISPLAY ";" WITH NO ADVANCING.
+       AGAIN.
+           ALTER PATH TO PROCEED TO B.
+           PERFORM A THROUGH B.
+           DISPLAY "!".
+       FINISH.
+            STOP.
+       A.
+            DISPLAY "A" WITH NO ADVANCING.
+       PATH.
+      * WILL BE ALTERED TO DO NOTHING (STEP TO THE NEXT PARAGRAPH)
+           GO TO SKIP.
+       B.
+           DISPLAY "B" WITH NO ADVANCING.
+       SKIP.
+           DISPLAY "-" WITH NO ADVANCING.
+       F.
+           GO TO AGAIN.

@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A PICTURE IS 99999.
+       PROCEDURE DIVISION.
+           ACCEPT A.
+           IF A > 8 THEN
+               DISPLAY "A > 8"
+           END.
+           IF A = 8 THEN
+               DISPLAY "A = 8"
+           END.
+           IF A < 8 THEN
+               DISPLAY "A < 8"
+           END.

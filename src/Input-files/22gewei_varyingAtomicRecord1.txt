@@ -1,0 +1,12 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       01 A.
+         03 B PICTURE IS 99.
+       01 C PICTURE IS 99.
+       01 D PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+           LOOP
+           VARYING A FROM C BY D
+           END.

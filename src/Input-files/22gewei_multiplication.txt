@@ -1,0 +1,38 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+
+       DATA DIVISION.
+       77 V1 PICTURE IS 99.
+       77 V2 PICTURE IS 99.
+       77 V3 PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+           MOVE 1 TO V1.
+           MOVE 2 TO V2.
+           MOVE 3 TO V3.
+
+           MULTIPLY V3 BY V1 V2.
+           DISPLAY V1.
+           DISPLAY V2.
+           DISPLAY V3.
+
+           MOVE 1 TO V1.
+           MOVE 2 TO V2.
+           MOVE 3 TO V3.
+           MULTIPLY V1 BY V1.
+           MULTIPLY V3 BY V3.
+           DISPLAY V1.
+           DISPLAY V3.
+
+           MOVE 1 TO V1.
+           MOVE 3 TO V3.
+           MULTIPLY V2 BY V3 GIVING V1.
+           DISPLAY V1.
+           DISPLAY V2.
+           DISPLAY V3.
+
+      * OVERFLOW 144 -> 44
+           MOVE 12 TO V3.
+           MULTIPLY V3 BY V3.
+           DISPLAY V3.
+

@@ -1,0 +1,19 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. GOTOTEST.
+           AUTHOR. SUSPICIOUSLAWNMOWERS.
+           DATE-WRITTEN. 2022-04-21.
+       DATA DIVISION.
+           01 VAR PICTURE IS AA.
+       PROCEDURE DIVISION.
+       10.
+           ACCEPT VAR.
+           GO TO 30.
+           DISPLAY SHOULDNOT.
+       20.
+           DISPLAY SHOULD1.
+           GO TO 40.
+       30.
+           GO TO VAR.
+           DISPLAY SHOULDNOT.
+       40.
+           DISPLAY SHOULD2.

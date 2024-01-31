@@ -1,0 +1,13 @@
+      * EXAMPLE PROGRAM
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. STOPST.
+           AUTHOR. ANISSAAAAA.
+       DATA DIVISION.
+       01 NUM PICTURE IS 99.
+       PROCEDURE DIVISION.
+           ADD 1 TO NUM
+           ADD 1 TO NUM
+           DISPLAY NUM
+           STOP
+           ADD 1 TO NUM
+           DISPLAY NUM.

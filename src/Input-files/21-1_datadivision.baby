@@ -1,0 +1,44 @@
+IDENTIFICATION DIVISION.
+    PROGRAM-ID. A.
+DATA DIVISION.
+    01 B PICTURE IS 99 .
+    01 C PICTURE IS XX .
+PROCEDURE DIVISION.
+GO TO STEP1.
+
+    PARAA.
+        DISPLAY "A".
+        ALTER PARAC TO PROCEED TO PARAB.
+        GO TO STEP2.
+
+    PARAB.
+        DISPLAY "B".
+        ALTER PARAC TO PROCEED TO PARAD.
+        GO TO STEP3.
+
+    PARAD.
+        DISPLAY "D".
+        GO TO DONE.
+
+    PARAC.
+        GO TO PARAA.
+
+    DONE.
+        DISPLAY "DONE".
+        STOP.
+
+STEP1.
+    DISPLAY "STEP 1".
+    GO TO PARAC.
+    
+STEP2.
+    DISPLAY "STEP 2".
+    GO TO PARAC.
+
+STEP3.
+    DISPLAY "STEP 3".
+    GO TO PARAC.
+
+MAIN.
+    DISPLAY "OK".
+

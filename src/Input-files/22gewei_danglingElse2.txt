@@ -1,0 +1,11 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+
+       PROCEDURE DIVISION.
+           IF 1 = 1 THEN
+           IF 1 = 1 THEN
+               DISPLAY "TRUE"
+           IF 1 = 1 THEN
+               DISPLAY "TRUE"
+           ELSE
+               DISPLAY "FALSE".

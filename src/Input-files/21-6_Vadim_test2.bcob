@@ -1,0 +1,31 @@
+      * BABYCOBOL TEST CASE:
+      *  GO TO + ALTER + PERFORM
+      * DESCRIPTION:
+      *  ALTER A GO TO FROM "JUMP WITHIN RANGE" TO "JUMP OUTSIDE RANGE"
+      * CORRECT OUTPUT:
+      * :AC;A-
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. GAP02.
+       PROCEDURE DIVISION.
+       MAIN.
+           DISPLAY ":" WITH NO ADVANCING.
+           PERFORM A THROUGH C.
+           DISPLAY ";" WITH NO ADVANCING.
+       AGAIN.
+           ALTER PATH TO PROCEED TO ALT-FIN.
+           PERFORM A THROUGH C.
+           DISPLAY "!".
+       FINISH.
+           STOP.
+       A.
+           DISPLAY "A" WITH NO ADVANCING.
+       PATH.
+      * JUST SKIPS OVER B BUT WILL BE ALTERED TO TERMINATE
+            GO TO C.
+       B.
+            DISPLAY "B" WITH NO ADVANCING.
+       C.
+            DISPLAY "C" WITH NO ADVANCING.
+       ALT-FIN.
+            DISPLAY "-" WITH NO ADVANCING.
+            STOP.

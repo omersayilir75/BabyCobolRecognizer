@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. LOOPUNTILTEST.
+           AUTHOR. SUSPICIOUSLAWNMOWERS.
+           DATE-WRITTEN. 2022-04-26.
+       DATA DIVISION.
+           01 I PICTURE IS 999.
+       PROCEDURE DIVISION.
+           MOVE 0 TO I.
+           LOOP
+               DISPLAY BEGIN
+               UNTIL I > 2
+               ADD 1 TO I
+               DISPLAY MIDDLE
+           END.
+           DISPLAY THEEND.

@@ -1,0 +1,24 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. ADD.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9).
+           01 B PICTURE IS 9(9).
+           01 C PICTURE IS 9(9).
+       PROCEDURE DIVISION.
+            DISPLAY "ENTER NUMERIC".
+            ACCEPT A
+            DISPLAY "ENTER NUMERIC".
+            ACCEPT B
+
+            ADD A TO B GIVING C.
+            DISPLAY C.
+
+            ADD 1 TO B GIVING C.
+            DISPLAY C.
+
+            ADD A TO 1 GIVING C.
+            DISPLAY C.
+
+            ADD A TO B.
+            DISPLAY A.
+

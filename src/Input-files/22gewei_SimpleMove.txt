@@ -1,0 +1,40 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+
+       DATA DIVISION.
+       01 R1.
+         03 V PICTURE IS 99.
+       01 R2.
+         03 V PICTURE IS 99.
+
+       01 STRING PICTURE IS XXXXXX.
+       01 FLOAT PICTURE IS 9V9.
+       01 NUMBER PICTURE IS 99.
+
+       PROCEDURE DIVISION.
+           MOVE "HELLO!" TO STRING.
+           DISPLAY STRING.
+
+           MOVE 2.3 TO FLOAT.
+           DISPLAY FLOAT.
+           MOVE "6.6" TO FLOAT.
+           DISPLAY FLOAT.
+           MOVE "0" TO FLOAT.
+           DISPLAY FLOAT.
+
+           MOVE 99 TO NUMBER.
+           DISPLAY NUMBER.
+           MOVE 0 TO NUMBER.
+           DISPLAY NUMBER.
+
+           MOVE 66 TO V OF R1.
+           DISPLAY V OF R1.
+
+           MOVE 33 TO V OF R2.
+           DISPLAY V OF R2.
+
+           MOVE R2 TO R1.
+           MOVE 11 TO V OF R2.
+           DISPLAY V OF R1.
+           DISPLAY V OF R2.
+

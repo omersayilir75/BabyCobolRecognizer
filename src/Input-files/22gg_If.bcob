@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           IF 3=4
+               THEN DISPLAY 1 WITH NO ADVANCING.
+           IF 3<4
+               THEN DISPLAY 2.
+       PART-B.
+           IF TRUE
+               THEN DISPLAY 3.
+           IF NOT TRUE
+               THEN DISPLAY 555.
+       PART-C.
+           MOVE 10 TO X.
+           MOVE 20 TO Y.
+           IF NOT X>Y
+               THEN DISPLAY 3
+           ELSE
+               DISPLAY 4
+           END.

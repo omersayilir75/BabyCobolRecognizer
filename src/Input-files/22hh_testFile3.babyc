@@ -1,0 +1,19 @@
+_-_-_- DATA DIVISION.
+_-_-_-    5 TEST9 PICTURE IS 999.
+_-_-_- PROCEDURE DIVISION.
+_-_-_-*   DIVIDE 2 INTO TEST.
+_-_-_-    IF 11 < 12 THEN 
+_-_-_-      DISPLAY TEST.
+_-_-_-      DISPLAY TEST.
+_-_-_-    ELSE
+_-_-_-      DISPLAY TEST2.
+_-_-_-      STOP.
+_-_-_-      DISPLAY TEST2.
+ _-_-_-   END.
+_-_-_-*   DISPLAY TEST.
+_-_-_-*   ADD 5 TO 9 GIVING TEST.
+_-_-_-*   DISPLAY TEST.
+_-_-_-*   IF 5 < 10
+_-_-_-*   IF
+_-_-_-    
+_-_-_-

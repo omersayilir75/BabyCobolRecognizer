@@ -1,0 +1,16 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. PLAYGROUND.
+
+       DATA DIVISION.
+       01 A.
+       	  03 X PICTURE IS 99.
+       	  03 B.
+       	    05 Z PICTURE IS XX.
+       	  03 Y PICTURE IS XXX.
+
+       PROCEDURE DIVISION.
+            MOVE 12 TO X.
+            MOVE "XY" TO Z.
+            MOVE "ABC" TO Y.
+       	    DISPLAY A.

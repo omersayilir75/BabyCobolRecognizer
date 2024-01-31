@@ -1,0 +1,5 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 CONTAINER.
+             02 X PICTURE IS 9.
+           03 Y LIKE X.

@@ -1,0 +1,32 @@
+IDENTIFICATION DIVISION.
+    PROGRAMID. "FIB".
+    AUTHOR. "ANONYMOUS".
+    DATA-WRITTEN. "2019-11-01".
+
+PROCEDURE DIVISION.
+MAIN.
+    MOVE 16 TO TEST
+
+    EVALUATE 2 + 2 * 4 
+        WHEN TEST
+            DISPLAY "16"
+        WHEN OTHER
+            DISPLAY "OTHER"
+    END
+
+    EVALUATE "THIS IS A STRING"
+        WHEN "STRING"
+            DISPLAY "STRING"
+        WHEN OTHER
+            DISPLAY "NO OPTION FOUND"
+    END
+
+    EVALUATE "A" + "STRING"
+        WHEN "A STRING"
+            DISPLAY "WRONG"
+        WHEN "ASTRING"
+            DISPLAY "ASTRING"
+        WHEN OTHER
+            DISPLAY "OTHER"
+    END
+.

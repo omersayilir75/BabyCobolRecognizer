@@ -1,0 +1,61 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       77 X PICTURE IS 9.
+       77 Y PICTURE IS 9.
+       77 NEGATIVE PICTURE IS S9.
+
+       PROCEDURE DIVISION.
+
+      * SIMPLY LOOP FROM 1 TO 9 INCLUSIVE
+           LOOP VARYING X FROM 1 TO 9
+                DISPLAY X
+           END.
+      * THE END VALUE OF X SHOULD BE AN INCLUSIVE ONE, SO IT IS 9
+           DISPLAY "L1 END: " X.
+
+      * LOOP FROM 1 TO 9 INCLUSIVE WITH A STEP VALUE OF 2! I.E. ONLY PRINTS ODD NUMBERS
+           LOOP VARYING X FROM 1 TO 9 BY 2
+               DISPLAY X
+           END.
+      * THE END VALUE OF X IS STILL 9
+           DISPLAY "L2 END: " X.
+
+      * LOOP FROM 1 TO 9 INCLUSIVE WITH A STEP VALUE OF 3! SO WE ONLY PRINT VALUES THAT SATISFY 3A + 1 FOR ANY POSITIVE INTEGER A.
+           LOOP VARYING X FROM 1 TO 9 BY 3
+               DISPLAY X
+           END.
+      * THE END VALUE OF X IS 7! THE VARYING DOES NOT ALLOW AN OVERFLOW, EVEN THOUGH YOU COULD LET IT OVERFLOW TO 0
+           DISPLAY "L3 END: " X.
+
+      * NESTED VARIES DO NOT WORK THE SAME AS NESTED LOOPS: HERE WE PRINT (1,1), (2,2), (3,3)
+           LOOP
+             VARYING X TO 4
+             VARYING Y TO 3
+             DISPLAY X "," Y
+           END.
+      * THE VARYING CONDITION FOR X IS STILL TRUE AFTER IT BECOMES 4, BUT IS FALSE FOR Y. THIS WILL PRINT (4,3)
+           DISPLAY "L4 END (X,Y): (" X "," Y ")".
+
+      * LOOP WITH JUST THE VARYING CLAUSE, PRINTS 1 TO 9
+           LOOP
+             VARYING X
+             DISPLAY X
+           END.
+           DISPLAY "L5 END: " X.
+
+      * LOOP WITH NEGATIVE VALUES FROM -5, PRINTS -5 TO +9
+           LOOP
+             VARYING NEGATIVE FROM -5
+             DISPLAY NEGATIVE
+           END.
+           DISPLAY "L6 END: " NEGATIVE.
+
+      * LOOP WITH JUST VARYING CLAUSE (INFINITE LOOP), AND A WHILE WITH AN UNTIL (PRINTS 5 4 3 2)
+           MOVE 5 TO X.
+           LOOP VARYING
+               WHILE X >= 0
+               DISPLAY X
+               SUBTRACT 1 FROM X
+               UNTIL X <= 1
+           END.

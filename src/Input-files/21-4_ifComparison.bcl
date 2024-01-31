@@ -1,0 +1,33 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       PROCEDURE DIVISION.
+           IF 10 > 8 THEN
+               DISPLAY "10 > 8"
+           END.
+           IF 10 >= 10 THEN
+               DISPLAY "10 >= 10"
+           END.
+           IF 10 < 8 THEN
+               DISPLAY "10 < 8"
+           END.
+           IF 10 <= 8 THEN
+               DISPLAY "10 <= 8"
+           END.
+           IF 10 = 8 THEN
+               DISPLAY "10 = 8"
+           END.
+           IF 8 > 10 THEN
+               DISPLAY "8 > 10"
+           END.
+           IF 8 >= 10 THEN
+               DISPLAY "8 >= 10"
+           END.
+           IF 8 < 10 THEN
+               DISPLAY "8 < 10"
+           END.
+           IF 8 <= 10 THEN
+               DISPLAY "8 <= 10"
+           END.
+           IF 8 = 8 THEN
+               DISPLAY "8 = 8"
+           END.

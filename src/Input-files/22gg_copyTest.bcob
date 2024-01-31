@@ -1,0 +1,18 @@
+       * COPIED FROM THE TEST SUITE OF HTTPS://GITHUB.COM/SUPERTOM01/BABYANTLR
+       IDENTIFICATION DIVISION.
+           COPY COPYFILES/IDENTIFICATION.BCOB REPLACING ===$DATE=== B
+      -Y ===2023-03-21=== ===NAME=== BY ===COPY TEST===.
+       DATA DIVISION.
+           01 A.
+            02 B PICTURE IS 99.
+            02 C PICTURE IS 99.
+            02 D LIKE B.
+           01 D.
+            02 A PICTURE IS 99.
+            02 FOO PICTURE IS XXXX.
+           COPY COPYFILES/DATA.BCOB.
+       PROCEDURE DIVISION.
+       MAIN.
+           COPY COPYFILES/PROCEDURE.BCOB REPLACING === D.=== BY === X.=
+      -==.
+           STOP.

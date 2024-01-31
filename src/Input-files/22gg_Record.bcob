@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 FIRST-CONTAINER.
+             02 X PICTURE IS 9.
+             02 Y PICTURE IS 99.
+           01 SECOND-CONTAINER.
+             02 A PICTURE IS 999.
+             02 THIRD-CONTAINER.
+               03 B PICTURE IS 9999.
+             02 C PICTURE IS 99999.
+           01 D PICTURE IS 999999.

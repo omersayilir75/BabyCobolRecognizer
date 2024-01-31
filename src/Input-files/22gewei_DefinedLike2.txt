@@ -1,0 +1,8 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+       01 A.
+         03 B.
+           05 C PICTURE IS XX.
+         03 D PICTURE IS XX.
+       01 E LIKE C.

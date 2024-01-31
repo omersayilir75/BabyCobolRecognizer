@@ -1,0 +1,19 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+       PROCEDURE DIVISION.
+           ALTER PROC TO PROCEED TO ALTERED.
+           ALTER PROC2 TO PROCEED TO ALTERED.
+
+
+       PROC.
+           GO TO NON-ALTERED.
+
+       PROC2.
+           GO TO NON-ALTERED
+           GO TO NON-ALTERED.
+
+       NON-ALTERED.
+           DISPLAY "NON-ALTERED".
+
+       ALTERED.
+           DISPLAY "ALTERED".

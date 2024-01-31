@@ -1,0 +1,26 @@
+|...+.*A.1.B..+....2....+....3....+....4....+....5....+....6....+....7..
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. SIMPLE PERFORM-GO-TO.
+       PROCEDURE DIVISION.
+       A.
+           DISPLAY "A" WITH NO ADVANCING.
+      *    PRINT B AND COME BACK
+           PERFORM B.
+      *    PRINT D, WILL NOT COME BACK BECAUSE OF THE GO TO IN D
+           PERFORM D.
+      *    SO WE WILL NEVER RETURN HERE TO EXECUTE THE FOLLOWING STATEMENT
+           DISPLAY "YOU SHOULD NOT SEE THIS PRINT" WITH NO ADVANCING.
+       B.
+           DISPLAY "B" WITH NO ADVANCING.
+       C.
+           DISPLAY "C" WITH NO ADVANCING.
+       D.
+           DISPLAY "D" WITH NO ADVANCING.
+           GO TO E.
+      *    THE FOLLOWING STATEMENT IS ALWAYS DEAD CODE
+           DISPLAY "D2" WITH NO ADVANCING.
+       E.
+           DISPLAY "E" WITH NO ADVANCING.
+       F.
+           DISPLAY "F" WITH NO ADVANCING.
+           STOP.

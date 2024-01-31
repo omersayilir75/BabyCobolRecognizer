@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. LOOPVARYINGTEST.
+           AUTHOR. SUSPICIOUSLAWNMOWERS.
+           DATE-WRITTEN. 2022-04-26.
+       DATA DIVISION.
+           01 I PICTURE IS 999.
+       PROCEDURE DIVISION.
+           LOOP
+               DISPLAY BEGIN1
+               VARYING I TO 3
+               DISPLAY I
+           END.
+           LOOP
+               VARYING FROM 5 TO 20 BY 4
+               DISPLAY BEGIN2
+           END.
+           LOOP
+               VARYING
+               DISPLAY BEGIN3
+           END.
+           DISPLAY THEEND.

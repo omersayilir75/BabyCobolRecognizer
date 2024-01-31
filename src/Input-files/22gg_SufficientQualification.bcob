@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 A.
+            03 B.
+             05 C.
+              07 D PICTURE IS 999.
+             05 E.
+              07 D PICTURE IS 999.
+              07 F PICTURE IS 999.
+       PROCEDURE DIVISION.
+           DISPLAY D OF C.
+           DISPLAY D OF C OF A.
+           DISPLAY D OF C OF B.
+       LONG.
+           DISPLAY D OF C OF B OF A.
+       EPAR.
+           DISPLAY D OF E.
+           DISPLAY D OF E OF A.
+           DISPLAY D OF E OF B.
+       NEW-PARAGRAPH.
+           DISPLAY D OF E OF B OF A.

@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. SUFFICIENT QUALIFICATION.
+           AUTHOR. ANONYMOUS.
+           DATE-WRITTEN. 2019-11-01.
+       DATA DIVISION.
+           01 A.
+              03 B.
+                 05 C.
+                    07 D PICTURE IS 999.
+                 05 E.
+                    07 D PICTURE IS 999.
+                    07 F PICTURE IS 999.
+
+       PROCEDURE DIVISION.
+            MOVE E TO C.
+            MOVE C TO E.
+            MOVE E TO B.

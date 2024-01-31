@@ -1,0 +1,7 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           09 A PICTURE IS 999.
+           01 B PICTURE IS 999.
+       PROCEDURE DIVISION.
+           ADD 90 TO 123.

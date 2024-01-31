@@ -1,0 +1,10 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           IF 3+4 > 5
+               THEN DISPLAY 1.
+           STOP.
+           IF 3*4 = 12
+               THEN DISPLAY "DON'T DISPLAY ME".

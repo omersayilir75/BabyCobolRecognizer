@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+       DATA DIVISION.
+           01 X PICTURE IS 99.
+           01 Y PICTURE IS 99.
+       PROCEDURE DIVISION.
+           MOVE 10 TO X Y.
+           DIVIDE 2 INTO X Y.
+           DISPLAY X Y
+           DIVIDE 2 INTO 4 GIVING X Y.
+           DISPLAY X Y.
+           DIVIDE 2 INTO 5 GIVING X REMAINDER Y.
+           DISPLAY X Y.

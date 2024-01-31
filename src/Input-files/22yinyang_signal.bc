@@ -1,0 +1,11 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. GOTO.
+       DATA DIVISION.
+           01 A PICTURE IS 9(9).
+           01 B PICTURE IS X(9).
+       PROCEDURE DIVISION.
+           SIGNAL PAR-ERROR ON ERROR.
+           DIVIDE 0 INTO 0 GIVING A.
+           DISPLAY "SHOULD NOT BE REACHED".
+       PAR-ERROR.
+           DISPLAY "ERROR".

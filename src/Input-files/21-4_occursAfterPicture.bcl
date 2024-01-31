@@ -1,0 +1,7 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. TEST.
+       DATA DIVISION.
+           01 A PICTURE IS XXXXX.
+               05 B OCCURS 2 TIMES.
+       PROCEDURE DIVISION.
+           DISPLAY B (2) OF A.

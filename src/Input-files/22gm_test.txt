@@ -1,0 +1,23 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO123.
+       DATA DIVISION.
+       01 A PICTURE IS 9(1).
+       01 B LIKE A.
+       PROCEDURE DIVISION.
+       DISPLAY A.
+       SIGNAL X ON ERROR.
+       DIVIDE 0 INTO A.
+       DISPLAY "BACK".
+       STOP.
+
+      *LOOP VARYING A TO 1 BY -1
+      *    DISPLAY A
+      *    UNTIL A > 1
+      *END.
+       X.
+           DISPLAY "THIS IS A " A.
+           DISPLAY "THIS IS B " B.
+       Y.
+           STOP.
+       Z.
+           STOP.

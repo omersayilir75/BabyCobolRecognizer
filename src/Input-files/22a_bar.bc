@@ -1,0 +1,7 @@
+       IDENTIFICATION DIVISION.
+           PROGRAM-ID. CALLED PROGRAM BAR.
+       PROCEDURE DIVISION.
+           PERFORM X 3 TIMES.
+           STOP.
+       X.
+           DISPLAY "THIS IS THE CALLED PROGRAM 'BAR'.".
