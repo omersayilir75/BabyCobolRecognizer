@@ -1,13 +1,14 @@
        IDENTIFICATION DIVISION.
            PROGRAM-ID. TEST.
        PROCEDURE DIVISION.
-      *    IF 5 + 5 * 5 ** 2 = 130 THEN
-      *        DISPLAY "5 + 5 * 5 ** 2 = 130"
-      *    END.
-      *    IF 5 + 5 * 5 = 50 THEN
-      *        DISPLAY "5 + 5 * 5 = 50"
-      *    END.
-      *    IF 4 * 3 ** 2 = 144 THEN
-      *        DISPLAY "4 * 3 ** 2"
-      *    END.
-           DISPLAY "ACTUAL STATEMENT".
+          IF 5 + 5 * 5 ** 2 = 130 THEN
+              DISPLAY "5 + 5 * 5 ** 2 = 130"
+          END.
+          IF 5 + 5 * 5 = 50 THEN
+              DISPLAY "5 + 5 * 5 = 50"
+          END.
+          IF 4 * 3 ** 2 = 144 THEN
+              DISPLAY "4 * 3 ** 2"
+          END.
+         * DISPLAY "ignored STATEMENT".
+         STOP.
