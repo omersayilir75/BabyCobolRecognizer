@@ -1,5 +1,5 @@
 IDENTIFICATION DIVISION.
-    PROGRAM-ID. A.
+    PROGRAM-ID. prefprog1.
 DATA DIVISION.
     01 B PICTURE IS 99.
     01 C PICTURE IS XX.
@@ -12,19 +12,17 @@ PROCEDURE DIVISION.
     DISPLAY L.
     DISPLAY M.
     LOOP VARYING K FROM 5 TO 10 BY 1
-            DISPLAY K.
-            DISPLAY L.
-        END
+            DISPLAY K
+            DISPLAY L
         WHILE L < 5
-            DISPLAY L.
-            NEXT SENTENCE.
-            SUBTRACT 1 FROM L GIVING L.
-            DISPLAY L.
-        END
-            UNTIL M > 5
-            DISPLAY M.
-            ADD 1 TO M GIVING M.
-            DISPLAY M.
+            DISPLAY L
+            NEXT SENTENCE
+            SUBTRACT 1 FROM L GIVING L
+            DISPLAY L
+        UNTIL M > 5
+            DISPLAY M
+            ADD 1 TO M GIVING M
+            DISPLAY M
         END.
     DISPLAY L.
     PERFORM PARADISPLAYHELLO 3 TIMES.

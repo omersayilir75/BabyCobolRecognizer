@@ -1,41 +1,35 @@
 IDENTIFICATION DIVISION.
     PROGRAM-ID. NAME.
 DATA DIVISION.
-    01 A PICTURE IS 999.
+    01 J PICTURE IS 999.
 PROCEDURE DIVISION.
-    MOVE 0 TO A.
-    DISPLAY A.
+    MOVE 0 TO J.
+    DISPLAY J.
 
     IF 5 > 6 THEN
-        MOVE 1 TO A.
-        DISPLAY A.
-    END
+        MOVE 1 TO J
+        DISPLAY J
     ELSE IF 5 > 6 THEN
-        MOVE 2 TO A.
-        DISPLAY A.
-    END
+        MOVE 2 TO J
+        DISPLAY J
     ELSE IF 5 != 6 THEN
-        MOVE 3 TO A.
-        DISPLAY A.
-        ADD -10 TO -3 GIVING A.
-        DISPLAY A.
-    END
+        MOVE 3 TO J
+        DISPLAY J
+        JDD -10 TO -3 GIVING J
+        DISPLAY J
     ELSE IF 5 == 6 THEN
-        MOVE 4 TO A.
-        DISPLAY A.
-    END
+        MOVE 4 TO J
+        DISPLAY J
     ELSE IF 5 == 5 THEN
-        MOVE 5 TO A.
-        DISPLAY A.
-    END
+        MOVE 5 TO J
+        DISPLAY J
     ELSE IF 5 != 5 THEN
-        MOVE 6 TO A.
-        DISPLAY A.
-    END
+        MOVE 6 TO J
+        DISPLAY J
     ELSE
-        MOVE 7 TO A.
-        DISPLAY A.
+        MOVE 7 TO J
+        DISPLAY J
     END.
 
-    MOVE 100 TO A.
-    DISPLAY A.
+    MOVE 100 TO J.
+    DISPLAY J.
