@@ -12,18 +12,18 @@ PROCEDURE DIVISION.
     ELSE IF 5 > 6 THEN
         MOVE 2 TO J
         DISPLAY J
-    ELSE IF 5 != 6 THEN
+    ELSE IF NOT 5 = 6 THEN
         MOVE 3 TO J
         DISPLAY J
-        JDD -10 TO -3 GIVING J
+        ADD -10 TO -3 GIVING J
         DISPLAY J
-    ELSE IF 5 == 6 THEN
+    ELSE IF 5 = 6 THEN
         MOVE 4 TO J
         DISPLAY J
-    ELSE IF 5 == 5 THEN
+    ELSE IF 5 = 5 THEN
         MOVE 5 TO J
         DISPLAY J
-    ELSE IF 5 != 5 THEN
+    ELSE IF NOT 5 = 5 THEN
         MOVE 6 TO J
         DISPLAY J
     ELSE
