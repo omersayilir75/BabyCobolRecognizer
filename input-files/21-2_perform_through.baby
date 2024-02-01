@@ -1,7 +1,7 @@
 IDENTIFICATION DIVISION.
-    PROGRAMID. "FIB".
-    AUTHOR. "ANONYMOUS".
-    DATA-WRITTEN. "2019-11-01".
+    PROGRAMID. FIB.
+    AUTHOR. ANONYMOUS.
+    DATA-WRITTEN. 2019-11-01.
 
 PROCEDURE DIVISION.
 MAIN.
@@ -9,12 +9,12 @@ MAIN.
     PERFORM C.
     PERFORM B THROUGH D.
 
-    A.
-        DISPLAY "A".
-    B.
-        DISPLAY "B".
-    C.
-        DISPLAY "C".
-    D.
-        DISPLAY "D".
+a.
+    DISPLAY "A".
+B.
+    DISPLAY "B".
+C.
+    DISPLAY "C".
+D.
+    DISPLAY "D".
 .
