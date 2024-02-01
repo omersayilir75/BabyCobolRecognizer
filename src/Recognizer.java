@@ -21,7 +21,7 @@ public class Recognizer {
 
     public static void main(String[] args) throws IOException {
         // Folder path:
-        String pathName = "C:\\Users\\omer_\\IdeaProjects\\BabyCobolRecognizer\\src\\Input-files";
+        String pathName = "C:\\Users\\omer_\\IdeaProjects\\BabyCobolRecognizer\\Input-files";
         log = new FileWriter("log.txt");
 
         try (Stream<Path> paths = Files.walk(Paths.get(pathName))) {
