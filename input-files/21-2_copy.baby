@@ -1,12 +1,12 @@
 IDENTIFICATION DIVISION.
-    PROGRAMID. "FIB".
-    AUTHOR. "ANONYMOUS".
-    DATA-WRITTEN. "2019-11-01".
+    PROGRAMID. FIB.
+    AUTHOR. ANONYMOUS.
+    DATA-WRITTEN. 2019-11-01.
 
 PROCEDURE DIVISION.
 MAIN.
     * HTTPS://WWW.IBM.COM/DOCS/EN/COBOL-ZOS/4.2?TOPIC=STATEMENTS-COPY-STATEMENT
-    COPY COPY.TEMPLATE REPLACING A BY ===HI===
-                                 B BY ===MOM===
-                                 C BY ===COBOL===
-                                 D BY ===LOL===
+    COPY copy REPLACING          a BY HI
+                                 B BY MOM
+                                 C BY COBOL
+                                 D BY LOL.
