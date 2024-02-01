@@ -66,6 +66,13 @@ public class BabyCobolBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitRepresentation(BabyCobolParser.RepresentationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitIdentifiers(BabyCobolParser.IdentifiersContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

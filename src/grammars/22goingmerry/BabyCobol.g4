@@ -8,9 +8,10 @@ identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT);
 
 data_division: DATA DIVISION DOT lines+=line*;
 line : record | field;
-record : INT* IDENTIFIER DOT;
-field : INT* IDENTIFIER ((PICTURE IS MASK) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
+record : INT IDENTIFIER DOT;
+field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
 
+representation: (IDENTIFIER | INT);
 
 identifiers     :   IDENTIFIER (OF IDENTIFIER)* ('(' INT ')')?;
 
@@ -286,7 +287,7 @@ PROCEED:    'PROCEED';
 
 
 WS : ( ' ' | '\t' | '\r' | '\n' )+ -> skip ;
-MASK : [VSAXZ9]+;
+//MASK : [VSAXZ9]+; // not worth it replace all occurences with identifier.
 INT : [0-9]+;
 DOUBLE : ('-'|'+')? INT ( DOT INT )? ;
 LITERAL :   '"' ~'"'+ '"'; // Any char except for "
