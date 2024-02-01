@@ -146,7 +146,8 @@ booleanFactor : booleanValue
               | '(' booleanExpression ')'
               ;
 
-booleanValue : comparisonExpression
+booleanValue : booleanOp
+             | comparisonExpression
              | NOT booleanValue
              ;
 
