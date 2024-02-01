@@ -174,12 +174,11 @@ anyOperation    :comparisonOp
                 ;
 
 //////OPERATIONS
-comparisonOp    :   '=='
+comparisonOp    :   '='
                 |   '>'
                 |   '<'
                 |   '>='
                 |   '<='
-                |   '!='
                 ;
 
 arithmeticOp    :   '+'
