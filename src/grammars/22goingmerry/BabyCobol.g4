@@ -115,9 +115,22 @@ evaluate_WhenClause : WHEN ((atomic (THROUGH atomic)?)+ ALSO)*
                     ;
 
 
-anyExpression : atomic
-              | booleanOp
+anyExpression : arithmeticExpression
+              | booleanExpression
+              | stringExpression
               ;
+
+arithmeticExpression : arithmeticAtomic
+                     | arithmeticExpression arithmeticOp arithmeticExpression
+                     ;
+arithmeticAtomic : identifiers | (INT | DOUBLE);
+
+
+stringExpression : stringAtomic
+                 | stringExpression '+' stringExpression
+                 ;
+
+stringAtomic : identifiers | LITERAL;
 
 atomic      : literal
             | identifiers
@@ -184,6 +197,7 @@ comparisonOp    :   '='
 arithmeticOp    :   '+'
                 |   '-'
                 |   '*'
+                |   '**'
                 |   '/'
                 ;
 
@@ -283,7 +297,7 @@ DIGIT : '-'? [0-9]+;
 STRING : '"' ~'"'+ '"';
 DASH : '-';
 COMMA: ',';
-COMMENTLINE     :   '*' ~[\r\n]* -> skip;
+COMMENT : '\r'? '\n' WS* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;
 
 
 

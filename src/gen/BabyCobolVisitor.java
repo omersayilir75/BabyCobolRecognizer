@@ -232,6 +232,30 @@ public interface BabyCobolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAnyExpression(BabyCobolParser.AnyExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link BabyCobolParser#arithmeticExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArithmeticExpression(BabyCobolParser.ArithmeticExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link BabyCobolParser#arithmeticAtomic}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArithmeticAtomic(BabyCobolParser.ArithmeticAtomicContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link BabyCobolParser#stringExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringExpression(BabyCobolParser.StringExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link BabyCobolParser#stringAtomic}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringAtomic(BabyCobolParser.StringAtomicContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link BabyCobolParser#atomic}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

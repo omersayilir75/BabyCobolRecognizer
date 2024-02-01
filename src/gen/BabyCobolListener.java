@@ -377,6 +377,46 @@ public interface BabyCobolListener extends ParseTreeListener {
 	 */
 	void exitAnyExpression(BabyCobolParser.AnyExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link BabyCobolParser#arithmeticExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmeticExpression(BabyCobolParser.ArithmeticExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BabyCobolParser#arithmeticExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmeticExpression(BabyCobolParser.ArithmeticExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BabyCobolParser#arithmeticAtomic}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmeticAtomic(BabyCobolParser.ArithmeticAtomicContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BabyCobolParser#arithmeticAtomic}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmeticAtomic(BabyCobolParser.ArithmeticAtomicContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BabyCobolParser#stringExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringExpression(BabyCobolParser.StringExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BabyCobolParser#stringExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringExpression(BabyCobolParser.StringExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link BabyCobolParser#stringAtomic}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringAtomic(BabyCobolParser.StringAtomicContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BabyCobolParser#stringAtomic}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringAtomic(BabyCobolParser.StringAtomicContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link BabyCobolParser#atomic}.
 	 * @param ctx the parse tree
 	 */
