@@ -8,12 +8,12 @@ identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT);
 
 data_division: DATA DIVISION DOT lines+=line*;
 line : record | field;
-record : INT IDENTIFIER DOT;
+record : INT IDENTIFIER (OCCURS INT* TIMES)? DOT;
 field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
 
 representation: (IDENTIFIER | INT);
 
-identifiers     :   IDENTIFIER (OF IDENTIFIER)* ('(' INT ')')?;
+identifiers     :   IDENTIFIER (INDEX)?(OF IDENTIFIER (INDEX)?)* ;
 
 procedure_division : PROCEDURE DIVISION (USING using*)? DOT statements* paragraph* DOT  ;
 
@@ -68,7 +68,7 @@ evaluate_statement : EVALUATE anyExpression (ALSO expression)* (evaluate_WhenCla
 
 if_statement : IF booleanExpression THEN then+=statement+ (ELSE esle+=statement+)? (END)? ;
 
-loop_statement: LOOP loops+=loop_types+ END;
+loop_statement: LOOP loops+=loop_types* END;
 
 move_statement : MOVE move_types TO move_ids+=identifiers+;
 
@@ -78,7 +78,7 @@ next_sentence_statement: NEXT SENTENCE;
 
 perform_statement : PERFORM IDENTIFIER (THROUGH IDENTIFIER)? (atomic TIMES)? ;
 
-signal_statement: SIGNAL IDENTIFIER OFF? ONERROR;
+signal_statement: SIGNAL (IDENTIFIER | OFF) ONERROR;
 
 stop_statement : STOP ;
 
@@ -95,7 +95,7 @@ call_types: BY REFERENCE IDENTIFIER
 
 display_types: SIZE
              | SPACE
-             | LITERAL
+             | literal
              ;
 
 move_types: SPACES
@@ -178,7 +178,7 @@ factor : literal | IDENTIFIER | anyOperation ;
 int             :   ('-'|'+')? INT;
 
 
-literal : int | DOUBLE | LITERAL;
+literal : int | DOUBLE | LITERAL | TRUE | FALSE;
 
 
 
@@ -298,8 +298,8 @@ VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;
 DASH : '-';
 COMMA: ',';
+INDEX   : '('[ \r\t]*[0-9]+[ \r\t]*')';
 COMMENT : '\r'? '\n' WS* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;
-
 
 
 

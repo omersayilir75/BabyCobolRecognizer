@@ -1,11 +1,3 @@
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_likeOnRecord.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_multipleValuesDisplay.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_noIdentificationProcedure.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_occurs.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_occursAfterPicture.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_performgotoexample.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_simpleOccurs.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_test1.bcl FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_easy_parse_all.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_extract_character.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_hard_fib.bcob FAIL
@@ -454,7 +446,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_AmbiguousLike.b
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_Arithmetics.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_CallParse.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_CaseInsensitivity.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_ComplexOccurs.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_ContractedExpression.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_copyTest.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_data.bcob FAIL
