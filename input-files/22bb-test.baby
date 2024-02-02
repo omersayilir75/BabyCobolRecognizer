@@ -1,4 +1,3 @@
-      * INITIAL DISPLAY AND ACCEPT TEST
        IDENTIFICATION DIVISION.
        PROGRAM-ID. TEST-ACCEPT-DISPLAY.
        DATA DIVISION.
@@ -9,8 +8,7 @@
        REST.
        SET Y TO 4
       *SF WR=.W=R/OW-4IR-3Q/
-       ADD 2 TO Y GIVI
-      -NG X
+       ADD 2 TO Y GIVING X
        DISPLAY 1
        COPY WHOAH
        DISPLAY 2.

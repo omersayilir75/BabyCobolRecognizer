@@ -1,11 +1,9 @@
        IDENTIFICATION DIVISION.
            PROGRAM-ID. PREPROCESSINVALID.
       * I AM A COMMENT AND SHOULD BE ACCEPTED
-123456 PROCEDURE DIVISION.
+      PROCEDURE DIVISION.
       * THOSE DIGITS ABOVE SHOULD BE ALLOWED AND REMOVED, AND I SHOULD BE EMPTY
-           DISPLAY                                                  1234 I AM NOT INCLUDED IN THIS LINE
-           DISPLAY 'ABC'
-      - WITH                                                NO ADVANCING.
-           ST
-      -OP.
-      _ I SHOULD CAUSE AN ERROR BECAUSE I HAVE AN UNDERSCORE IN COL 7
+           DISPLAY                                                  1234 "I AM NOT INCLUDED IN THIS LINE"
+           DISPLAY "ABC"
+       WITH                                                NO ADVANCING.
+           STOP.

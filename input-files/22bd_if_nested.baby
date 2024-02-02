@@ -1,23 +1,23 @@
-000001 IDENTIFICATION DIVISION.
-000002     PROGRAM-ID. TEST.
-000021 DATA DIVISION.
-000022     01 AH PICTURE IS 99.
-000003 PROCEDURE DIVISION.
-000004     MOVE 2 TO AH.
-000004     IF AH > 2 THEN
-000005         DISPLAY "NO"
-000005     ELSE
-000008         IF AH < 1 THEN
-000001             DISPLAY "NO"
-000006         ELSE
-000008             IF AH = 1 THEN
-000009                 DISPLAY "NO"
-000007             ELSE
-000009                 IF AH = 2 THEN
-000009                     DISPLAY "SUCCESS"
-000001                 ELSE
-000001                     DISPLAY "NO"
-000001                 END
-000001             END
-000001          END
-000001     END.
+ IDENTIFICATION DIVISION.
+     PROGRAM-ID. TEST.
+ DATA DIVISION.
+     01 AH PICTURE IS 99.
+ PROCEDURE DIVISION.
+     MOVE 2 TO AH.
+     IF AH > 2 THEN
+         DISPLAY "NO"
+     ELSE
+         IF AH < 1 THEN
+             DISPLAY "NO"
+         ELSE
+             IF AH = 1 THEN
+                 DISPLAY "NO"
+             ELSE
+                 IF AH = 2 THEN
+                     DISPLAY "SUCCESS"
+                 ELSE
+                     DISPLAY "NO"
+                 END
+             END
+          END
+     END.

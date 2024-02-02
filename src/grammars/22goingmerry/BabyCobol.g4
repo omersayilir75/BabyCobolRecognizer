@@ -1,6 +1,6 @@
 grammar BabyCobol;
 
-program : identification_division (data_division)? procedure_division EOF;
+program : identification_division (data_division)? (procedure_division)? EOF;
 
 identification_division :  IDENTIFICATION DIVISION DOT identificationEntry*;
 
