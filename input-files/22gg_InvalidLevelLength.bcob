@@ -1,4 +1,4 @@
        IDENTIFICATION DIVISION.
        DATA DIVISION.
-           0 X PICTURE 999.
-           111 Y PICTURE 999.
+           0 X PICTURE IS 999.
+           111 Y PICTURE IS 999.

@@ -1,10 +1,10 @@
        IDENTIFICATION DIVISION.
            PROGRAM-ID. FIBO.
-           AUTHOR. VADIM PAPER.
+           AUTHOR. VADIM_PAPER.
 
        DATA DIVISION.
        01 WORKING-STORAGE-AREA.
-       	  05 END PICTURE IS 99.
+       	  05 end PICTURE IS 99.
        	  05 CUR PICTURE IS ZZZZZZZZZZZZZZZZZZZZ.
        	  05 LAST.
        	    09 N LIKE CUR.
@@ -12,17 +12,17 @@
 
        PROCEDURE DIVISION.
             DISPLAY "ENTER THE LIMIT...".
-            ACCEPT END.
+            ACCEPT end.
             MOVE SPACES TO CUR LAST.
             DISPLAY N-1 DELIMITED BY SPACE.
-            SUBTRACT 1 FROM END.
+            SUBTRACT 1 FROM end.
             MOVE 1 TO N.
-            PERFORM PRINT-FIB END TIMES.
+            PERFORM PRINT-FIB end TIMES.
             STOP.
 
        PRINT-FIB.
             DISPLAY N DELIMITED BY SPACE.
             ADD N-1 TO N GIVING CUR.
       * NOT THE ORIGINAL CODE, ORIGINAL IS "NTON -1"
-            MOVE NTON-1.
-            MOVE CURTON.
+            MOVE N TO N-1.
+            MOVE CUR TO N.

@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. EVALUATE.
+           PROGRAM-ID. Ev.
        PROCEDURE DIVISION.
             EVALUATE 3 * 4
             WHEN 12 DISPLAY 12

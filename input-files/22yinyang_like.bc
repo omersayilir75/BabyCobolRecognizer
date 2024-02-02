@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. OCCURS.
+           PROGRAM-ID. OCCUR.
        DATA DIVISION.
            01 A PICTURE IS 9(9) OCCURS 5 TIMES.
            01 B LIKE A.

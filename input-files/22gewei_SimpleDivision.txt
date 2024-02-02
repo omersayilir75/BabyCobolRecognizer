@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. STOP.
+           PROGRAM-ID. stop.
 
        DATA DIVISION.
        77 P1 PICTURE IS 99.

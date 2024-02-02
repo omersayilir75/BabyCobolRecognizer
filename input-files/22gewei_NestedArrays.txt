@@ -4,16 +4,16 @@
         03 B PICTURE IS XX OCCURS 5 TIMES.
 
        PROCEDURE DIVISION.
-           MOVE "AB" TO B OF A(1, 2).
-           MOVE "CD" TO B OF A(1, 3).
-           MOVE "EF" TO B OF A(2, 1).
+           MOVE "AB" TO B OF A(1) A(2).
+           MOVE "CD" TO B OF A(1) A(3).
+           MOVE "EF" TO B OF A(2) A(1).
 
-           MOVE "GH" TO B OF A(2, 4).
+           MOVE "GH" TO B OF A(2) A(4).
 
 
       * EUHM
 
-           DISPLAY B OF A(1, 2).
-           DISPLAY B OF A(1, 3).
-           DISPLAY B OF A(2, 1).
-           DISPLAY B OF A(2, 4).
+           DISPLAY B OF A(12).
+           DISPLAY B OF A(13).
+           DISPLAY B OF A(21).
+           DISPLAY B OF A(24).

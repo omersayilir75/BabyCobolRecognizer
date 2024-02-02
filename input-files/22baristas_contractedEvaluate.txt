@@ -5,6 +5,6 @@
            03 X PICTURE IS 9(5).
        PROCEDURE DIVISION.
             EVALUATE X > 10
-                WHEN TRUE DISPLAY 'IN POSITIVE'
-                WHEN FALSE DISPLAY 'IN NEGATIVE'
+                WHEN TRUE DISPLAY "IN POSITIVE"
+                WHEN FALSE DISPLAY "IN NEGATIVE"
             END.

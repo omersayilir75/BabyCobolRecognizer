@@ -14,12 +14,12 @@
            03 ACB PICTURE IS X9X.
        PROCEDURE DIVISION.
            DISPLAY AA.
-           MOVE 'ABC' TO AAA
+           MOVE "ABC" TO AAA
            MOVE 123 TO AAB
-           MOVE 'DEF' TO ABA
+           MOVE "DEF" TO ABA
            MOVE 456 TO ABB
-           MOVE 'GHI' TO ACA
-           MOVE 'J7K' TO ACB.
+           MOVE "GHI" TO ACA
+           MOVE "J7K" TO ACB.
            DISPLAY A.
            ADD AAB TO ABB
            DISPLAY ABB.

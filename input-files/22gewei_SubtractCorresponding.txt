@@ -4,7 +4,7 @@
          03 X PICTURE IS S99.
          03 Y PICTURE IS S99.
 
-       01 END LIKE START.
+       01 end LIKE START.
        01 RESULT LIKE START.
 
        PROCEDURE DIVISION.
@@ -14,18 +14,18 @@
            MOVE 12 TO Y OF START.
            DISPLAY Y OF START.
 
-           MOVE 17 TO X OF END.
-           MOVE 17 TO Y OF END.
-           DISPLAY X OF END.
-           DISPLAY Y OF END.
+           MOVE 17 TO X OF end.
+           MOVE 17 TO Y OF end.
+           DISPLAY X OF end.
+           DISPLAY Y OF end.
 
       * SHOULD RESULT IN 12,5 FOR END
-           SUBTRACT START FROM END.
-           DISPLAY X OF END.
-           DISPLAY Y OF END.
+           SUBTRACT START FROM end.
+           DISPLAY X OF end.
+           DISPLAY Y OF end.
 
       * SHOULD RESULT IN 7,-7
-           SUBTRACT START FROM END GIVING RESULT.
+           SUBTRACT START FROM end GIVING RESULT.
            DISPLAY X OF RESULT.
            DISPLAY Y OF RESULT.
 

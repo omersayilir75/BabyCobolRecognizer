@@ -8,7 +8,7 @@
            SIGNAL ERR ON ERROR.
            IF 2/X < 100
                THEN DISPLAY "DIVIDED BY X SUCCESSFULLY".
-           GO TO END.
+           GO TO ENDING.
        DEAD-CODE.
            DISPLAY "NOT GOING TO EXECUTE THIS.".
        ERR.
@@ -17,5 +17,5 @@
            DISPLAY X.
            DISPLAY "ATTEMPTING ARITHMETIC AGAIN."
            GO TO BEGINNING.
-       END.
+       ENDING.
            DISPLAY "REACHED THE END".

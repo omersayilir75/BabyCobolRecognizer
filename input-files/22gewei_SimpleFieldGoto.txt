@@ -20,5 +20,4 @@
        PROC2.
            DISPLAY "PROC2".
 
-       END.
            STOP.

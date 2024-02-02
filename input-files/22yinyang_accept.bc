@@ -1,9 +1,9 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. ACCEPT.
+           PROGRAM-ID. ACC.
        DATA DIVISION.
            01 A PICTURE IS 9(9).
            01 B PICTURE IS X(9).
-           01 C PICTURE IS 9(5)X(4).
+           01 C PICTURE IS 9999XXXX.
        PROCEDURE DIVISION.
             DISPLAY "ENTER NUMERIC".
             ACCEPT A.

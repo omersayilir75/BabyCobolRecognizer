@@ -2,20 +2,20 @@
        DATA DIVISION.
 
       * SEE ALSO: DEFINEDIDENTIFIERCHAINRULETEST, FOR COMPLEX COMBINATIONS WITH 'OF' AS FIELD
-       01 PICTURE PICTURE IS 99.
-       01 ADD PICTURE IS 99.
-       01 OF.
-         03 OF PICTURE IS 99.
+       01 pic PICTURE IS 99.
+       01 add PICTURE IS 99.
+       01 of.
+         03 of PICTURE IS 99.
 
        PROCEDURE DIVISION.
-           MOVE 12 TO PICTURE.
-           DISPLAY PICTURE.
+           MOVE 12 TO pic.
+           DISPLAY pic.
 
-           MOVE 24 TO OF OF OF.
-           DISPLAY OF OF OF.
+           MOVE 24 TO of OF of.
+           DISPLAY of OF of.
 
-           ADD PICTURE OF OF OF TO ADD
-           ADD ADD TO PICTURE
+           ADD pic of OF of TO add
+           ADD add TO pic
 
-           DISPLAY ADD.
-           DISPLAY PICTURE.
+           DISPLAY add.
+           DISPLAY pic.

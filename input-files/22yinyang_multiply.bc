@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. MULTIPLY.
+           PROGRAM-ID. mult.
        DATA DIVISION.
            01 A PICTURE IS 9(9).
            01 B PICTURE IS 9(9).

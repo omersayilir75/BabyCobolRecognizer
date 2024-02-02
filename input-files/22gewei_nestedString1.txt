@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. EVALUATE ALSO TEST.
+           PROGRAM-ID. EVALUATEALSOTEST.
 
        PROCEDURE DIVISION.
            EVALUATE (4 ** ((2 - 3 * 5) + "AB"))

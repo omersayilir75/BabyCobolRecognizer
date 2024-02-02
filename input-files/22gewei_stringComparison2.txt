@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. EVALUATION TEST.
+           PROGRAM-ID. EVALUATIONTEST.
 
        DATA DIVISION.
        77 X PICTURE IS XX.
@@ -9,7 +9,7 @@
        PROCEDURE DIVISION.
            EVALUATE X ALSO Y
            WHEN Y ALSO X
-               DISPLAY "SIX"
+               ALSO DISPLAY "SIX"
            WHEN OTHER
                DISPLAY X
                DISPLAY "X1"

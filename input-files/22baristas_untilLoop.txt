@@ -9,4 +9,4 @@
            LOOP UNTIL GUESS = WIN
                 ACCEPT GUESS
            END
-           DISPLAY 'YOU WON'.
+           DISPLAY "YOU WON".

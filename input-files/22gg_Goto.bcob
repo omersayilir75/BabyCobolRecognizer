@@ -10,9 +10,9 @@
            DISPLAY "ADDING... COUNTER IS NOW:" WITH NO ADVANCING.
            DISPLAY COUNTER.
            IF COUNTER = 3
-               THEN GO TO END.
+               THEN GO TO end.
            GO TO X.
-       END.
+       end.
            MOVE "REAL-END" TO X.
            GO TO X.
        PART2.

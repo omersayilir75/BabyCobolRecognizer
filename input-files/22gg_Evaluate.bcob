@@ -8,14 +8,14 @@
        EVALUATING-STUFF.
            EVALUATE X ALSO Y
                WHEN 1 THROUGH 10 ALSO 5
-                   DISPLAY "CORRECT"
+                   ALSO DISPLAY "CORRECT"
                WHEN 4 ALSO 5
-                   DISPLAY "NOT HERE"
+                   ALSO DISPLAY "NOT HERE"
            END.
        OTHER-EVALUATE.
            EVALUATE X ALSO Y
                WHEN 6 ALSO 4
-                   DISPLAY "NOT HERE EITHER"
+                  ALSO DISPLAY "NOT HERE EITHER"
                WHEN OTHER
                    DISPLAY "CORRECT"
            END.

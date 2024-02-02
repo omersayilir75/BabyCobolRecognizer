@@ -8,7 +8,7 @@
        EVALUATING-STUFF.
            EVALUATE X ALSO Y
                WHEN 6 ALSO 4
-                   DISPLAY "NOT HERE"
+                  ALSO DISPLAY "NOT HERE"
                WHEN OTHER
                    DISPLAY "HERE!!"
            END.

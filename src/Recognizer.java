@@ -48,6 +48,7 @@ public class Recognizer {
                 CommonTokenStream tokens = new CommonTokenStream(lexer);
                 BabyCobolParser parser = new BabyCobolParser(tokens);
                 ParseTree tree = parser.program();
+
                 if (parser.getNumberOfSyntaxErrors() == 0) {
 //                        System.out.println(program.getName() + " PASS");
 //                          log.write(program.getPath() + " PASS\n");

@@ -30,7 +30,7 @@
             MOVE REC TO REC2.
       * ALTERED VALUES:
             DISPLAY A OF REC2.
-            DISPLAY B OF LAYER 1 OF REC2.
+            DISPLAY B OF LAYER1 OF REC2.
             DISPLAY Z OF REC2.
 
       * VALUES THAT SHOULD BE UNTOUCHED

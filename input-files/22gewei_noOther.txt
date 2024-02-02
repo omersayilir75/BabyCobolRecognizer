@@ -1,8 +1,8 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. EVALUATE ALSO TEST.
+           PROGRAM-ID. EVALUATEALSOTEST.
 
        PROCEDURE DIVISION.
            EVALUATE -2 ** 3 * 5 + 2 ALSO 10 / 2
-               WHEN -38 ALSO 5 DISPLAY "CORRECT"
+               WHEN -38 ALSO 5 ALSO DISPLAY "CORRECT"
            END.
            DISPLAY "GREAT".

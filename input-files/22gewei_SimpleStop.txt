@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. STOP.
+           PROGRAM-ID. simpleSTOP.
 
        PROCEDURE DIVISION.
            DISPLAY "HELLO!".

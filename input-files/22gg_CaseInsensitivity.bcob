@@ -4,6 +4,8 @@
            01 Y PICTURE IS 99.
            01 XY PICTURE IS 99.
        PROCEDURE DIVISION.
-           ADD XTOY.ADDYTOX. ADD 10TO X.
+           ADD X TO Y.
+           ADD Y TO X.
+           ADD 10 TO X.
            MOVE 42 TO XY.
-           MOV E 42 TO X Y.
+           MOVE 42 TO X Y.

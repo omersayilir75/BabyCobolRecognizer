@@ -10,10 +10,7 @@
        DISPLAY "BACK".
        STOP.
 
-      *LOOP VARYING A TO 1 BY -1
-      *    DISPLAY A
-      *    UNTIL A > 1
-      *END.
+
        X.
            DISPLAY "THIS IS A " A.
            DISPLAY "THIS IS B " B.

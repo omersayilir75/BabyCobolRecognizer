@@ -4,10 +4,10 @@ program : identification_division (data_division)? (procedure_division)? EOF;
 
 identification_division :  IDENTIFICATION DIVISION DOT identificationEntry*;
 
-identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT);
+identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT)| (copy_statement DOT);
 
 data_division: DATA DIVISION DOT lines+=line*;
-line : record | field | copy_statement;
+line : record | field | (copy_statement DOT);
 record : INT IDENTIFIER (OCCURS INT* TIMES)? DOT;
 field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
 

@@ -15,7 +15,7 @@
        PROCEDURE DIVISION.
            MOVE 98 TO AGE OF PERSON.
            MOVE 123 TO AGE OF DOG.
-           MOVE '123ABC' TO HOME OF DOG.
+           MOVE "123ABC" TO HOME OF DOG.
            ADD PERSON TO DOG.
            DISPLAY DOG.
 

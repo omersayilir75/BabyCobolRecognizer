@@ -7,15 +7,15 @@
            LOOP VARYING I FROM 1 BY 1
                 WHILE I<5
                 ACCEPT STD-MARK
-                DISPLAY 'STUDENT ' I ' DETAILS:'
+                DISPLAY "STUDENT " I " DETAILS:"
                 EVALUATE STD-MARK
                     WHEN 55 THROUGH 100
-                        DISPLAY 'STUDENT GOT FIRST CLASS'
+                        DISPLAY "STUDENT GOT FIRST CLASS"
                     WHEN 50 THROUGH 54
-                        DISPLAY 'STUDENT GOT SECOND CLASS'
+                        DISPLAY "STUDENT GOT SECOND CLASS"
                     WHEN 35 THROUGH 49
-                        DISPLAY 'STUDENT GOT THIRD CLASS'
+                        DISPLAY "STUDENT GOT THIRD CLASS"
                     WHEN OTHER
-                        DISPLAY 'STUDENT FAILED'
+                        DISPLAY "STUDENT FAILED"
                 END
            END.

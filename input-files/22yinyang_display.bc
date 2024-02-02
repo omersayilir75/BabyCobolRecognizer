@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. DISPLAY.
+           PROGRAM-ID. DISP.
        DATA DIVISION.
            01 A PICTURE IS 9(9).
        PROCEDURE DIVISION.
