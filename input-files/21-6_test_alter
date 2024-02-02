@@ -3,18 +3,18 @@
        PROCEDURE DIVISION.
            DISPLAY "INIT".
            ALTER JUMP2 TO PROCEED TO FIRST.
-           GOTO JUMP.
+           GO TO JUMP.
        LAST.
            DISPLAY "LASTLY".
            STOP.
        FIRST.
            DISPLAY "FIRST".
            ALTER JUMP2 TO PROCEED TO MIDDLE.
-           GOTO JUMP.
+           GO TO JUMP.
        MIDDLE.
            DISPLAY "MIDDLE".
            ALTER JUMP2 TO PROCEED TO LAST.
-           GOTO JUMP.
+           GO TO JUMP.
        JUMP.
            DISPLAY "JUMP... TO..." WITH NO ADVANCING.
        JUMP2.

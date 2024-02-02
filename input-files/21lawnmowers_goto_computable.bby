@@ -5,15 +5,15 @@
        DATA DIVISION.
            01 VAR PICTURE IS AA.
        PROCEDURE DIVISION.
-       10.
+       PROC10.
            ACCEPT VAR.
-           GO TO 30.
+           GO TO PROC30.
            DISPLAY SHOULDNOT.
-       20.
+       PROC20.
            DISPLAY SHOULD1.
-           GO TO 40.
-       30.
+           GO TO PROC40.
+       PROC30.
            GO TO VAR.
            DISPLAY SHOULDNOT.
-       40.
+       PROC40.
            DISPLAY SHOULD2.

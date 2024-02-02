@@ -9,8 +9,8 @@ PROCEDURE DIVISION.
     DISPLAY "FIRST PARSE TREE PRINT".
     DISPLAY K.
     DISPLAY L.
-    COPY copy.
+    COPY "copy.baby".
     DISPLAY "BACK IN FIRST TREE PRINTS".
     DISPLAY N.
     DISPLAY M.
-    COPY copy REPLACING N BY K M BY L.
+    COPY "copy.baby" REPLACING ===N=== BY ===K=== ===M=== BY ===L===.

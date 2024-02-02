@@ -4,8 +4,8 @@
            DATE-WRITTEN. 2022-04-21.
        DATA DIVISION.
        PROCEDURE DIVISION.
-       1.
-           PERFORM 2 2 TIMES.
+       PROC1.
+           PERFORM PROC2 2 TIMES.
            STOP.
-       2.
+       PROC2.
            DISPLAY SHOULD2TIMES.

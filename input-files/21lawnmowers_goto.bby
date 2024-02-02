@@ -4,13 +4,13 @@
            DATE-WRITTEN. 2022-04-21.
        DATA DIVISION.
        PROCEDURE DIVISION.
-       1.
-           GO TO 4.
-       2.
+       PROC1.
+           GO TO PROC4.
+       PROC2.
            DISPLAY SHOULDNOT.
-       3.
+       PROC3.
            DISPLAY SHOULD2.
            STOP.
-       4.
+       PROC4.
            DISPLAY SHOULD1.
-           GO TO 3.
+           GO TO PROC3.

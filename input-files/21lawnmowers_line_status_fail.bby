@@ -4,7 +4,5 @@
            DATE-WRITTEN. 2022-04-21.
        DATA DIVISION.
        PROCEDURE DIVISION.
-           DISPLAY SHOUL
-      &    D1.
-           DIS
-      -    PLAY SHOULD2.
+           DISPLAY SHOULD1.
+           DISPLAY SHOULD2.

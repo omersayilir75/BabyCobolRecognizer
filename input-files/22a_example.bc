@@ -1,7 +1,6 @@
-      * ADAPTED FROM BABYCOBOL NURSERY
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. EXAMPLE PROGRAM.
-           AUTHOR. THE A-TEAM AND VADIM ZAYTSEV.
+           PROGRAM-ID. EXAMPLE_PROGRAM.
+           AUTHOR. THE_A-TEAM_AND_VADIM_ZAYTSEV.
            DATE-WRITTEN. 2023-02-13.
        DATA DIVISION.
        01 WORKING-STORAGE-AREA.
@@ -19,10 +18,10 @@
       * COMMENT GOES HERE
           03 FRED-JIM LIKE BAR-BAZ.
           03 RESULT PICTURE IS XXX.
-       PROCEDURE DIVISION.                                              BOGUS
+       PROCEDURE DIVISION.
            PERFORM DECORATED-LINE 8 TIMES.
            DISPLAY "".
-           DISPLAY "EXAMPLE PROGRAM FOLLOWS. IT IS AN EXAMPLE PROGRAM 
+           DISPLAY "EXAMPLE PROGRAM FOLLOWS. IT IS AN EXAMPLE PROGRAM
       -WRITTEN BY THE A-TEAM TO SERVE AS AN EXAMPLE OF A BABYCOBOL-INTERGARBAGE
       -PRETER.".
            ALTER ALTERED TO PROCEED TO DESTINATION.
@@ -38,9 +37,9 @@
            DISPLAY WIBBLE.
            MOVE "B" TO WIBBLE OF SOME-RECORD.
            DISPLAY WIBBLE.
-           MOVE "C" TO WIBBLE OFSOME- RECORD OF WORK ING-STORAGE-AREA.
+           MOVE "C" TO WIBBLE OF SOME-RECORD OF WORKING-STORAGE-AREA.
            DISPLAY WIBBLE.
-           MOVE "D" TO WIBBLE OF WORK ING-STO RAGE-AREA.
+           MOVE "D" TO WIBBLE OF WORKING-STORAGE-AREA.
            DISPLAY WIBBLE.
            MOVE "E" TO BLARG OF SOME-RECORD.
            DISPLAY BLARG OF SOME-RECORD.
@@ -73,13 +72,13 @@
            MULTIPLY 2 BY 4 GIVING SPAM-EGGS.
            DISPLAY "IS FRED-JIM BIGGER THAN 10? " WITH NO ADVANCING.
       * ALSO COMMENT
-           IF FRED-JIM > 10 THEN                                        B
-B             DISPLAY "CERTAINLY, IT IS " FRED-JIM                       O
- O            MOVE "YES" TO RESULT                                        G
-  G        ELSE                                                            U
-   U          DISPLAY "NOPE, IT IS " FRED-JIM                               S
-    S         MOVE "NO" TO RESULT                                            .
-     .     END.
+           IF FRED-JIM > 10 THEN
+              DISPLAY "CERTAINLY, IT IS " FRED-JIM
+              MOVE "YES" TO RESULT
+           ELSE
+              DISPLAY "NOPE, IT IS " FRED-JIM
+              MOVE "NO" TO RESULT
+           END.
            LOOP
               VARYING
               DISPLAY ".... " WITH NO ADVANCING

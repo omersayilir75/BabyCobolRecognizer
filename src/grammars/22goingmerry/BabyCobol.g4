@@ -7,11 +7,11 @@ identification_division :  IDENTIFICATION DIVISION DOT identificationEntry*;
 identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT);
 
 data_division: DATA DIVISION DOT lines+=line*;
-line : record | field;
+line : record | field | copy_statement;
 record : INT IDENTIFIER (OCCURS INT* TIMES)? DOT;
 field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
 
-representation: (IDENTIFIER | INT) INDEX?; // inclusion indes allows for 9(20) and such
+representation: (IDENTIFIER | INT) INDEX?; // inclusion index allows for 9(20) and such
 
 identifiers     :   IDENTIFIER (INDEX)?(OF IDENTIFIER (INDEX)?)* ;
 
@@ -54,9 +54,9 @@ add_statement : ADD add+=atomic+ TO to+=atomic (GIVING ident+=identifiers)* ;
 
 alter_statement: ALTER IDENTIFIER TO PROCEED TO IDENTIFIER;
 
-call_statement: CALL IDENTIFIER (USING call_types+)? ;
+call_statement: CALL (IDENTIFIER | LITERAL) (USING call_types+)? ;
 
-copy_statement: COPY IDENTIFIER (REPLACING (replace=atomic BY by=atomic)+)?;
+copy_statement: COPY (IDENTIFIER | LITERAL) (REPLACING (replace=COPYLITERAL BY by=COPYLITERAL)+)?;
 
 display_statement : DISPLAY (atomic (DELIMITED  BY display_types)?)+  (WITH NO ADVANCING)?;
 
@@ -287,12 +287,11 @@ PROCEED:    'PROCEED';
 
 
 WS : ( ' ' | '\t' | '\r' | '\n' )+ -> skip ;
-//MASK : [VSAXZ9]+; // not worth it replace all occurences with identifier.
 INT : [0-9]+;
 DOUBLE : ('-'|'+')? INT ( DOT INT )? ;
-LITERAL :   '"' ~'"'+ '"'; // Any char except for "
+LITERAL :   '"' ~'"'* '"'; // Any char except for "
+COPYLITERAL :  '===' ~'='* '===';
 DOT : '.';
-//IDENTIFIER : VAR (VAR | DIGIT | DASH)* ;
 IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*;
 VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;

@@ -4,11 +4,11 @@
            DATE-WRITTEN. 2022-04-26.
        DATA DIVISION.
        PROCEDURE DIVISION.
-       1.
+       PROC1.
            IF TRUE THEN DISPLAY SHOULD1 NEXT SENTENCE
-      -    DISPLAY SHOULDNOT END.
+           DISPLAY SHOULDNOT END.
            DISPLAY SHOULD2.
            NEXT SENTENCE.
-       2.
+       PROC2.
            DISPLAY SHOULD3.
            NEXT SENTENCE.

@@ -6,7 +6,7 @@ IDENTIFICATION DIVISION.
 PROCEDURE DIVISION.
 MAIN.
     * HTTPS://WWW.IBM.COM/DOCS/EN/COBOL-ZOS/4.2?TOPIC=STATEMENTS-COPY-STATEMENT
-    COPY copy REPLACING          a BY HI
-                                 B BY MOM
-                                 C BY COBOL
-                                 D BY LOL.
+    COPY "copy.TEMPLATE" REPLACING          ===a=== BY ===HI===
+                                 ===B=== BY ===MOM===
+                                 ===C=== BY ===COBOL===
+                                 ===D=== BY ===LOL===.

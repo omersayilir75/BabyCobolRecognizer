@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-           PROGRAM-ID. CALLED PROGRAM BAR.
+           PROGRAM-ID. BAR.
        PROCEDURE DIVISION.
            PERFORM X 3 TIMES.
            STOP.

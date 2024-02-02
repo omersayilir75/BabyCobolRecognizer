@@ -9,13 +9,13 @@
            IF VAR = 10 OR 20 THEN DISPLAY SHOULD1 END.
            MOVE 15 TO VAR.
            IF VAR > 10 AND < 20 OR 100 AND > 80 THEN 
-      -    DISPLAY SHOULDNOT END.
+           DISPLAY SHOULDNOT END.
            MOVE 50 TO VAR.
            IF VAR > 10 AND < 20 OR 100 AND > 80 THEN 
-      -    DISPLAY SHOULDNOT END.
+           DISPLAY SHOULDNOT END.
            MOVE 85 TO VAR.
            IF VAR > 10 AND < 20 OR 100 AND > 80 THEN 
-      -    DISPLAY SHOULD2 END.
+           DISPLAY SHOULD2 END.
            MOVE 105 TO VAR.
            IF VAR > 10 AND < 20 OR 100 AND > 80 THEN 
-      -    DISPLAY SHOULDNOT END.
+           DISPLAY SHOULDNOT END.

@@ -2,7 +2,7 @@
            PROGRAM-ID. NEXTSENTENCE.
        PROCEDURE DIVISION.
            NEXT SENTENCE
-           GOTO FAIL.
+           GO TO FAIL.
            DISPLAY "THIS TEST SUCCEEDS"
            STOP.
        FAIL.
