@@ -1,4 +1,3 @@
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_hard_fib.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_hard_parse_all.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_alter FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_divide.bcob FAIL
@@ -6,9 +5,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_next_sente
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_signal.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_Vadim_test1.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_Vadim_test2.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_add.bby FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_data.bby FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_divide.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_evaluate.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_goto.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_goto_computable.bby FAIL
@@ -16,7 +12,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_if_cont
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_line_cont.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_line_status_fail.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_loop_goto.bby FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_multiply.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_next_sentence.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_perform_times.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22a_bar.bc FAIL
@@ -24,8 +19,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22a_example.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22a_example2.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22a_foo.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_ADD.txt FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_ADD_CompField.txt FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_contractedEvaluate.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_contractedIf.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_CopyLoop.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_DisplayDelim.txt FAIL
@@ -35,8 +28,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_FIBdiffic
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_FIBeasy.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_ifContracted.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_ifExample.txt FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_moveComposite.txt FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_moveFigurative.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_Next.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_occurs.txt FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22baristas_occursLike.txt FAIL
@@ -459,7 +450,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_InvalidLineCont
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_KeyWithoutValue.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_Like.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_LineContinuation.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_MoveFigurativeConstants.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_nested_procedure.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_Occurs.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_Picture.bcob FAIL
@@ -490,7 +480,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22hh_TestSubstract.b
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22kleankode_main.bcbl FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_accept.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_add.bc FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_alter.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_boos.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_copy_a.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_copy_b.bc FAIL
@@ -501,7 +490,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_divide.bc 
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_evaluate.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_fib_no_ws.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_fib_problematic.bc FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_goto.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_if.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_like.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_loop.bc FAIL
@@ -512,7 +500,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_next_sente
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_occurs.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_perform.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_perform_goto.bc FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_signal.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_stop.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_subtract.bc FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22yinyang_sufficient_qualification.bc FAIL

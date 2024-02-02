@@ -11,7 +11,7 @@ line : record | field;
 record : INT IDENTIFIER (OCCURS INT* TIMES)? DOT;
 field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
 
-representation: (IDENTIFIER | INT);
+representation: (IDENTIFIER | INT) INDEX?; // inclusion indes allows for 9(20) and such
 
 identifiers     :   IDENTIFIER (INDEX)?(OF IDENTIFIER (INDEX)?)* ;
 
