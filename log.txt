@@ -1,15 +1,11 @@
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_easy_parse_all.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_extract_character.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_hard_fib.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_hard_parse_all.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_alter FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_divide.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_evaluate.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_next_sentence.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_test_signal.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_Vadim_test1.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-6_Vadim_test2.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-7-VADIM.BC FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_add.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_data.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_divide.bby FAIL
@@ -446,7 +442,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_AmbiguousLike.b
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_Arithmetics.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_CallParse.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_CaseInsensitivity.bcob FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_ContractedExpression.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_copyTest.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_data.bcob FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\22gg_DuplicateName.bcob FAIL

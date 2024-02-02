@@ -298,7 +298,7 @@ VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;
 DASH : '-';
 COMMA: ',';
-INDEX   : '('[ \r\t]*[0-9]+[ \r\t]*')';
+INDEX   : '('([ \r\t]*[0-9]+[ \r\t]* | IDENTIFIER)')';
 COMMENT : '\r'? '\n' WS* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;
 
 
