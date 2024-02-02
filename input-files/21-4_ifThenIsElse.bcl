@@ -1,11 +1,11 @@
        IDENTIFICATION DIVISION.
            PROGRAM-ID. TEST.
        DATA DIVISION.
-           01 THEN PICTURE IS 999.
-           01 ELSE PICTURE IS 999.
+           01 then PICTURE IS 999.
+           01 else PICTURE IS 999.
        PROCEDURE DIVISION.
-           ACCEPT THEN ELSE.
-           IF THEN = ELSE THEN
+           ACCEPT then else.
+           IF then = else THEN
                DISPLAY "THEN IS ELSE"
            ELSE
                DISPLAY "THEN IS NOT ELSE"

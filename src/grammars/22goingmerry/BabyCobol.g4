@@ -60,7 +60,7 @@ copy_statement: COPY IDENTIFIER (REPLACING (replace=atomic BY by=atomic)+)?;
 
 display_statement : DISPLAY (atomic (DELIMITED  BY display_types)?)+  (WITH NO ADVANCING)?;
 
-divide_statement : DIVIDE div=atomic INTO into+=atomic+ ( GIVING giving_id+=identifiers+  (REMAINDER remainder_id=identifiers)? )? ;
+divide_statement : DIVIDE div=atomic    INTO into+=atomic+ ( GIVING giving_id+=identifiers+  (REMAINDER remainder_id=identifiers)? )? ;
 
 go_to_statement: GO TO IDENTIFIER;
 
@@ -95,7 +95,7 @@ call_types: BY REFERENCE IDENTIFIER
 
 display_types: SIZE
              | SPACE
-             | STRING
+             | LITERAL
              ;
 
 move_types: SPACES
@@ -138,7 +138,7 @@ atomic      : literal
             ;
 
 
-booleanExpression : left=booleanTerm (OR right+=booleanTerm)*
+booleanExpression : left=booleanTerm ((OR |  XOR) right+=booleanTerm)*
                   ;
 
 booleanTerm : left=booleanFactor (AND right+=booleanFactor)* ;
@@ -296,7 +296,6 @@ DOT : '.';
 IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*;
 VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;
-STRING : '"' ~'"'+ '"';
 DASH : '-';
 COMMA: ',';
 COMMENT : '\r'? '\n' WS* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;

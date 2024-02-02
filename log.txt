@@ -1,11 +1,3 @@
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_arrayNoIndex.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_commentsIgnored.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_delimitedByLiteralDisplay.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_displayDisplay.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_divideWithRemainder.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_emptyDisplay.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_ifBooleanOperators.bcl FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_ifThenIsElse.bcl FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_likeOnRecord.bcl FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_multipleValuesDisplay.bcl FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21-4_noIdentificationProcedure.bcl FAIL
@@ -32,7 +24,6 @@ C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_divide.
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_evaluate.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_goto.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_goto_computable.bby FAIL
-C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_if.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_if_contracted_advanced.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_line_cont.bby FAIL
 C:\Users\omer_\IdeaProjects\BabyCobolRecognizer\Input-files\21lawnmowers_line_status_fail.bby FAIL

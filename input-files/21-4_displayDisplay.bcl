@@ -1,4 +1,4 @@
        IDENTIFICATION DIVISION.
            PROGRAM-ID. TEST.
        PROCEDURE DIVISION.
-           DISPLAY DISPLAY.
+           DISPLAY D.
