@@ -14,124 +14,155 @@ class BabyCobolGenerator(Generator):
 
     def program(self, parent=None):
         with UnparserRuleContext(self, 'program', parent) as current:
-            self._reserve(6, self.identification_division, parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(2, 3), 6) as quant0:
+            self._reserve(1, self.identification_division, parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(2, 3), 1) as quant0:
                 while quant0(current):
                     self.data_division(parent=current)
-            self._reserve(1, self.procedure_division, parent=current)
+            with QuantifierContext(self, 1, 0, 1, RuleSize(2, 4), 1) as quant1:
+                while quant1(current):
+                    self.procedure_division(parent=current)
             self.EOF(parent=current)
             return current
-    program.min_size = RuleSize(5, 15)
+    program.min_size = RuleSize(2, 4)
 
     def identification_division(self, parent=None):
         with UnparserRuleContext(self, 'identification_division', parent) as current:
-            self._reserve(8, self.IDENTIFICATION, parent=current)
-            self._reserve(7, self.DIVISION, parent=current)
-            self._reserve(6, self.DOT, parent=current)
-            with QuantifierContext(self, 0, 1, inf, RuleSize(3, 6), 0) as quant0:
+            self._reserve(2, self.IDENTIFICATION, parent=current)
+            self._reserve(1, self.DIVISION, parent=current)
+            self.DOT(parent=current)
+            with QuantifierContext(self, 0, 0, inf, RuleSize(2, 3), 0) as quant0:
                 while quant0(current):
-                    self._reserve(4, self.name, parent=current)
-                    self._reserve(3, self.DOT, parent=current)
-                    self._reserve(1, self.value, parent=current)
+                    self.identificationEntry(parent=current)
+            return current
+    identification_division.min_size = RuleSize(1, 3)
+
+    def identificationEntry(self, parent=None):
+        with UnparserRuleContext(self, 'identificationEntry', parent) as current:
+            with AlternationContext(self, 0, (RuleSize(1, 4), RuleSize(2, 3)), 0, (1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    self._reserve(3, self.IDENTIFIER, parent=current)
+                    self._reserve(2, self.DOT, parent=current)
+                    self._reserve(1, self.IDENTIFIER, parent=current)
+                    self.DOT(parent=current)
+                elif choice0 == 1:
+                    self._reserve(1, self.copy_statement, parent=current)
                     self.DOT(parent=current)
             return current
-    identification_division.min_size = RuleSize(3, 9)
-
-    def name(self, parent=None):
-        with UnparserRuleContext(self, 'name', parent) as current:
-            self.IDENTIFIER(parent=current)
-            return current
-    name.min_size = RuleSize(2, 2)
-
-    def value(self, parent=None):
-        with UnparserRuleContext(self, 'value', parent) as current:
-            self.IDENTIFIER(parent=current)
-            return current
-    value.min_size = RuleSize(2, 2)
+    identificationEntry.min_size = RuleSize(1, 3)
 
     def data_division(self, parent=None):
+        local_ctx = dict(lines=[])
         with UnparserRuleContext(self, 'data_division', parent) as current:
             self._reserve(2, self.DATA, parent=current)
             self._reserve(1, self.DIVISION, parent=current)
             self.DOT(parent=current)
-            with QuantifierContext(self, 0, 0, inf, RuleSize(4, 5), 0) as quant0:
+            with QuantifierContext(self, 0, 0, inf, RuleSize(3, 3), 0) as quant0:
                 while quant0(current):
-                    self.data(parent=current)
+                    self.line(parent=current)
+                    local_ctx['lines'].append(current.last_child)
             return current
     data_division.min_size = RuleSize(1, 3)
 
-    def data(self, parent=None):
-        with UnparserRuleContext(self, 'data', parent) as current:
-            self._reserve(3, self.level, parent=current)
+    def line(self, parent=None):
+        with UnparserRuleContext(self, 'line', parent) as current:
+            with AlternationContext(self, 0, (RuleSize(2, 3), RuleSize(3, 5), RuleSize(2, 3)), 0, (1, 1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    self.record(parent=current)
+                elif choice0 == 1:
+                    self.field(parent=current)
+                elif choice0 == 2:
+                    self._reserve(1, self.copy_statement, parent=current)
+                    self.DOT(parent=current)
+            return current
+    line.min_size = RuleSize(2, 3)
+
+    def record(self, parent=None):
+        with UnparserRuleContext(self, 'record', parent) as current:
+            self._reserve(2, self.INT, parent=current)
             self._reserve(1, self.IDENTIFIER, parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(2, 3), 1) as quant0:
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 2), 1) as quant0:
                 while quant0(current):
-                    with AlternationContext(self, 0, (RuleSize(3, 4), RuleSize(2, 3)), 0, (1, 1)) as alt0:
-                        choice0 = alt0(current)
-                        if choice0 == 0:
-                            self._reserve(3, self.PICTURE, parent=current)
-                            self._reserve(2, self.IS, parent=current)
-                            self.representation(parent=current)
-                        elif choice0 == 1:
-                            self._reserve(2, self.LIKE, parent=current)
-                            self.IDENTIFIER(parent=current)
-            with QuantifierContext(self, 1, 0, 1, RuleSize(2, 4), 1) as quant1:
-                while quant1(current):
-                    self._reserve(3, self.OCCURS, parent=current)
-                    self._reserve(1, self.NUMBER, parent=current)
+                    self._reserve(1, self.OCCURS, parent=current)
+                    with QuantifierContext(self, 1, 0, inf, RuleSize(1, 1), 1) as quant1:
+                        while quant1(current):
+                            self.INT(parent=current)
                     self.TIMES(parent=current)
             self.DOT(parent=current)
             return current
-    data.min_size = RuleSize(3, 5)
+    record.min_size = RuleSize(1, 3)
 
-    def level(self, parent=None):
-        with UnparserRuleContext(self, 'level', parent) as current:
-            self.NUMBER(parent=current)
+    def field(self, parent=None):
+        with UnparserRuleContext(self, 'field', parent) as current:
+            self._reserve(4, self.INT, parent=current)
+            self._reserve(3, self.IDENTIFIER, parent=current)
+            with AlternationContext(self, 0, (RuleSize(2, 3), RuleSize(2, 2)), 1, (1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    self._reserve(2, self.PICTURE, parent=current)
+                    self._reserve(1, self.IS, parent=current)
+                    self.representation(parent=current)
+                elif choice0 == 1:
+                    self._reserve(1, self.LIKE, parent=current)
+                    self.identifiers(parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 2), 1) as quant0:
+                while quant0(current):
+                    self._reserve(1, self.OCCURS, parent=current)
+                    with QuantifierContext(self, 1, 0, inf, RuleSize(1, 1), 1) as quant1:
+                        while quant1(current):
+                            self.INT(parent=current)
+                    self.TIMES(parent=current)
+            self.DOT(parent=current)
             return current
-    level.min_size = RuleSize(2, 2)
+    field.min_size = RuleSize(2, 5)
 
     def representation(self, parent=None):
         with UnparserRuleContext(self, 'representation', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(2, 2), RuleSize(2, 2), RuleSize(2, 2)), 0, (1, 1, 1)) as alt0:
-                choice0 = alt0(current)
-                if choice0 == 0:
-                    with QuantifierContext(self, 0, 1, inf, RuleSize(2, 2), 0) as quant0:
-                        while quant0(current):
-                            self.NUMBER(parent=current)
-                    with QuantifierContext(self, 1, 0, 1, RuleSize(2, 4), 0) as quant1:
-                        while quant1(current):
-                            self._reserve(3, self.T__0, parent=current)
-                            with QuantifierContext(self, 2, 1, inf, RuleSize(2, 2), 1) as quant2:
-                                while quant2(current):
-                                    self.NUMBER(parent=current)
-                            self.T__1(parent=current)
-                elif choice0 == 1:
-                    self.IDENTIFIER(parent=current)
-                elif choice0 == 2:
-                    self.NUMBER(parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                [self.IDENTIFIER, self.INT][alt0(current)](parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 1), 0) as quant0:
+                while quant0(current):
+                    self.INDEX(parent=current)
             return current
-    representation.min_size = RuleSize(2, 2)
+    representation.min_size = RuleSize(1, 1)
+
+    def identifiers(self, parent=None):
+        with UnparserRuleContext(self, 'identifiers', parent) as current:
+            self.IDENTIFIER(parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 1), 0) as quant0:
+                while quant0(current):
+                    self.INDEX(parent=current)
+            with QuantifierContext(self, 1, 0, inf, RuleSize(1, 2), 0) as quant1:
+                while quant1(current):
+                    self._reserve(1, self.OF, parent=current)
+                    self.IDENTIFIER(parent=current)
+                    with QuantifierContext(self, 2, 0, 1, RuleSize(1, 1), 0) as quant2:
+                        while quant2(current):
+                            self.INDEX(parent=current)
+            return current
+    identifiers.min_size = RuleSize(1, 1)
 
     def procedure_division(self, parent=None):
         with UnparserRuleContext(self, 'procedure_division', parent) as current:
-            self._reserve(4, self.PROCEDURE, parent=current)
-            self._reserve(3, self.DIVISION, parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 1), 3) as quant0:
+            self._reserve(3, self.PROCEDURE, parent=current)
+            self._reserve(2, self.DIVISION, parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 1), 2) as quant0:
                 while quant0(current):
                     self.USING(parent=current)
-                    with QuantifierContext(self, 1, 0, inf, RuleSize(3, 3), 0) as quant1:
+                    with QuantifierContext(self, 1, 0, inf, RuleSize(2, 3), 0) as quant1:
                         while quant1(current):
                             self.using(parent=current)
-            self._reserve(2, self.DOT, parent=current)
-            with QuantifierContext(self, 2, 1, inf, RuleSize(4, 1), 1) as quant2:
+            self._reserve(1, self.DOT, parent=current)
+            with QuantifierContext(self, 2, 0, inf, RuleSize(4, 1), 1) as quant2:
                 while quant2(current):
                     self.statements(parent=current)
-            with QuantifierContext(self, 3, 0, inf, RuleSize(5, 4), 1) as quant3:
+            with QuantifierContext(self, 3, 0, inf, RuleSize(5, 3), 1) as quant3:
                 while quant3(current):
                     self.paragraph(parent=current)
             self.DOT(parent=current)
             return current
-    procedure_division.min_size = RuleSize(4, 5)
+    procedure_division.min_size = RuleSize(1, 4)
 
     def paragraph(self, parent=None):
         with UnparserRuleContext(self, 'paragraph', parent) as current:
@@ -141,7 +172,7 @@ class BabyCobolGenerator(Generator):
                 while quant0(current):
                     self.statements(parent=current)
             return current
-    paragraph.min_size = RuleSize(4, 4)
+    paragraph.min_size = RuleSize(4, 3)
 
     def statements(self, parent=None):
         with UnparserRuleContext(self, 'statements', parent) as current:
@@ -156,11 +187,11 @@ class BabyCobolGenerator(Generator):
 
     def using(self, parent=None):
         with UnparserRuleContext(self, 'using', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(2, 4), RuleSize(3, 3), RuleSize(3, 3)), 0, (1, 1, 1)) as alt0:
+            with AlternationContext(self, 0, (RuleSize(1, 3), RuleSize(3, 3), RuleSize(3, 3)), 0, (1, 1, 1)) as alt0:
                 choice0 = alt0(current)
                 if choice0 == 0:
-                    self._reserve(3, self.BY, parent=current)
-                    self._reserve(2, self.REFERENCE, parent=current)
+                    self._reserve(2, self.BY, parent=current)
+                    self._reserve(1, self.REFERENCE, parent=current)
                     self.IDENTIFIER(parent=current)
                 elif choice0 == 1:
                     self._reserve(2, self.BY, parent=current)
@@ -171,11 +202,11 @@ class BabyCobolGenerator(Generator):
                     self._reserve(1, self.VALUE, parent=current)
                     self.atomic(parent=current)
             return current
-    using.min_size = RuleSize(2, 3)
+    using.min_size = RuleSize(1, 3)
 
     def statement(self, parent=None):
         with UnparserRuleContext(self, 'statement', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(3, 3), RuleSize(4, 4), RuleSize(3, 8), RuleSize(3, 3), RuleSize(3, 3), RuleSize(4, 2), RuleSize(4, 4), RuleSize(4, 5), RuleSize(3, 4), RuleSize(6, 4), RuleSize(3, 3), RuleSize(3, 5), RuleSize(4, 4), RuleSize(2, 2), RuleSize(3, 3), RuleSize(3, 4), RuleSize(2, 1), RuleSize(4, 4)), 0, (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)) as alt0:
+            with AlternationContext(self, 0, (RuleSize(3, 2), RuleSize(4, 4), RuleSize(2, 6), RuleSize(2, 2), RuleSize(2, 2), RuleSize(4, 2), RuleSize(4, 4), RuleSize(5, 4), RuleSize(2, 3), RuleSize(6, 3), RuleSize(2, 2), RuleSize(3, 4), RuleSize(4, 4), RuleSize(2, 2), RuleSize(2, 2), RuleSize(2, 3), RuleSize(2, 1), RuleSize(4, 4)), 0, (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)) as alt0:
                 [self.accept_statement, self.add_statement, self.alter_statement, self.call_statement, self.copy_statement, self.display_statement, self.divide_statement, self.evaluate_statement, self.go_to_statement, self.if_statement, self.loop_statement, self.move_statement, self.multiply_statement, self.next_sentence_statement, self.perform_statement, self.signal_statement, self.stop_statement, self.subtract_statement][alt0(current)](parent=current)
             return current
     statement.min_size = RuleSize(2, 1)
@@ -183,13 +214,13 @@ class BabyCobolGenerator(Generator):
     def accept_statement(self, parent=None):
         local_ctx = dict(f=[])
         with UnparserRuleContext(self, 'accept_statement', parent) as current:
-            self._reserve(2, self.ACCEPT, parent=current)
-            with QuantifierContext(self, 0, 1, inf, RuleSize(2, 2), 0) as quant0:
+            self._reserve(1, self.ACCEPT, parent=current)
+            with QuantifierContext(self, 0, 1, inf, RuleSize(2, 1), 0) as quant0:
                 while quant0(current):
-                    self.IDENTIFIER(parent=current)
+                    self.identifiers(parent=current)
                     local_ctx['f'].append(current.last_child)
             return current
-    accept_statement.min_size = RuleSize(2, 3)
+    accept_statement.min_size = RuleSize(2, 2)
 
     def add_statement(self, parent=None):
         local_ctx = dict(add=[], to=[], ident=[])
@@ -202,55 +233,57 @@ class BabyCobolGenerator(Generator):
             self._reserve(1, self.TO, parent=current)
             self.atomic(parent=current)
             local_ctx['to'].append(current.last_child)
-            with QuantifierContext(self, 1, 0, inf, RuleSize(2, 3), 0) as quant1:
+            with QuantifierContext(self, 1, 0, inf, RuleSize(2, 2), 0) as quant1:
                 while quant1(current):
-                    self._reserve(2, self.GIVING, parent=current)
-                    self.IDENTIFIER(parent=current)
+                    self._reserve(1, self.GIVING, parent=current)
+                    self.identifiers(parent=current)
                     local_ctx['ident'].append(current.last_child)
             return current
     add_statement.min_size = RuleSize(3, 4)
 
     def alter_statement(self, parent=None):
         with UnparserRuleContext(self, 'alter_statement', parent) as current:
-            self._reserve(7, self.ALTER, parent=current)
-            self._reserve(5, self.IDENTIFIER, parent=current)
-            self._reserve(4, self.TO, parent=current)
-            self._reserve(3, self.PROCEED, parent=current)
-            self._reserve(2, self.TO, parent=current)
+            self._reserve(5, self.ALTER, parent=current)
+            self._reserve(4, self.IDENTIFIER, parent=current)
+            self._reserve(3, self.TO, parent=current)
+            self._reserve(2, self.PROCEED, parent=current)
+            self._reserve(1, self.TO, parent=current)
             self.IDENTIFIER(parent=current)
             return current
-    alter_statement.min_size = RuleSize(2, 8)
+    alter_statement.min_size = RuleSize(1, 6)
 
     def call_statement(self, parent=None):
         with UnparserRuleContext(self, 'call_statement', parent) as current:
-            self._reserve(2, self.CALL, parent=current)
-            self.IDENTIFIER(parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(3, 4), 0) as quant0:
+            self._reserve(1, self.CALL, parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                [self.IDENTIFIER, self.LITERAL][alt0(current)](parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(2, 4), 0) as quant0:
                 while quant0(current):
                     self._reserve(3, self.USING, parent=current)
-                    with QuantifierContext(self, 1, 1, inf, RuleSize(3, 3), 0) as quant1:
+                    with QuantifierContext(self, 1, 1, inf, RuleSize(2, 3), 0) as quant1:
                         while quant1(current):
                             self.call_types(parent=current)
             return current
-    call_statement.min_size = RuleSize(2, 3)
+    call_statement.min_size = RuleSize(1, 2)
 
     def copy_statement(self, parent=None):
         local_ctx = dict(replace=None, by=None)
         with UnparserRuleContext(self, 'copy_statement', parent) as current:
-            self._reserve(2, self.COPY, parent=current)
-            self.IDENTIFIER(parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(3, 4), 0) as quant0:
+            self._reserve(1, self.COPY, parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                [self.IDENTIFIER, self.LITERAL][alt0(current)](parent=current)
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 4), 0) as quant0:
                 while quant0(current):
                     self._reserve(3, self.REPLACING, parent=current)
-                    with QuantifierContext(self, 1, 1, inf, RuleSize(3, 3), 0) as quant1:
+                    with QuantifierContext(self, 1, 1, inf, RuleSize(1, 3), 0) as quant1:
                         while quant1(current):
-                            self._reserve(2, self.atomic, parent=current)
+                            self._reserve(2, self.COPYLITERAL, parent=current)
                             local_ctx['replace'] = current.last_child
                             self._reserve(1, self.BY, parent=current)
-                            self.atomic(parent=current)
+                            self.COPYLITERAL(parent=current)
                             local_ctx['by'] = current.last_child
             return current
-    copy_statement.min_size = RuleSize(2, 3)
+    copy_statement.min_size = RuleSize(1, 2)
 
     def display_statement(self, parent=None):
         with UnparserRuleContext(self, 'display_statement', parent) as current:
@@ -282,34 +315,34 @@ class BabyCobolGenerator(Generator):
                 while quant0(current):
                     self.atomic(parent=current)
                     local_ctx['into'].append(current.last_child)
-            with QuantifierContext(self, 1, 0, 1, RuleSize(2, 3), 0) as quant1:
+            with QuantifierContext(self, 1, 0, 1, RuleSize(2, 2), 0) as quant1:
                 while quant1(current):
-                    self._reserve(2, self.GIVING, parent=current)
-                    with QuantifierContext(self, 2, 1, inf, RuleSize(2, 2), 0) as quant2:
+                    self._reserve(1, self.GIVING, parent=current)
+                    with QuantifierContext(self, 2, 1, inf, RuleSize(2, 1), 0) as quant2:
                         while quant2(current):
-                            self.IDENTIFIER(parent=current)
+                            self.identifiers(parent=current)
                             local_ctx['giving_id'].append(current.last_child)
-                    with QuantifierContext(self, 3, 0, 1, RuleSize(2, 3), 0) as quant3:
+                    with QuantifierContext(self, 3, 0, 1, RuleSize(2, 2), 0) as quant3:
                         while quant3(current):
-                            self._reserve(2, self.REMAINDER, parent=current)
-                            self.IDENTIFIER(parent=current)
+                            self._reserve(1, self.REMAINDER, parent=current)
+                            self.identifiers(parent=current)
                             local_ctx['remainder_id'] = current.last_child
             return current
     divide_statement.min_size = RuleSize(3, 4)
 
     def go_to_statement(self, parent=None):
         with UnparserRuleContext(self, 'go_to_statement', parent) as current:
-            self._reserve(3, self.GO, parent=current)
-            self._reserve(2, self.TO, parent=current)
+            self._reserve(2, self.GO, parent=current)
+            self._reserve(1, self.TO, parent=current)
             self.IDENTIFIER(parent=current)
             return current
-    go_to_statement.min_size = RuleSize(2, 4)
+    go_to_statement.min_size = RuleSize(1, 3)
 
     def evaluate_statement(self, parent=None):
         with UnparserRuleContext(self, 'evaluate_statement', parent) as current:
-            self._reserve(4, self.EVALUATE, parent=current)
+            self._reserve(3, self.EVALUATE, parent=current)
             self._reserve(3, self.anyExpression, parent=current)
-            with QuantifierContext(self, 0, 0, inf, RuleSize(4, 2), 3) as quant0:
+            with QuantifierContext(self, 0, 0, inf, RuleSize(3, 2), 3) as quant0:
                 while quant0(current):
                     self._reserve(1, self.ALSO, parent=current)
                     self.expression(parent=current)
@@ -321,53 +354,55 @@ class BabyCobolGenerator(Generator):
                             self.statement(parent=current)
             self.END(parent=current)
             return current
-    evaluate_statement.min_size = RuleSize(3, 5)
+    evaluate_statement.min_size = RuleSize(4, 4)
 
     def if_statement(self, parent=None):
         local_ctx = dict(then=[], esle=[])
         with UnparserRuleContext(self, 'if_statement', parent) as current:
-            self._reserve(3, self.IF, parent=current)
-            self._reserve(3, self.booleanExpression, parent=current)
-            self._reserve(2, self.THEN, parent=current)
-            with QuantifierContext(self, 0, 1, inf, RuleSize(3, 1), 1) as quant0:
+            self._reserve(2, self.IF, parent=current)
+            self._reserve(2, self.booleanExpression, parent=current)
+            self._reserve(1, self.THEN, parent=current)
+            with QuantifierContext(self, 0, 1, inf, RuleSize(3, 1), 0) as quant0:
                 while quant0(current):
                     self.statement(parent=current)
                     local_ctx['then'].append(current.last_child)
-            with QuantifierContext(self, 1, 0, 1, RuleSize(3, 2), 1) as quant1:
+            with QuantifierContext(self, 1, 0, 1, RuleSize(3, 2), 0) as quant1:
                 while quant1(current):
                     self._reserve(1, self.ELSE, parent=current)
                     with QuantifierContext(self, 2, 1, inf, RuleSize(3, 1), 0) as quant2:
                         while quant2(current):
                             self.statement(parent=current)
                             local_ctx['esle'].append(current.last_child)
-            self.END(parent=current)
+            with QuantifierContext(self, 3, 0, 1, RuleSize(1, 1), 0) as quant3:
+                while quant3(current):
+                    self.END(parent=current)
             return current
-    if_statement.min_size = RuleSize(5, 4)
+    if_statement.min_size = RuleSize(5, 3)
 
     def loop_statement(self, parent=None):
         local_ctx = dict(loops=[])
         with UnparserRuleContext(self, 'loop_statement', parent) as current:
-            self._reserve(2, self.LOOP, parent=current)
-            with QuantifierContext(self, 0, 1, inf, RuleSize(2, 1), 1) as quant0:
+            self._reserve(1, self.LOOP, parent=current)
+            with QuantifierContext(self, 0, 0, inf, RuleSize(2, 1), 1) as quant0:
                 while quant0(current):
                     self.loop_types(parent=current)
                     local_ctx['loops'].append(current.last_child)
             self.END(parent=current)
             return current
-    loop_statement.min_size = RuleSize(2, 3)
+    loop_statement.min_size = RuleSize(1, 2)
 
     def move_statement(self, parent=None):
         local_ctx = dict(move_ids=[])
         with UnparserRuleContext(self, 'move_statement', parent) as current:
-            self._reserve(4, self.MOVE, parent=current)
-            self._reserve(3, self.move_types, parent=current)
-            self._reserve(2, self.TO, parent=current)
-            with QuantifierContext(self, 0, 1, inf, RuleSize(2, 2), 0) as quant0:
+            self._reserve(3, self.MOVE, parent=current)
+            self._reserve(2, self.move_types, parent=current)
+            self._reserve(1, self.TO, parent=current)
+            with QuantifierContext(self, 0, 1, inf, RuleSize(2, 1), 0) as quant0:
                 while quant0(current):
-                    self.IDENTIFIER(parent=current)
+                    self.identifiers(parent=current)
                     local_ctx['move_ids'].append(current.last_child)
             return current
-    move_statement.min_size = RuleSize(2, 5)
+    move_statement.min_size = RuleSize(2, 4)
 
     def multiply_statement(self, parent=None):
         local_ctx = dict(multiply=None, by=[], giving_id=None)
@@ -380,10 +415,10 @@ class BabyCobolGenerator(Generator):
                 while quant0(current):
                     self.atomic(parent=current)
                     local_ctx['by'].append(current.last_child)
-            with QuantifierContext(self, 1, 0, 1, RuleSize(2, 3), 0) as quant1:
+            with QuantifierContext(self, 1, 0, 1, RuleSize(2, 2), 0) as quant1:
                 while quant1(current):
-                    self._reserve(2, self.GIVING, parent=current)
-                    self.IDENTIFIER(parent=current)
+                    self._reserve(1, self.GIVING, parent=current)
+                    self.identifiers(parent=current)
                     local_ctx['giving_id'] = current.last_child
             return current
     multiply_statement.min_size = RuleSize(3, 4)
@@ -397,29 +432,27 @@ class BabyCobolGenerator(Generator):
 
     def perform_statement(self, parent=None):
         with UnparserRuleContext(self, 'perform_statement', parent) as current:
-            self._reserve(2, self.PERFORM, parent=current)
+            self._reserve(1, self.PERFORM, parent=current)
             self.IDENTIFIER(parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(2, 3), 0) as quant0:
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 2), 0) as quant0:
                 while quant0(current):
-                    self._reserve(2, self.THROUGH, parent=current)
+                    self._reserve(1, self.THROUGH, parent=current)
                     self.IDENTIFIER(parent=current)
             with QuantifierContext(self, 1, 0, 1, RuleSize(3, 2), 0) as quant1:
                 while quant1(current):
                     self._reserve(1, self.atomic, parent=current)
                     self.TIMES(parent=current)
             return current
-    perform_statement.min_size = RuleSize(2, 3)
+    perform_statement.min_size = RuleSize(1, 2)
 
     def signal_statement(self, parent=None):
         with UnparserRuleContext(self, 'signal_statement', parent) as current:
-            self._reserve(3, self.SIGNAL, parent=current)
-            self._reserve(1, self.IDENTIFIER, parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 1), 1) as quant0:
-                while quant0(current):
-                    self.OFF(parent=current)
+            self._reserve(2, self.SIGNAL, parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1)), 1, (1, 1)) as alt0:
+                [self.IDENTIFIER, self.OFF][alt0(current)](parent=current)
             self.ONERROR(parent=current)
             return current
-    signal_statement.min_size = RuleSize(2, 4)
+    signal_statement.min_size = RuleSize(1, 3)
 
     def stop_statement(self, parent=None):
         with UnparserRuleContext(self, 'stop_statement', parent) as current:
@@ -440,20 +473,20 @@ class BabyCobolGenerator(Generator):
                 while quant1(current):
                     self.atomic(parent=current)
                     local_ctx['fr'].append(current.last_child)
-            with QuantifierContext(self, 2, 0, inf, RuleSize(2, 3), 0) as quant2:
+            with QuantifierContext(self, 2, 0, inf, RuleSize(2, 2), 0) as quant2:
                 while quant2(current):
-                    self._reserve(2, self.GIVING, parent=current)
-                    self.IDENTIFIER(parent=current)
+                    self._reserve(1, self.GIVING, parent=current)
+                    self.identifiers(parent=current)
             return current
     subtract_statement.min_size = RuleSize(3, 4)
 
     def call_types(self, parent=None):
         with UnparserRuleContext(self, 'call_types', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(2, 4), RuleSize(3, 3), RuleSize(3, 3)), 0, (1, 1, 1)) as alt0:
+            with AlternationContext(self, 0, (RuleSize(1, 3), RuleSize(3, 3), RuleSize(3, 3)), 0, (1, 1, 1)) as alt0:
                 choice0 = alt0(current)
                 if choice0 == 0:
-                    self._reserve(3, self.BY, parent=current)
-                    self._reserve(2, self.REFERENCE, parent=current)
+                    self._reserve(2, self.BY, parent=current)
+                    self._reserve(1, self.REFERENCE, parent=current)
                     self.IDENTIFIER(parent=current)
                 elif choice0 == 1:
                     self._reserve(2, self.BY, parent=current)
@@ -464,12 +497,12 @@ class BabyCobolGenerator(Generator):
                     self._reserve(1, self.VALUE, parent=current)
                     self.atomic(parent=current)
             return current
-    call_types.min_size = RuleSize(2, 3)
+    call_types.min_size = RuleSize(1, 3)
 
     def display_types(self, parent=None):
         with UnparserRuleContext(self, 'display_types', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1)) as alt0:
-                [self.SIZE, self.SPACE, self.STRING][alt0(current)](parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(2, 1)), 0, (1, 1, 1)) as alt0:
+                [self.SIZE, self.SPACE, self.literal][alt0(current)](parent=current)
             return current
     display_types.min_size = RuleSize(1, 1)
 
@@ -487,9 +520,9 @@ class BabyCobolGenerator(Generator):
                 choice0 = alt0(current)
                 if choice0 == 0:
                     self.VARYING(parent=current)
-                    with QuantifierContext(self, 0, 0, 1, RuleSize(2, 2), 0) as quant0:
+                    with QuantifierContext(self, 0, 0, 1, RuleSize(2, 1), 0) as quant0:
                         while quant0(current):
-                            self.IDENTIFIER(parent=current)
+                            self.identifiers(parent=current)
                     with QuantifierContext(self, 1, 0, 1, RuleSize(3, 2), 0) as quant1:
                         while quant1(current):
                             self._reserve(1, self.FROM, parent=current)
@@ -549,15 +582,60 @@ class BabyCobolGenerator(Generator):
 
     def anyExpression(self, parent=None):
         with UnparserRuleContext(self, 'anyExpression', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(3, 1), RuleSize(2, 1)), 0, (1, 1)) as alt0:
-                [self.atomic, self.booleanOp][alt0(current)](parent=current)
+            with AlternationContext(self, 0, (RuleSize(3, 1), RuleSize(5, 0), RuleSize(3, 1)), 0, (1, 1, 1)) as alt0:
+                [self.arithmeticExpression, self.booleanExpression, self.stringExpression][alt0(current)](parent=current)
             return current
-    anyExpression.min_size = RuleSize(2, 1)
+    anyExpression.min_size = RuleSize(3, 0)
+
+    def arithmeticExpression(self, parent=None):
+        with UnparserRuleContext(self, 'arithmeticExpression', parent) as current:
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(3, 3)), 0, (1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    self.arithmeticAtomic(parent=current)
+                elif choice0 == 1:
+                    self._reserve(2, self.arithmeticExpression, parent=current)
+                    self._reserve(1, self.arithmeticOp, parent=current)
+                    self.arithmeticExpression(parent=current)
+            return current
+    arithmeticExpression.min_size = RuleSize(2, 1)
+
+    def arithmeticAtomic(self, parent=None):
+        with UnparserRuleContext(self, 'arithmeticAtomic', parent) as current:
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    self.identifiers(parent=current)
+                elif choice0 == 1:
+                    with AlternationContext(self, 1, (RuleSize(1, 1), RuleSize(2, 2)), 0, (1, 1)) as alt1:
+                        [self.INT, self.DOUBLE][alt1(current)](parent=current)
+            return current
+    arithmeticAtomic.min_size = RuleSize(1, 1)
+
+    def stringExpression(self, parent=None):
+        with UnparserRuleContext(self, 'stringExpression', parent) as current:
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(3, 3)), 0, (1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    self.stringAtomic(parent=current)
+                elif choice0 == 1:
+                    self._reserve(2, self.stringExpression, parent=current)
+                    self._reserve(1, self.T__0, parent=current)
+                    self.stringExpression(parent=current)
+            return current
+    stringExpression.min_size = RuleSize(2, 1)
+
+    def stringAtomic(self, parent=None):
+        with UnparserRuleContext(self, 'stringAtomic', parent) as current:
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                [self.identifiers, self.LITERAL][alt0(current)](parent=current)
+            return current
+    stringAtomic.min_size = RuleSize(1, 1)
 
     def atomic(self, parent=None):
         with UnparserRuleContext(self, 'atomic', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(2, 2)), 0, (1, 1)) as alt0:
-                [self.literal, self.IDENTIFIER][alt0(current)](parent=current)
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(2, 1)), 0, (1, 1)) as alt0:
+                [self.literal, self.identifiers][alt0(current)](parent=current)
             return current
     atomic.min_size = RuleSize(2, 1)
 
@@ -568,7 +646,8 @@ class BabyCobolGenerator(Generator):
             local_ctx['left'] = current.last_child
             with QuantifierContext(self, 0, 0, inf, RuleSize(4, 1), 0) as quant0:
                 while quant0(current):
-                    self.OR(parent=current)
+                    with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                        [self.OR, self.XOR][alt0(current)](parent=current)
                     self.booleanTerm(parent=current)
                     local_ctx['right'].append(current.last_child)
             return current
@@ -594,19 +673,21 @@ class BabyCobolGenerator(Generator):
                 if choice0 == 0:
                     self.booleanValue(parent=current)
                 elif choice0 == 1:
-                    self._reserve(1, self.T__0, parent=current)
+                    self._reserve(1, self.T__1, parent=current)
                     self._reserve(1, self.booleanExpression, parent=current)
-                    self.T__1(parent=current)
+                    self.T__2(parent=current)
             return current
     booleanFactor.min_size = RuleSize(2, 0)
 
     def booleanValue(self, parent=None):
         with UnparserRuleContext(self, 'booleanValue', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(1, 0), RuleSize(2, 1)), 0, (1, 1)) as alt0:
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(1, 0), RuleSize(2, 1)), 0, (1, 1, 1)) as alt0:
                 choice0 = alt0(current)
                 if choice0 == 0:
-                    self.comparisonExpression(parent=current)
+                    self.booleanOp(parent=current)
                 elif choice0 == 1:
+                    self.comparisonExpression(parent=current)
+                elif choice0 == 2:
                     self.NOT(parent=current)
                     self.booleanValue(parent=current)
             return current
@@ -666,9 +747,9 @@ class BabyCobolGenerator(Generator):
                 if choice0 == 0:
                     self.atomic(parent=current)
                 elif choice0 == 1:
-                    self._reserve(1, self.T__0, parent=current)
+                    self._reserve(1, self.T__1, parent=current)
                     self._reserve(1, self.booleanExpression, parent=current)
-                    self.T__1(parent=current)
+                    self.T__2(parent=current)
             return current
     primaryExpression.min_size = RuleSize(3, 1)
 
@@ -683,31 +764,31 @@ class BabyCobolGenerator(Generator):
                     self.factor(parent=current)
                     local_ctx['right'] = current.last_child
             return current
-    expression.min_size = RuleSize(3, 1)
+    expression.min_size = RuleSize(2, 1)
 
     def factor(self, parent=None):
         with UnparserRuleContext(self, 'factor', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(2, 2), RuleSize(3, 1)), 0, (1, 1, 1)) as alt0:
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(1, 1), RuleSize(3, 1)), 0, (1, 1, 1)) as alt0:
                 [self.literal, self.IDENTIFIER, self.anyOperation][alt0(current)](parent=current)
             return current
-    factor.min_size = RuleSize(2, 1)
+    factor.min_size = RuleSize(1, 1)
+
+    def int(self, parent=None):
+        with UnparserRuleContext(self, 'int', parent) as current:
+            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 1), 1) as quant0:
+                while quant0(current):
+                    with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                        [self.DASH, self.T__0][alt0(current)](parent=current)
+            self.INT(parent=current)
+            return current
+    int.min_size = RuleSize(1, 1)
 
     def literal(self, parent=None):
         with UnparserRuleContext(self, 'literal', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(2, 2), RuleSize(1, 1)), 0, (1, 1)) as alt0:
-                [self.NUMBER, self.STRING][alt0(current)](parent=current)
+            with AlternationContext(self, 0, (RuleSize(2, 1), RuleSize(2, 2), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1, 1, 1)) as alt0:
+                [self.int, self.DOUBLE, self.LITERAL, self.TRUE, self.FALSE][alt0(current)](parent=current)
             return current
     literal.min_size = RuleSize(1, 1)
-
-    def NUMBER(self, parent=None):
-        with UnlexerRuleContext(self, 'NUMBER', parent) as current:
-            self.DIGIT(parent=current)
-            with QuantifierContext(self, 0, 0, 1, RuleSize(1, 2), 0) as quant0:
-                while quant0(current):
-                    self._reserve(1, self.DOT, parent=current)
-                    self.DIGIT(parent=current)
-            return current
-    NUMBER.min_size = RuleSize(1, 1)
 
     def anyOperation(self, parent=None):
         with UnparserRuleContext(self, 'anyOperation', parent) as current:
@@ -718,15 +799,15 @@ class BabyCobolGenerator(Generator):
 
     def comparisonOp(self, parent=None):
         with UnparserRuleContext(self, 'comparisonOp', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1, 1, 1, 1)) as alt0:
-                [self.T__2, self.T__3, self.T__4, self.T__5, self.T__6, self.T__7][alt0(current)](parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1, 1, 1)) as alt0:
+                [self.T__3, self.T__4, self.T__5, self.T__6, self.T__7][alt0(current)](parent=current)
             return current
     comparisonOp.min_size = RuleSize(1, 1)
 
     def arithmeticOp(self, parent=None):
         with UnparserRuleContext(self, 'arithmeticOp', parent) as current:
-            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1, 1)) as alt0:
-                [self.T__8, self.DASH, self.T__9, self.T__10][alt0(current)](parent=current)
+            with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1, 1, 1)) as alt0:
+                [self.T__0, self.DASH, self.T__8, self.T__9, self.T__10][alt0(current)](parent=current)
             return current
     arithmeticOp.min_size = RuleSize(1, 1)
 
@@ -815,12 +896,6 @@ class BabyCobolGenerator(Generator):
             current.src += 'SPACE'
             return current
     SPACE.min_size = RuleSize(0, 0)
-
-    def LITERAL(self, parent=None):
-        with UnlexerRuleContext(self, 'LITERAL', parent) as current:
-            current.src += 'LITERAL'
-            return current
-    LITERAL.min_size = RuleSize(0, 0)
 
     def WITH(self, parent=None):
         with UnlexerRuleContext(self, 'WITH', parent) as current:
@@ -1182,21 +1257,87 @@ class BabyCobolGenerator(Generator):
             return current
     PROCEED.min_size = RuleSize(0, 0)
 
+    def WS(self, parent=None):
+        with UnlexerRuleContext(self, 'WS', parent) as current:
+            with QuantifierContext(self, 0, 1, inf, RuleSize(0, 0), 0) as quant0:
+                while quant0(current):
+                    with AlternationContext(self, 0, (RuleSize(0, 0), RuleSize(0, 0), RuleSize(0, 0), RuleSize(0, 0)), 0, (1, 1, 1, 1)) as alt0:
+                        current.src += [' ', '\t', '\r', '\n'][alt0(current)]
+            return current
+    WS.min_size = RuleSize(0, 0)
+
+    def INT(self, parent=None):
+        with UnlexerRuleContext(self, 'INT', parent) as current:
+            with QuantifierContext(self, 0, 1, inf, RuleSize(0, 0), 0) as quant0:
+                while quant0(current):
+                    current.src += self._model.charset(current, 0, self._charsets[1])
+            return current
+    INT.min_size = RuleSize(0, 0)
+
+    def DOUBLE(self, parent=None):
+        with UnlexerRuleContext(self, 'DOUBLE', parent) as current:
+            with QuantifierContext(self, 0, 0, 1, RuleSize(0, 0), 1) as quant0:
+                while quant0(current):
+                    with AlternationContext(self, 0, (RuleSize(0, 0), RuleSize(0, 0)), 0, (1, 1)) as alt0:
+                        current.src += ['-', '+'][alt0(current)]
+            self.INT(parent=current)
+            with QuantifierContext(self, 1, 0, 1, RuleSize(1, 2), 0) as quant1:
+                while quant1(current):
+                    self._reserve(1, self.DOT, parent=current)
+                    self.INT(parent=current)
+            return current
+    DOUBLE.min_size = RuleSize(1, 1)
+
+    def LITERAL(self, parent=None):
+        with UnlexerRuleContext(self, 'LITERAL', parent) as current:
+            current.src += '"'
+            with QuantifierContext(self, 0, 0, inf, RuleSize(0, 0), 0) as quant0:
+                while quant0(current):
+                    current.src += self._model.charset(current, 0, self._charsets[2])
+            current.src += '"'
+            return current
+    LITERAL.min_size = RuleSize(0, 0)
+
+    def COPYLITERAL(self, parent=None):
+        with UnlexerRuleContext(self, 'COPYLITERAL', parent) as current:
+            current.src += '==='
+            with QuantifierContext(self, 0, 0, inf, RuleSize(0, 0), 0) as quant0:
+                while quant0(current):
+                    current.src += self._model.charset(current, 0, self._charsets[3])
+            current.src += '==='
+            return current
+    COPYLITERAL.min_size = RuleSize(0, 0)
+
+    def DOT(self, parent=None):
+        with UnlexerRuleContext(self, 'DOT', parent) as current:
+            current.src += '.'
+            return current
+    DOT.min_size = RuleSize(0, 0)
+
     def IDENTIFIER(self, parent=None):
         with UnlexerRuleContext(self, 'IDENTIFIER', parent) as current:
-            self.VAR(parent=current)
-            with QuantifierContext(self, 0, 0, inf, RuleSize(1, 1), 0) as quant0:
+            with QuantifierContext(self, 0, 1, inf, RuleSize(0, 0), 0) as quant0:
                 while quant0(current):
-                    with AlternationContext(self, 0, (RuleSize(1, 1), RuleSize(1, 1), RuleSize(1, 1)), 0, (1, 1, 1)) as alt0:
-                        [self.VAR, self.DIGIT, self.DASH][alt0(current)](parent=current)
+                    current.src += self._model.charset(current, 0, self._charsets[4])
+            with QuantifierContext(self, 1, 1, inf, RuleSize(0, 0), 0) as quant1:
+                while quant1(current):
+                    current.src += self._model.charset(current, 1, self._charsets[1])
+            with QuantifierContext(self, 2, 0, inf, RuleSize(0, 0), 0) as quant2:
+                while quant2(current):
+                    with QuantifierContext(self, 3, 1, inf, RuleSize(0, 0), 0) as quant3:
+                        while quant3(current):
+                            current.src += self._model.charset(current, 2, self._charsets[5])
+                    with QuantifierContext(self, 4, 1, inf, RuleSize(0, 0), 0) as quant4:
+                        while quant4(current):
+                            current.src += self._model.charset(current, 3, self._charsets[6])
             return current
-    IDENTIFIER.min_size = RuleSize(1, 1)
+    IDENTIFIER.min_size = RuleSize(0, 0)
 
     def VAR(self, parent=None):
         with UnlexerRuleContext(self, 'VAR', parent) as current:
             with QuantifierContext(self, 0, 1, inf, RuleSize(0, 0), 0) as quant0:
                 while quant0(current):
-                    current.src += self._model.charset(current, 0, self._charsets[1])
+                    current.src += self._model.charset(current, 0, self._charsets[4])
             return current
     VAR.min_size = RuleSize(0, 0)
 
@@ -1207,19 +1348,9 @@ class BabyCobolGenerator(Generator):
                     current.src += '-'
             with QuantifierContext(self, 1, 1, inf, RuleSize(0, 0), 0) as quant1:
                 while quant1(current):
-                    current.src += self._model.charset(current, 0, self._charsets[2])
+                    current.src += self._model.charset(current, 0, self._charsets[1])
             return current
     DIGIT.min_size = RuleSize(0, 0)
-
-    def STRING(self, parent=None):
-        with UnlexerRuleContext(self, 'STRING', parent) as current:
-            current.src += '"'
-            with QuantifierContext(self, 0, 1, inf, RuleSize(0, 0), 0) as quant0:
-                while quant0(current):
-                    current.src += self._model.charset(current, 0, self._charsets[3])
-            current.src += '"'
-            return current
-    STRING.min_size = RuleSize(0, 0)
 
     def DASH(self, parent=None):
         with UnlexerRuleContext(self, 'DASH', parent) as current:
@@ -1227,84 +1358,104 @@ class BabyCobolGenerator(Generator):
             return current
     DASH.min_size = RuleSize(0, 0)
 
-    def DOT(self, parent=None):
-        with UnlexerRuleContext(self, 'DOT', parent) as current:
-            current.src += '.'
-            return current
-    DOT.min_size = RuleSize(0, 0)
-
     def COMMA(self, parent=None):
         with UnlexerRuleContext(self, 'COMMA', parent) as current:
             current.src += ','
             return current
     COMMA.min_size = RuleSize(0, 0)
 
-    def WS(self, parent=None):
-        with UnlexerRuleContext(self, 'WS', parent) as current:
-            with QuantifierContext(self, 0, 1, inf, RuleSize(0, 0), 0) as quant0:
-                while quant0(current):
-                    with AlternationContext(self, 0, (RuleSize(0, 0), RuleSize(0, 0), RuleSize(0, 0), RuleSize(0, 0)), 0, (1, 1, 1, 1)) as alt0:
-                        current.src += [' ', '\t', '\r', '\n'][alt0(current)]
+    def INDEX(self, parent=None):
+        with UnlexerRuleContext(self, 'INDEX', parent) as current:
+            current.src += '('
+            with AlternationContext(self, 0, (RuleSize(0, 0), RuleSize(1, 1)), 0, (1, 1)) as alt0:
+                choice0 = alt0(current)
+                if choice0 == 0:
+                    with QuantifierContext(self, 0, 0, inf, RuleSize(0, 0), 0) as quant0:
+                        while quant0(current):
+                            current.src += self._model.charset(current, 0, self._charsets[1])
+                elif choice0 == 1:
+                    self.IDENTIFIER(parent=current)
+            current.src += ')'
             return current
-    WS.min_size = RuleSize(0, 0)
+    INDEX.min_size = RuleSize(0, 0)
+
+    def COMMENT(self, parent=None):
+        with UnlexerRuleContext(self, 'COMMENT', parent) as current:
+            with QuantifierContext(self, 0, 0, 1, RuleSize(0, 0), 0) as quant0:
+                while quant0(current):
+                    current.src += '\r'
+            current.src += '\n'
+            with QuantifierContext(self, 1, 0, inf, RuleSize(1, 1), 0) as quant1:
+                while quant1(current):
+                    self.WS(parent=current)
+            current.src += '*'
+            with QuantifierContext(self, 2, 0, inf, RuleSize(0, 0), 0) as quant2:
+                while quant2(current):
+                    current.src += self._model.charset(current, 0, self._charsets[0])
+            with QuantifierContext(self, 3, 0, 1, RuleSize(0, 0), 0) as quant3:
+                while quant3(current):
+                    current.src += '\r'
+            current.src += '\n'
+            return current
+    COMMENT.min_size = RuleSize(0, 0)
 
     def T__0(self, parent=None):
         with UnlexerRuleContext(self, 'T__0', parent) as current:
-            current.src += '('
+            current.src += '+'
             return current
     T__0.min_size = RuleSize(0, 0)
 
     def T__1(self, parent=None):
         with UnlexerRuleContext(self, 'T__1', parent) as current:
-            current.src += ')'
+            current.src += '('
             return current
     T__1.min_size = RuleSize(0, 0)
 
     def T__2(self, parent=None):
         with UnlexerRuleContext(self, 'T__2', parent) as current:
-            current.src += '=='
+            current.src += ')'
             return current
     T__2.min_size = RuleSize(0, 0)
 
     def T__3(self, parent=None):
         with UnlexerRuleContext(self, 'T__3', parent) as current:
-            current.src += '>'
+            current.src += '='
             return current
     T__3.min_size = RuleSize(0, 0)
 
     def T__4(self, parent=None):
         with UnlexerRuleContext(self, 'T__4', parent) as current:
-            current.src += '<'
+            current.src += '>'
             return current
     T__4.min_size = RuleSize(0, 0)
 
     def T__5(self, parent=None):
         with UnlexerRuleContext(self, 'T__5', parent) as current:
-            current.src += '>='
+            current.src += '<'
             return current
     T__5.min_size = RuleSize(0, 0)
 
     def T__6(self, parent=None):
         with UnlexerRuleContext(self, 'T__6', parent) as current:
-            current.src += '<='
+            current.src += '>='
             return current
     T__6.min_size = RuleSize(0, 0)
 
     def T__7(self, parent=None):
         with UnlexerRuleContext(self, 'T__7', parent) as current:
-            current.src += '!='
+            current.src += '<='
             return current
     T__7.min_size = RuleSize(0, 0)
 
     def T__8(self, parent=None):
         with UnlexerRuleContext(self, 'T__8', parent) as current:
-            current.src += '+'
+            current.src += '*'
             return current
     T__8.min_size = RuleSize(0, 0)
 
     def T__9(self, parent=None):
         with UnlexerRuleContext(self, 'T__9', parent) as current:
-            current.src += '*'
+            current.src += '**'
             return current
     T__9.min_size = RuleSize(0, 0)
 
@@ -1318,7 +1469,10 @@ class BabyCobolGenerator(Generator):
 
     _charsets = {
         0: list(itertools.chain.from_iterable([range(0x20, 0x7f)])),
-        1: list(itertools.chain.from_iterable([range(0x41, 0x5b), range(0x61, 0x7b)])),
-        2: list(itertools.chain.from_iterable([range(0x30, 0x3a)])),
-        3: list(itertools.chain.from_iterable([range(0x20, 0x22), range(0x23, 0x7f)])),
+        1: list(itertools.chain.from_iterable([range(0x30, 0x3a)])),
+        2: list(itertools.chain.from_iterable([range(0x20, 0x22), range(0x23, 0x7f)])),
+        3: list(itertools.chain.from_iterable([range(0x20, 0x3d), range(0x3e, 0x7f)])),
+        4: list(itertools.chain.from_iterable([range(0x41, 0x5b), range(0x61, 0x7b)])),
+        5: list(itertools.chain.from_iterable([range(0x2d, 0x2e), range(0x5f, 0x60)])),
+        6: list(itertools.chain.from_iterable([range(0x30, 0x3a), range(0x41, 0x5b), range(0x61, 0x7b)])),
     }

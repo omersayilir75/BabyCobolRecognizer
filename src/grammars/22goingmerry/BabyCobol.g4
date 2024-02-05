@@ -215,7 +215,6 @@ booleanOp       : TRUE
 IDENTIFICATION: 'IDENTIFICATION';
 DIVISION:   'DIVISION';
 PROCEDURE:  'PROCEDURE';
-PROGRAM:    'PROGRAM';
 ID:         'ID';
 RUN:        'RUN';
 DATA:       'DATA';
@@ -292,12 +291,12 @@ DOUBLE : ('-'|'+')? INT ( DOT INT )? ;
 LITERAL :   '"' ~'"'* '"'; // Any char except for "
 COPYLITERAL :  '===' ~'='* '===';
 DOT : '.';
-IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*;
+IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*; // for generator: change [a-zA-Z0-9]+ to [a-zA-Z]+ [0-9]*
 VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;
 DASH : '-';
 COMMA: ',';
-INDEX   : '('([ \r\t]*[0-9]+[ \r\t]* | IDENTIFIER)')';
+INDEX   : '('([0-9]*| IDENTIFIER)')';
 COMMENT : '\r'? '\n' WS* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;
 
 
