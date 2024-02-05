@@ -289,7 +289,7 @@ WS : ( ' ' | '\t' | '\r' | '\n' )+ -> skip ;
 INT : [0-9]+;
 DOUBLE : ('-'|'+')? INT ( DOT INT )? ;
 LITERAL :   '"' ~'"'* '"'; // Any char except for "
-COPYLITERAL :  '===' ~'='* '===';
+COPYLITERAL :  '===' ~'='+ '===';
 DOT : '.';
 IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*;
 VAR : [A-Za-z]+;
