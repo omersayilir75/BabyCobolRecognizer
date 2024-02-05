@@ -8,8 +8,8 @@ identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT)| (copy_statement DOT);
 
 data_division: DATA DIVISION DOT lines+=line*;
 line : record | field | (copy_statement DOT);
-record : INT IDENTIFIER (OCCURS INT* TIMES)? DOT;
-field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
+record : INT IDENTIFIER (OCCURS INT+ TIMES)? DOT;
+field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT+ TIMES)? DOT;
 
 representation: (IDENTIFIER | INT) INDEX?; // inclusion index allows for 9(20) and such
 
