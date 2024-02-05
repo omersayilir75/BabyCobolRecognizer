@@ -1,4 +1,4 @@
-grammar BabyCobol;
+grammar BCGen;
 
 program : identification_division (data_division)? (procedure_division)? EOF;
 
@@ -291,7 +291,7 @@ DOUBLE : ('-'|'+')? INT ( DOT INT )? ;
 LITERAL :   '"' ~'"'* '"'; // Any char except for "
 COPYLITERAL :  '===' ~'='* '===';
 DOT : '.';
-IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*;
+IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*; // for generator: change [a-zA-Z0-9]+ to [a-zA-Z]+ [0-9]*
 VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;
 DASH : '-';
