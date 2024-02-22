@@ -161,7 +161,7 @@ additiveExpression : multiplicativeExpression (arithmeticOp multiplicativeExpres
 
 multiplicativeExpression : primaryExpression (arithmeticOp primaryExpression)* ;
 
-primaryExpression : atomic | '(' booleanExpression ')' ;
+primaryExpression : atomic | '(' booleanExpression ( (AND | OR | XOR | '=')  booleanExpression)*  ')' ;
 
 //booleanExpression : condition+ ;
 

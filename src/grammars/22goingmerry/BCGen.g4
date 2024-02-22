@@ -1,29 +1,35 @@
 grammar BCGen;
 
-program : identification_division (data_division)? (procedure_division)? EOF;
+program : identification_division
+          (NL data_division)?
+          (NL procedure_division)?
+          EOF
+        ;
 
-identification_division :  IDENTIFICATION DIVISION DOT identificationEntry*;
+identification_division : SP7 IDENTIFICATION SP DIVISION DOT (NL identificationEntry)*;
 
-identificationEntry :   (IDENTIFIER DOT IDENTIFIER DOT)| (copy_statement DOT);
+identificationEntry : SP7 TAB ((IDENTIFIER DOT SP IDENTIFIER DOT)| (copy_statement DOT));
 
-data_division: DATA DIVISION DOT lines+=line*;
+data_division: SP7 DATA SP DIVISION DOT (NL SP7 TAB line)*;
 line : record | field | (copy_statement DOT);
-record : INT IDENTIFIER (OCCURS INT* TIMES)? DOT;
-field : INT IDENTIFIER ((PICTURE IS representation) | (LIKE identifiers)) (OCCURS INT* TIMES)? DOT;
+record : INT SP IDENTIFIER (SP OCCURS SP INT+ SP TIMES)? DOT;
+field : INT SP IDENTIFIER ((SP PICTURE SP IS SP representation) | (SP LIKE SP identifiers)) (SP OCCURS SP INT+ SP TIMES)? DOT;
 
 representation: (IDENTIFIER | INT) INDEX?; // inclusion index allows for 9(20) and such
 
-identifiers     :   IDENTIFIER (INDEX)?(OF IDENTIFIER (INDEX)?)* ;
+identifiers     :   IDENTIFIER (INDEX)?(SP OF SP IDENTIFIER (INDEX)?)* ;
 
-procedure_division : PROCEDURE DIVISION (USING using*)? DOT statements* paragraph* DOT  ;
+procedure_division : SP7 PROCEDURE SP DIVISION (SP USING (SP using)*)? DOT (NL statements)*  (NL paragraph)* NL SP7 TAB DOT  ;
 
-paragraph :   IDENTIFIER DOT statements+ ;
+paragraph :  SP7 TAB IDENTIFIER DOT (NL statements)+ ;
 
-statements : statement+ DOT?;
 
-using     : BY REFERENCE IDENTIFIER
-          | BY CONTENT atomic
-          | BY VALUE atomic
+
+statements : (SP7 TAB statement (DOT)?);
+
+using     : BY SP REFERENCE SP IDENTIFIER
+          | BY SP CONTENT SP atomic
+          | BY SP VALUE SP atomic
           ;
 
 statement : accept_statement
@@ -48,49 +54,49 @@ statement : accept_statement
 
 
 //statements
-accept_statement : ACCEPT (f+=identifiers)+ ;
+accept_statement : ACCEPT SP (f+=identifiers)+ ;
 
-add_statement : ADD add+=atomic+ TO to+=atomic (GIVING ident+=identifiers)* ;
+add_statement : ADD (SP atomic)+ SP TO SP to+=atomic (SP GIVING SP ident+=identifiers)* ;
 
-alter_statement: ALTER IDENTIFIER TO PROCEED TO IDENTIFIER;
+alter_statement: ALTER SP IDENTIFIER SP TO SP PROCEED SP TO SP IDENTIFIER;
 
-call_statement: CALL (IDENTIFIER | LITERAL) (USING call_types+)? ;
+call_statement: CALL SP (IDENTIFIER | LITERAL) SP (USING (SP call_types)+)? ;
 
-copy_statement: COPY (IDENTIFIER | LITERAL) (REPLACING (replace=COPYLITERAL BY by=COPYLITERAL)+)?;
+copy_statement: COPY SP (IDENTIFIER | LITERAL) (SP REPLACING (SP replace=COPYLITERAL SP BY SP by=COPYLITERAL)+)?;
 
-display_statement : DISPLAY (atomic (DELIMITED  BY display_types)?)+  (WITH NO ADVANCING)?;
+display_statement : DISPLAY (SP atomic (SP DELIMITED SP BY SP display_types)?)+ (SP WITH SP NO SP ADVANCING)?;
 
-divide_statement : DIVIDE div=atomic    INTO into+=atomic+ ( GIVING giving_id+=identifiers+  (REMAINDER remainder_id=identifiers)? )? ;
+divide_statement : DIVIDE SP div=atomic SP INTO (SP atomic)+ (SP GIVING (SP identifiers)+  (SP REMAINDER SP remainder_id=identifiers)? )? ;
 
-go_to_statement: GO TO IDENTIFIER;
+go_to_statement: GO SP TO SP IDENTIFIER;
 
-evaluate_statement : EVALUATE anyExpression (ALSO expression)* (evaluate_WhenClause statement+)+  END ;
+evaluate_statement : EVALUATE SP anyExpression (SP ALSO SP expression)* (SP evaluate_WhenClause (SP statement)+)+ SP END ;
 
-if_statement : IF booleanExpression THEN then+=statement+ (ELSE esle+=statement+)? (END)? ;
+if_statement : IF SP booleanExpression SP THEN  (NL SP7 TAB statement)+ (SP ELSE (NL SP statement)+)? (NL SP END)? ;
 
-loop_statement: LOOP loops+=loop_types* END;
+loop_statement: LOOP (SP loop_types)* SP END;
 
-move_statement : MOVE move_types TO move_ids+=identifiers+;
+move_statement : MOVE SP move_types SP TO (SP identifiers)+;
 
-multiply_statement : MULTIPLY multiply=atomic BY by+=atomic+ ( GIVING giving_id=identifiers )? ;
+multiply_statement : MULTIPLY SP multiply=atomic SP BY (SP atomic)+ (SP GIVING SP giving_id=identifiers )? ;
 
-next_sentence_statement: NEXT SENTENCE;
+next_sentence_statement: NEXT SP SENTENCE;
 
-perform_statement : PERFORM IDENTIFIER (THROUGH IDENTIFIER)? (atomic TIMES)? ;
+perform_statement : PERFORM SP IDENTIFIER (SP THROUGH SP IDENTIFIER)? (SP atomic SP TIMES)? ;
 
-signal_statement: SIGNAL (IDENTIFIER | OFF) ONERROR;
+signal_statement: SIGNAL SP ((IDENTIFIER | OFF) SP) ONERROR;
 
 stop_statement : STOP ;
 
-subtract_statement : SUBTRACT subtract+=atomic+ FROM fr+=atomic+ (GIVING identifiers)* ;
+subtract_statement : SUBTRACT SP (atomic SP)+ FROM (SP atomic)+ (SP GIVING SP identifiers)* ;
 
 /////////////////////
 
 
 
-call_types: BY REFERENCE IDENTIFIER
-          | BY CONTENT atomic
-          | BY VALUE atomic
+call_types: BY SP REFERENCE SP IDENTIFIER
+          | BY SP CONTENT SP atomic
+          | BY SP VALUE SP atomic
           ;
 
 display_types: SIZE
@@ -104,15 +110,15 @@ move_types: SPACES
           | atomic
           ;
 
-loop_types: VARYING identifiers? (FROM fr=atomic)? (TO to=atomic)? (BY by=atomic)?
-          | WHILE booleanExpression
-          | UNTIL booleanExpression
+loop_types: VARYING SP identifiers? (SP FROM SP fr=atomic)? (SP TO SP to=atomic)? (SP BY SP by=atomic)?
+          | WHILE SP booleanExpression
+          | UNTIL SP booleanExpression
           | statement
           ;
 
-evaluate_WhenClause : WHEN ((atomic (THROUGH atomic)?)+ ALSO)*
-                    | WHEN (atomic (THROUGH atomic)?)*
-                    | WHEN OTHER
+evaluate_WhenClause : WHEN ((SP atomic (SP THROUGH SP atomic)?)+ SP ALSO)*
+                    | WHEN (SP atomic (SP THROUGH SP atomic)?)*
+                    | WHEN SP OTHER
                     ;
 
 
@@ -122,13 +128,13 @@ anyExpression : arithmeticExpression
               ;
 
 arithmeticExpression : arithmeticAtomic
-                     | arithmeticExpression arithmeticOp arithmeticExpression
+                     | arithmeticExpression SP arithmeticOp SP arithmeticExpression
                      ;
 arithmeticAtomic : identifiers | (INT | DOUBLE);
 
 
 stringExpression : stringAtomic
-                 | stringExpression '+' stringExpression
+                 | stringExpression SP '+' SP stringExpression
                  ;
 
 stringAtomic : identifiers | LITERAL;
@@ -138,30 +144,30 @@ atomic      : literal
             ;
 
 
-booleanExpression : left=booleanTerm ((OR |  XOR) right+=booleanTerm)*
+booleanExpression : left=booleanTerm (SP (OR |  XOR) SP right+=booleanTerm)*
                   ;
 
-booleanTerm : left=booleanFactor (AND right+=booleanFactor)* ;
+booleanTerm : left=booleanFactor (SP AND SP right+=booleanFactor)* ;
 
 booleanFactor : booleanValue
-              | '(' booleanExpression ')'
+              | '(' booleanExpression (SP (AND | OR | XOR | '=') SP booleanExpression)+ ')' // twice or more to prevent generating things like "(TRUE)"
               ;
 
 booleanValue : booleanOp
              | comparisonExpression
-             | NOT booleanValue
+             | '(' NOT SP booleanValue ')' // testing to see what happens... -> much less failing test
              ;
 
-comparisonExpression :(right+=additiveExpression)?
-                     |left=additiveExpression (comparisonOp right+=additiveExpression)*
-                     |(comparisonOp right+=additiveExpression)*
-                     ;
+comparisonExpression :(right+=additiveExpression)
+                     |left=additiveExpression (SP comparisonOp SP right+=additiveExpression)*
+                     |(comparisonOp SP right+=additiveExpression)+
+                     ; // no more branches that are ? or *
 
-additiveExpression : multiplicativeExpression (arithmeticOp multiplicativeExpression)* ;
+additiveExpression : multiplicativeExpression (SP arithmeticOp SP multiplicativeExpression)* ;
 
-multiplicativeExpression : primaryExpression (arithmeticOp primaryExpression)* ;
+multiplicativeExpression : primaryExpression (SP arithmeticOp SP primaryExpression)* ;
 
-primaryExpression : atomic | '(' booleanExpression ')' ;
+primaryExpression : atomic | ('(' booleanExpression SP (AND | OR | XOR | '=') SP booleanExpression ')') ;
 
 //booleanExpression : condition+ ;
 
@@ -171,7 +177,7 @@ primaryExpression : atomic | '(' booleanExpression ')' ;
 //          | NOT right=expression
 //          ;
 
-expression : left=factor (anyOperation right=factor)* ;
+expression : left=factor (SP anyOperation SP right=factor)* ;
 
 factor : literal | IDENTIFIER | anyOperation ;
 
@@ -284,20 +290,24 @@ OFF:        'OFF';
 ALTER:      'ALTER';
 PROCEED:    'PROCEED';
 
+SP7: '       ';
+TAB: '    ';
+SP: ' ';
+NL : '\n';
 
-WS : ( ' ' | '\t' | '\r' | '\n' )+ -> skip ;
 INT : [0-9]+;
 DOUBLE : ('-'|'+')? INT ( DOT INT )? ;
 LITERAL :   '"' ~'"'* '"'; // Any char except for "
-COPYLITERAL :  '===' ~'='* '===';
+COPYLITERAL :  '===' ~'='+ '===';
 DOT : '.';
-IDENTIFIER : [a-zA-Z0-9]+ ([-_]+ [a-zA-Z0-9]+)*; // for generator: change [a-zA-Z0-9]+ to [a-zA-Z]+ [0-9]*
+IDENTIFIER : [a-z]+ [0-9]* ([-_]+ [a-z0-9]+)*; // for generator: change [a-zA-Z0-9]+ to [a-zA-Z]+ [0-9]*
+                                               // disallow capital letters for generating easier test
 VAR : [A-Za-z]+;
 DIGIT : '-'? [0-9]+;
 DASH : '-';
 COMMA: ',';
-INDEX   : '('([0-9]*| IDENTIFIER)')';
-COMMENT : '\r'? '\n' WS* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;
+INDEX   : '('(([0-9]+)|IDENTIFIER)')'; // no identifies
+COMMENT : '\r'? '\n' (( ' ' | '\t' | '\r' | '\n' )+)* '*' ~('\n'|'\r')* '\r'? '\n' -> skip;
 
 
 
