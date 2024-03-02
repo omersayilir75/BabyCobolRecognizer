@@ -22,9 +22,9 @@ public class Recognizer {
 
     public static void main(String[] args) throws IOException {
         // Folder path:
-        String pathName = "C:\\Users\\omer_\\Desktop\\gensamples\\negative\\babycobol\\wordmutation\\indev";
+        String pathName = "C:\\Users\\omer_\\Desktop\\gensamples\\negative\\babycobol\\wordmutation\\output";
 
-        log = new FileWriter("log.txt");
+                log = new FileWriter("log.txt");
 
         try (Stream<Path> paths = Files.walk(Paths.get(pathName))) {
             paths.parallel().forEach(Recognizer::parseFile);
