@@ -66,11 +66,13 @@ public class SampleFinder {
 
         String pathName = "C:\\Users\\omer_\\Desktop\\gensamples\\positive\\bcgensamples";
         try (Stream<Path> paths = Files.walk(Paths.get(pathName))) {
-            paths.sorted(Comparator.comparing(p ->p.toFile().length())).forEachOrdered(SampleFinder::checkFile);
+            paths.filter(p -> p.toFile().isFile())
+                    .sorted(Comparator.comparing((Path p) -> p.toFile().length()).thenComparing(Path::toString))
+                    .forEachOrdered(SampleFinder::checkFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (String file : pickedFiles ){
+        for (String file : pickedFiles) {
             log.write(file + '\n');
         }
 
@@ -133,23 +135,24 @@ public class SampleFinder {
 
                             for (int j : neighbours.precede) {
                                 removedPreceding = allNeighboursOfTokenType.precede.remove(j);
-                                if (removedPreceding){
+                                if (removedPreceding) {
                                     tokensRemovedPrecede.add(j);
                                 }
                             }
                             for (int j : neighbours.follow) {
                                 removedFollowing = allNeighboursOfTokenType.follow.remove(j);
-                                if (removedFollowing){
+                                if (removedFollowing) {
                                     tokensRemovedFollow.add(j);
                                 }
                             }
 
 
                             if (!tokensRemovedPrecede.isEmpty() || !tokensRemovedFollow.isEmpty()) {
-                                csv.write(program.getPath() + ';' + i  + ';' + tokensRemovedPrecede + ';' + tokensRemovedFollow + '\n');
+                                csv.write(program.getPath() + ';' + i + ';' + tokensRemovedPrecede + ';' + tokensRemovedFollow + '\n');
                             }
 
-                            if (removedFollowing || removedPreceding) pickedFiles.add(programPath); // only add to log if something changed
+                            if (removedFollowing || removedPreceding)
+                                pickedFiles.add(programPath); // only add to log if something changed
 
                             if (allNeighboursOfTokenType.follow.isEmpty() && allNeighboursOfTokenType.precede.isEmpty()) {
                                 tokenNeighboursHashtable.remove(i); // remove if empty

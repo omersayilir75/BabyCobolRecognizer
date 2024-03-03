@@ -19,25 +19,23 @@ public class WordMutator {
     static HashSet<TokenTypePair> poisonedPairs = new HashSet<>();
     static Hashtable<Integer, String> tokenInstances = new Hashtable<>();
     static Hashtable<Integer, TokenNeighbours> tokenNeighboursHashtable = new Hashtable<>();
-    static String targetPath = "C:\\Users\\omer_\\Desktop\\gensamples\\negative\\babycobol\\wordmutation\\output";
-
-    static AtomicInteger filesHandled = new AtomicInteger(0);
+    static String targetBase = "C:\\Users\\omer_\\Desktop\\gensamples\\negative\\babycobol\\wordmutation\\output\\subfolder";
+    static AtomicInteger currentOutputSubfolder = new AtomicInteger(1);
+    static String targetPath;
+    static AtomicInteger filesCreated = new AtomicInteger(0);
 
     public static void main(String[] args) throws IOException {
         PPCalculator.calculatePoisonedPairs(poisonedPairs, tokenInstances, tokenNeighboursHashtable);
-        //todo try 13 times?
+        targetPath = targetBase + currentOutputSubfolder.get();
+        Files.createDirectory(Paths.get(targetPath));
+        String pathName = "C:\\Users\\omer_\\Desktop\\gensamples\\negative\\babycobol\\wordmutation\\input";
+        processDir(pathName);
 
-
-        for (int i = 1; i < 14; i++) {
-            System.out.println("processing subfolder " + i);
-            String pathName = "C:\\Users\\omer_\\Desktop\\gensamples\\negative\\babycobol\\wordmutation\\input\\subfolder" + i;
-            processDir(pathName);
-        }
     }
 
-    private static void processDir (String pathName){
+    private static void processDir(String pathName) {
         try (Stream<Path> paths = Files.walk(Paths.get(pathName))) {
-            paths.sorted(Comparator.comparing(p ->p.toFile().length())).parallel().forEachOrdered(WordMutator::processFile); // smallest ones first to prevent stalling
+            paths.sorted(Comparator.comparing(p -> p.toFile().length())).parallel().forEachOrdered(WordMutator::processFile); // smallest ones first to prevent stalling
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,28 +60,39 @@ public class WordMutator {
                 try (ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {
                     for (int i = 0; i < tokens.size(); i++) {
                         final int index = i;
+                        // conditions of predicate 1
+                        System.out.println("submitting tasks for " + index);
                         executor.submit(() -> {
-                            // conditions of predicate 1
                             //token deletion:
                             try {
+                                System.out.println("starting tokenDeletion for " + index);
                                 tokenDeletion(filePath, index, poisonedPairs, filename);
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
+                        });
+                        executor.submit(() -> {
                             // token insertion:
                             try {
+                                System.out.println("starting tokenInsertion for " + index);
                                 tokenInsertion(filePath, index, poisonedPairs, tokenInstances, filename);
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
+                        });
+                        executor.submit(() -> {
                             // token substitution :
                             try {
+                                System.out.println("starting tokenSubstitution for " + index);
                                 tokenSubstitution(filePath, index, poisonedPairs, tokenInstances, filename);
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
+                        });
+                        executor.submit(() -> {
                             //token transposition:
                             try {
+                                System.out.println("starting tokenTransposition for " + index);
                                 tokenTransposition(filePath, index, poisonedPairs, filename);
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
@@ -98,18 +107,15 @@ public class WordMutator {
                     throw new RuntimeException(e);
                 }
 
-
-                filesHandled.incrementAndGet();
-                System.out.println("Word mutation completed for file " + program.getName() + '.' + " Files handled: " + filesHandled);
-
+                System.out.println("Word mutation completed for file " + program.getName() + '.');
 
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                if (reader != null){
-                    try{
+                if (reader != null) {
+                    try {
                         reader.close();
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
 
@@ -151,6 +157,8 @@ public class WordMutator {
                     e.printStackTrace();
                 }
                 writer.close();
+                filesCreated.incrementAndGet();
+                createFolderIfNeeded();
             }
         }
 
@@ -175,6 +183,8 @@ public class WordMutator {
                     e.printStackTrace();
                 }
                 writer.close();
+                filesCreated.incrementAndGet();
+                createFolderIfNeeded();
             }
         }
     }
@@ -210,6 +220,8 @@ public class WordMutator {
                 e.printStackTrace();
             }
             writer.close();
+            filesCreated.incrementAndGet();
+            createFolderIfNeeded();
         }
 
         TokenTypePair[] poisonedPairsForTokenWhereRight = poisonedPairs.stream().filter(p -> p.second == tokenType).toArray(TokenTypePair[]::new);
@@ -224,13 +236,15 @@ public class WordMutator {
 
             String modifiedProgram = rewriter.getText();
             UUID uuid = UUID.randomUUID();
-            FileWriter writer = new FileWriter(targetPath + "\\tokenInsertion_" + uuid + "_" +filename);
+            FileWriter writer = new FileWriter(targetPath + "\\tokenInsertion_" + uuid + "_" + filename);
             try (writer) {
                 writer.write(modifiedProgram);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             writer.close();
+            filesCreated.incrementAndGet();
+            createFolderIfNeeded();
         }
 
 
@@ -271,6 +285,8 @@ public class WordMutator {
                 e.printStackTrace();
             }
             writer.close();
+            filesCreated.incrementAndGet();
+            createFolderIfNeeded();
         }
     }
 
@@ -305,13 +321,15 @@ public class WordMutator {
                     spaceSerializer(rewriterCase1, tokens);
                     String modifiedProgramCase1 = rewriterCase1.getText();
                     UUID uuidCase1 = UUID.randomUUID();
-                    FileWriter writerCase1 = new FileWriter(targetPath + "\\tokenTransposition_" + uuidCase1  + "_" +  filename);
+                    FileWriter writerCase1 = new FileWriter(targetPath + "\\tokenTransposition_" + uuidCase1 + "_" + filename);
                     try (writerCase1) {
                         writerCase1.write(modifiedProgramCase1);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     writerCase1.close();
+                    filesCreated.incrementAndGet();
+                    createFolderIfNeeded();
                     //case 3 from paper:
                     TokenStreamRewriter rewriterCase3 = new TokenStreamRewriter(tokens);
                     tokenSwapper(token, nextToken, rewriterCase3);
@@ -325,6 +343,8 @@ public class WordMutator {
                         e.printStackTrace();
                     }
                     writerCase3.close();
+                    filesCreated.incrementAndGet();
+                    createFolderIfNeeded();
                 } else if (searchToken.second == prevType) {
                     //case 2 from paper:
                     TokenStreamRewriter rewriter = new TokenStreamRewriter(tokens);
@@ -339,6 +359,8 @@ public class WordMutator {
                         e.printStackTrace();
                     }
                     writerCase1.close();
+                    filesCreated.incrementAndGet();
+                    createFolderIfNeeded();
                 }
             }
         }
@@ -356,6 +378,15 @@ public class WordMutator {
         for (int i = 0; i < tokens.size(); i++) {
             Token cur = tokens.get(i);
             rewriter.insertAfter(cur, " ");
+        }
+    }
+
+    private static void createFolderIfNeeded() throws IOException {
+        if (filesCreated.get() % 100000 == 0) { // every 100k files
+            int newFolderNo = currentOutputSubfolder.incrementAndGet();
+            String newPath = targetBase + newFolderNo;
+            Files.createDirectory(Paths.get(newPath));
+            targetPath = newPath;
         }
     }
 }
