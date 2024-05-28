@@ -29,41 +29,6 @@ public class SampleFinder {
         PPCalculator.calculatePoisonedPairs(poisonedPairs, tokenInstances, tokenNeighboursHashtable);
 
 
-//        System.out.println("depth 10 input");
-//        String pathName_d10 = "C:\\Users\\omer_\\Desktop\\gensamples\\positive\\bcgensamples\\depth_10\\generated_input";
-//        try (Stream<Path> paths = Files.walk(Paths.get(pathName_d10))) {
-//            paths.sorted(Comparator.comparing(p ->p.toFile().length())).forEach(SampleFinder::checkFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println("depth 20 input");
-//        String pathName_d20 = "C:\\Users\\omer_\\Desktop\\gensamples\\positive\\bcgensamples\\depth_20\\generated_input";
-//        try (Stream<Path> paths = Files.walk(Paths.get(pathName_d20))) {
-//            paths.sorted(Comparator.comparing(p ->p.toFile().length())).forEach(SampleFinder::checkFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println("Handwritten compiler tests");
-//        String pathName_comptests = "C:\\Users\\omer_\\Desktop\\gensamples\\positive\\bcgensamples\\test_cases_from_compilers";
-//        try (Stream<Path> paths = Files.walk(Paths.get(pathName_comptests))) {
-//            paths.sorted(Comparator.comparing(p ->p.toFile().length())).forEach(SampleFinder::checkFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println("GA based input");
-//        String pathName_GA = "C:\\Users\\omer_\\Desktop\\gensamples\\positive\\bcgensamples\\GA_based\\generated_input";
-//        try (Stream<Path> paths = Files.walk(Paths.get(pathName_GA))) {
-//            paths.sorted(Comparator.comparing(p ->p.toFile().length())).forEach(SampleFinder::checkFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        System.out.println("positives found from word mutation input");
-
         String pathName = "C:\\Users\\omer_\\Desktop\\gensamples\\positive\\bcgensamples";
         try (Stream<Path> paths = Files.walk(Paths.get(pathName))) {
             paths.filter(p -> p.toFile().isFile())
@@ -84,7 +49,7 @@ public class SampleFinder {
         if (tokenNeighboursHashtable.isEmpty()) {
             System.out.println("skipping...");
             return;
-        } // don't do anything if empty... TODO remove
+        }
 
         BufferedReader reader = null;
         File program = directory.toFile();

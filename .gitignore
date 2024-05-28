@@ -27,3 +27,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/details.csv
+/poisoned_pairs.json
+/precede_and_follow_all_datasets.json
+/log.txt

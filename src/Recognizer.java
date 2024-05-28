@@ -2,6 +2,9 @@
 import gen.BabyCobolLexer;
 import gen.BabyCobolParser;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.atn.LexerATNSimulator;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.tree.*;
 
 import java.io.*;
@@ -49,15 +52,24 @@ public class Recognizer {
                 BabyCobolLexer lexer = new BabyCobolLexer(input);
                 CommonTokenStream tokens = new CommonTokenStream(lexer);
                 BabyCobolParser parser = new BabyCobolParser(tokens);
+                //doing this helps the GC clear the cache
+                lexer.setInterpreter(new LexerATNSimulator(lexer, lexer.getATN(), lexer.getInterpreter().decisionToDFA, new PredictionContextCache()));
+                parser.setInterpreter(new ParserATNSimulator(parser, parser.getATN(), parser.getInterpreter().decisionToDFA, new PredictionContextCache()));
+                // prevent large error logs
+                parser.removeErrorListeners();
+                CustomErrorListener listener = new CustomErrorListener();
+                parser.addErrorListener(listener);
                 ParseTree tree = parser.program();
+                parser.getInterpreter().clearDFA();
+                lexer.getInterpreter().clearDFA();
 
-                if (parser.getNumberOfSyntaxErrors() == 0) {
+                if (listener.getSyntaxErrors() == 0) {
                     System.out.println(program.getName() + " PASS");
                     log.write(program.getPath() + " PASS\n");
                     noPassed.incrementAndGet();
                 } else {
-//                    System.out.println(program.getName() + " FAIL");
-//                    log.write(program.getPath() + " FAIL\n");
+                    System.out.println(program.getName() + " FAIL");
+                    log.write(program.getPath() + " FAIL\n");
                     noFailed.incrementAndGet();
                 }
                 noProcessed.incrementAndGet();
